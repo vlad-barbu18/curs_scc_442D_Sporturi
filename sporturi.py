@@ -1,131 +1,173 @@
+"""
+Aplicatie WEB Flask pentru tema Sporturi.
+Sportul: Ciclism.
+"""
+
 from flask import Flask, url_for
 
-from app.lib import network
-from app.lib import ubuntu
-from app.grafice.exemplu_func_grad_2 import valori_x, valori_y, genereaza_grafice
+from app.lib.biblioteca_sporturi import competitii_ciclism, echipament_ciclism
 
-print('sysinfo')
-
-dict_rute = network.gaseste_rutele()
-dict_linkuri = network.gaseste_linkuri()
-dict_adrese = network.gaseste_adrese()
-
-rute_scurt = network.genereaza_tabela_rute(dict_rute)
-
-v_ub = ubuntu.gaseste_versiune_ubuntu()
-mem = ubuntu.gaseste_informatii_memorie()
-cpu = ubuntu.gaseste_informatii_cpu()
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET'])
+
+def meniu_navigare():
+    """
+    Genereaza meniul de navigare al aplicatiei.
+    """
+    return f"""
+    <nav>
+        <a href="{url_for('index')}">Acasa</a> |
+        <a href="{url_for('pagina_sporturi')}">Sporturi</a> |
+        <a href="{url_for('pagina_ciclism')}">Ciclism</a> |
+        <a href="{url_for('pagina_competitii_ciclism')}">Competitii</a> |
+        <a href="{url_for('pagina_echipament_ciclism')}">Echipament</a>
+    </nav>
+    <hr>
+    """
+
+
+def pagina_html(titlu, continut):
+    """
+    Genereaza structura HTML comuna pentru paginile aplicatiei.
+    """
+    return f"""
+    <!DOCTYPE html>
+    <html lang="ro">
+    <head>
+        <meta charset="UTF-8">
+        <title>{titlu}</title>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                background-color: #f4f6f8;
+                color: #222;
+                margin: 40px;
+                line-height: 1.6;
+            }}
+
+            h1 {{
+                color: #0b5ed7;
+            }}
+
+            h2 {{
+                color: #198754;
+            }}
+
+            nav a {{
+                color: #0b5ed7;
+                font-weight: bold;
+                text-decoration: none;
+            }}
+
+            nav a:hover {{
+                text-decoration: underline;
+            }}
+
+            .container {{
+                background-color: white;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {meniu_navigare()}
+            <h1>{titlu}</h1>
+            {continut}
+        </div>
+    </body>
+    </html>
+    """
+
+
+@app.route("/", methods=["GET"])
 def index():
-    ret = ""
-    ret += f"[<a href={url_for('versiune_os')}>Doar Versiunea Sistemului de operare</a>] "
-    ret += f"[<a href={url_for('info_memorie')}>Doar Memoria</a>] "
-    ret += f"[<a href={url_for('info_cpu')}>Doar procesorul</a>] <br>"
+    """
+    Pagina principala a aplicatiei.
+    """
+    continut = """
+    <p>
+    Aceasta aplicatie WEB este realizata in Python folosind framework-ul Flask.
+    Aplicatia are la baza scheletul proiectului sysinfo, dar functionalitatea a fost
+    adaptata pentru tema Sporturi.
+    </p>
 
-    ret += f"[<a href={url_for('info_retea_rute')}>Info retea: rute</a>] "
-    ret += f"[<a href={url_for('info_retea_rute_full')}>Info retea: rute (full)</a>] "
-    ret += f"[<a href={url_for('info_retea_adrese')}>Info retea: adrese</a>] <br>"
+    <p>
+    Elementul ales este <b>ciclismul</b>. Aplicatia prezinta informatii despre
+    competitiile de ciclism si echipamentele folosite de ciclisti.
+    </p>
 
-    ret += "<pre>"
-    ret += "Informatii despre sistemul de operare pe care ruleaza aplicatia:\n"
-    ret += "\nVersiune UBUNTU:\n"
-    ret += "\n" + v_ub + "\n"
-    ret += "\nMEMORIE\n" + mem + "\n"
-    ret += "\nNuclee CPU:\n" + cpu + "\n"
-    
-    ret += "\n\n\n"
-    ret += "Informatii despre retea:\n"
-    ret += "\nRUTE:\n" + str(rute_scurt) + "\n"
-    
-    ret += "\nAdrese IP:\n" + str(dict_adrese) + "\n"
+    <ul>
+        <li>Pagina pentru tema generala: Sporturi</li>
+        <li>Pagina pentru elementul ales: Ciclism</li>
+        <li>Pagina pentru competitii de ciclism</li>
+        <li>Pagina pentru echipament de ciclism</li>
+    </ul>
+    """
+    return pagina_html("Aplicatie Sporturi - Ciclism", continut)
 
-    ret += "\n\nExemplu reprezentare grafica - functie de grad 2: y = x*x.\n"
-    ret += "Graficul este doar pentru a exemplifica o metoda de afisare grafica\n"
-    ret += "Folosind metoda prezentata, se pot afisa grafice referitoare la sitemul de operare cum ar fi:\n"
-    ret += " - graficul de utiliare a memoriei in timp, a procesorului etc"
-    ret += "Link: <a href=" + url_for("grafic_x_patrat") + ">Grafice functie grad 2</a>" + "<br/>"
-    
-    ret += "</pre>"
-    
-    return ret
-    
-@app.route("/vos", methods=['GET'])
-def versiune_os():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += v_ub
-    ret += "</pre>"
-    return ret
-    
-@app.route("/mem", methods=['GET'])
-def info_memorie():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += mem
-    ret += "</pre>"
-    return ret
-    
-@app.route("/cpu", methods=['GET'])
-def info_cpu():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += cpu
-    ret += "</pre>"
-    return ret
 
-@app.route("/retea/rute", methods=['GET'])
-def info_retea_rute():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += str(rute_scurt)
-    ret += "</pre>"
-    return ret
+@app.route("/sporturi", methods=["GET"])
+def pagina_sporturi():
+    """
+    Pagina pentru tema generala Sporturi.
+    """
+    continut = """
+    <p>
+    Sporturile sunt activitati fizice organizate, practicate individual sau in echipa,
+    pe baza unor reguli. Acestea pot avea scop recreativ, educational sau competitional.
+    </p>
 
-@app.route("/retea/rute_full", methods=['GET'])
-def info_retea_rute_full():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += str(dict_rute)
-    ret += "</pre>"
-    return ret
+    <p>
+    Exemple de sporturi sunt: fotbal, baschet, tenis, inot, atletism si ciclism.
+    In aceasta aplicatie, sportul prezentat este ciclismul.
+    </p>
+    """
+    return pagina_html("Tema proiectului: Sporturi", continut)
 
-@app.route("/retea/interfete", methods=['GET'])
-def info_retea_adrese():
-    ret = ""
-    ret += f"<a href={url_for('index')}>acasa</a>"
-    ret += "<pre>"
-    ret += str(dict_adrese)
-    ret += "</pre>"
-    return ret
 
-@app.route("/grafic_x_patrat", methods=['GET'])
-def grafic_x_patrat():
-    genereaza_grafice(valori_x, valori_y, "static/imagini")
-    #t1 = threading.Thread(target=genereaza_grafice, args = (valori_x, valori_y, "static/imagini"))
-    #t1.start()
-    #t1.join()
-    ret = f"<a href={url_for('index')}>acasa</a><br/>"
-    
-    ret += "valori x: " + str(valori_x) + "<br/>"
-    ret += "valori y = x*x: " + str(valori_y) + "<br/>"
+@app.route("/sporturi/ciclism", methods=["GET"])
+def pagina_ciclism():
+    """
+    Pagina pentru elementul ales: Ciclism.
+    """
+    continut = """
+    <p>
+    Ciclismul este un sport bazat pe folosirea bicicletei. Poate fi practicat
+    atat recreational, cat si la nivel profesionist.
+    </p>
 
-    ret += '<br><b>BUG</b><br>'
-    ret += 'matplotlib nu functioneaza bine daca nu este utilizat in thread-ul prinicipal<br>'
-    ret += 'La primul apel merge dar la urmatoarele apeluri poate strica aplicatia - "crash"'
-    ret += 'Vezi sugestia de fix/workaround din README.md<br><br>'
-    
-    ret += f'<img src={url_for("static", filename="imagini/afisare_cu_punct.png")}>' + "<br/>"
-    ret += f'<img src={url_for("static", filename="imagini/afisare_cu_steluta.png")}>' + "<br/>"
-    ret += f'<img src={url_for("static", filename="imagini/afisare_cu_x.png")}>' + "<br/>"
-    ret += f'<img src={url_for("static", filename="imagini/grafic_continuu_v1.png")}>' + "<br/>"
-    ret += f'<img src={url_for("static", filename="imagini/grafic_continuu_v2.png")}>' + "<br/>"
-    
-    return ret
+    <p>
+    Exista mai multe forme de ciclism: ciclism pe sosea, ciclism montan,
+    ciclism pe pista, BMX si gravel.
+    </p>
+
+    <p>
+    In cadrul proiectului sunt prezentate competitiile importante de ciclism
+    si echipamentele folosite de ciclisti.
+    </p>
+    """
+    return pagina_html("Element ales: Ciclism", continut)
+
+
+@app.route("/sporturi/ciclism/competitii", methods=["GET"])
+def pagina_competitii_ciclism():
+    """
+    Pagina pentru competitiile de ciclism.
+    """
+    return pagina_html("Competitii de ciclism", competitii_ciclism())
+
+
+@app.route("/sporturi/ciclism/echipament", methods=["GET"])
+def pagina_echipament_ciclism():
+    """
+    Pagina pentru echipamentul de ciclism.
+    """
+    return pagina_html("Echipament de ciclism", echipament_ciclism())
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5011)

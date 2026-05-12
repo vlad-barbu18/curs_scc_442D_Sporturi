@@ -1,6 +1,6 @@
 #!/bin/bash
 #LINUX
-export FLASK_APP=sysinfo
+export FLASK_APP=sporturi
 
 #WINDOWS
 #set FLASK_APP=sysinfo
