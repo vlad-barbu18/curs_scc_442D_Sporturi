@@ -18,7 +18,6 @@ def meniu_navigare():
     return f"""
     <nav>
         <a href="{url_for('index')}">Acasa</a> |
-        <a href="{url_for('pagina_sporturi')}">Sporturi</a> |
         <a href="{url_for('pagina_ciclism')}">Ciclism</a> |
         <a href="{url_for('pagina_competitii_ciclism')}">Competitii</a> |
         <a href="{url_for('pagina_echipament_ciclism')}">Echipament</a>
@@ -70,6 +69,23 @@ def pagina_html(titlu, continut):
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }}
+
+            figure {{
+                margin: 20px 0;
+            }}
+
+            img {{
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }}
+
+            figcaption {{
+                font-size: 14px;
+                color: #555;
+                margin-top: 8px;
+                font-style: italic;
+            }}
         </style>
     </head>
     <body>
@@ -92,47 +108,28 @@ def index():
     <p>
     Aceasta aplicatie WEB este realizata in Python folosind framework-ul Flask.
     Aplicatia are la baza scheletul proiectului sysinfo, dar functionalitatea a fost
-    adaptata pentru tema Sporturi.
+    adaptata pentru prezentarea ciclismului.
     </p>
 
     <p>
-    Elementul ales este <b>ciclismul</b>. Aplicatia prezinta informatii despre
-    competitiile de ciclism si echipamentele folosite de ciclisti.
+    Aplicatia prezinta informatii despre <b>ciclism</b>, competitiile importante
+    din acest domeniu si echipamentele folosite de ciclisti.
     </p>
 
     <ul>
-        <li>Pagina pentru tema generala: Sporturi</li>
-        <li>Pagina pentru elementul ales: Ciclism</li>
-        <li>Pagina pentru competitii de ciclism</li>
-        <li>Pagina pentru echipament de ciclism</li>
+        <li>Pagina principala</li>
+        <li>Pagina despre ciclism</li>
+        <li>Pagina despre competitii de ciclism</li>
+        <li>Pagina despre echipament de ciclism</li>
     </ul>
     """
-    return pagina_html("Aplicatie Sporturi - Ciclism", continut)
+    return pagina_html("Aplicatie despre ciclism", continut)
 
 
-@app.route("/sporturi", methods=["GET"])
-def pagina_sporturi():
-    """
-    Pagina pentru tema generala Sporturi.
-    """
-    continut = """
-    <p>
-    Sporturile sunt activitati fizice organizate, practicate individual sau in echipa,
-    pe baza unor reguli. Acestea pot avea scop recreativ, educational sau competitional.
-    </p>
-
-    <p>
-    Exemple de sporturi sunt: fotbal, baschet, tenis, inot, atletism si ciclism.
-    In aceasta aplicatie, sportul prezentat este ciclismul.
-    </p>
-    """
-    return pagina_html("Tema proiectului: Sporturi", continut)
-
-
-@app.route("/sporturi/ciclism", methods=["GET"])
+@app.route("/ciclism", methods=["GET"])
 def pagina_ciclism():
     """
-    Pagina pentru elementul ales: Ciclism.
+    Pagina despre ciclism.
     """
     continut = """
     <p>
@@ -150,23 +147,39 @@ def pagina_ciclism():
     si echipamentele folosite de ciclisti.
     </p>
     """
-    return pagina_html("Element ales: Ciclism", continut)
+    return pagina_html("Ciclism", continut)
 
 
-@app.route("/sporturi/ciclism/competitii", methods=["GET"])
+@app.route("/ciclism/competitii", methods=["GET"])
 def pagina_competitii_ciclism():
     """
     Pagina pentru competitiile de ciclism.
     """
-    return pagina_html("Competitii de ciclism", competitii_ciclism())
+    imagine_url = url_for(
+        "static",
+        filename="images/stage2.jpeg"
+    )
+
+    return pagina_html(
+        "Competitii de ciclism",
+        competitii_ciclism(imagine_url)
+    )
 
 
-@app.route("/sporturi/ciclism/echipament", methods=["GET"])
+@app.route("/ciclism/echipament", methods=["GET"])
 def pagina_echipament_ciclism():
     """
     Pagina pentru echipamentul de ciclism.
     """
-    return pagina_html("Echipament de ciclism", echipament_ciclism())
+    imagine_url = url_for(
+        "static",
+        filename="images/bicla.jpeg"
+    )
+
+    return pagina_html(
+        "Echipament de ciclism",
+        echipament_ciclism(imagine_url)
+    )
 
 
 if __name__ == "__main__":

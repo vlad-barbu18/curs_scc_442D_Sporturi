@@ -3,12 +3,29 @@ Biblioteca pentru tema Sporturi.
 Sportul: Ciclism.
 """
 
-
-def competitii_ciclism():
+def competitii_ciclism(imagine_url=None):
     """
     Returneaza informatii despre competitii importante de ciclism.
+    Poate primi optional un URL catre o imagine.
     """
-    return """
+    imagine_html = ""
+
+    if imagine_url:
+        imagine_html = f"""
+        <figure>
+            <img src="{imagine_url}"
+                 alt="stage2"
+                 width="600">
+            <figcaption>
+                Imagine personala realizata ca spectator la Turul Italiei 2026,
+                etapa a 2-a.
+            </figcaption>
+        </figure>
+        """
+
+    return f"""
+    {imagine_html}
+
     <h2>Competitii importante de ciclism</h2>
 
     <p>
@@ -18,8 +35,8 @@ def competitii_ciclism():
     </p>
 
     <ul>
-        <li><b>Tour de France</b> - cea mai cunoscuta competitie de ciclism pe sosea.</li>
-        <li><b>Giro d'Italia</b> - mare tur desfasurat in Italia.</li>
+        <li><b>Tour de France</b> - una dintre cele mai cunoscute competitii de ciclism pe sosea.</li>
+        <li><b>Giro d'Italia / Turul Italiei</b> - mare tur desfasurat in Italia.</li>
         <li><b>La Vuelta a Espana</b> - competitie importanta desfasurata in Spania.</li>
         <li><b>Campionatele Mondiale UCI</b> - competitie internationala pentru mai multe discipline.</li>
         <li><b>Jocurile Olimpice</b> - includ probe de ciclism pe sosea, pista, BMX si mountain bike.</li>
@@ -29,14 +46,36 @@ def competitii_ciclism():
     In aceste competitii, ciclistii sunt evaluati dupa timp, etape castigate,
     puncte acumulate si pozitia in clasamentul general.
     </p>
+
+    <p>
+    Un exemplu de competitie relevanta pentru aceasta pagina este Turul Italiei,
+    una dintre cele trei mari curse pe etape din ciclismul profesionist.
+    </p>
     """
 
 
-def echipament_ciclism():
+def echipament_ciclism(imagine_url=None):
     """
     Returneaza informatii despre echipamentele folosite in ciclism.
+    Poate primi optional un URL catre o imagine.
     """
-    return """
+    imagine_html = ""
+
+    if imagine_url:
+        imagine_html = f"""
+        <figure>
+            <img src="{imagine_url}"
+                 alt="bicla"
+                 width="600">
+            <figcaption>
+                Bicicleta de sosea folosita ca exemplu pentru echipamentul de ciclism.
+            </figcaption>
+        </figure>
+        """
+
+    return f"""
+    {imagine_html}
+
     <h2>Echipamente folosite in ciclism</h2>
 
     <p>
@@ -57,7 +96,8 @@ def echipament_ciclism():
     </ul>
 
     <p>
-    In ciclismul de performanta, alegerea echipamentului poate influenta direct
-    viteza, rezistenta si siguranta sportivului.
+    Pentru ciclismul de sosea, bicicleta este gandita pentru viteza si eficienta.
+    De obicei are cadru usor, anvelope inguste, ghidon specific si o pozitie
+    aerodinamica a ciclistului.
     </p>
     """
