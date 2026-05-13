@@ -1,3 +1,8 @@
+"""
+Aplicatie Flask pentru tema Sporturi.
+Sport ales: Patinaj artistic.
+"""
+
 from flask import Flask
 
 from app.lib.biblioteca_sporturi import (
@@ -9,6 +14,9 @@ app = Flask(__name__)
 
 
 def pagina(titlu: str, continut: str) -> str:
+    """
+    Creeaza o pagina HTML simpla cu stil comun.
+    """
     return f"""
     <html>
     <head>
@@ -65,9 +73,31 @@ def pagina(titlu: str, continut: str) -> str:
     </html>
     """
 
+@app.route("/sporturi")
+def sporturi():
+    """
+    Afiseaza pagina temei Sporturi.
+    """
+    return pagina(
+        "Sporturi",
+        """
+        <h1>Sporturi</h1>
 
-@app.route("/")
+        <p>
+        Tema proiectului este Sporturi. Elementul ales de mine este
+        patinajul artistic.
+        </p>
+
+        <a href="/sporturi/patinaj-artistic">Patinaj artistic</a>
+        """
+    )
+
+
+@app.route("/sporturi/patinaj-artistic")
 def patinaj_artistic():
+    """
+    Afiseaza pagina principala despre patinaj artistic.
+    """
     return pagina(
         "Patinaj artistic",
         """
@@ -91,14 +121,18 @@ def patinaj_artistic():
         in perechi sau in dans pe gheata.
         </p>
 
-        <a href="/sarituri">Sarituri</a>
-        <a href="/echipamente">Echipamente</a>
+        <a href="/sporturi/patinaj-artistic/sarituri">Sarituri</a>
+	<a href="/sporturi/patinaj-artistic/echipamente">Echipamente</a>
+	<a href="/sporturi">Inapoi la Sporturi</a>
         """
     )
 
 
-@app.route("/sarituri")
+@app.route("/sporturi/patinaj-artistic/sarituri")
 def sarituri():
+    """
+    Afiseaza pagina despre sarituri in patinaj artistic.
+    """
     return pagina(
         "Sarituri",
         f"""
@@ -108,13 +142,16 @@ def sarituri():
 
         {sarituri_patinaj_artistic()}
 
-        <a href="/">Inapoi la Patinaj artistic</a>
+        <a href="/sporturi/patinaj-artistic">Inapoi la Patinaj artistic</a>
         """
     )
 
 
-@app.route("/echipamente")
+@app.route("/sporturi/patinaj-artistic/echipamente")
 def echipamente():
+    """
+    Afiseaza pagina despre echipamentele pentru patinaj artistic.
+    """
     return pagina(
         "Echipamente",
         f"""
@@ -124,7 +161,7 @@ def echipamente():
 
         {echipamente_patinaj_artistic()}
 
-        <a href="/">Inapoi la Patinaj artistic</a>
+        <a href="/sporturi/patinaj-artistic">Inapoi la Patinaj artistic</a>
         """
     )
 
