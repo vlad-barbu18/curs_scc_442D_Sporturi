@@ -5,9 +5,8 @@ pipeline {
             steps {
                 sh '''
 			python3 -m venv venv 
-			. venv/bin/activate
-			pip install -r requirements.txt
-			pytest test_f1.py
+			./venv/bin/pip install -r requirements.txt
+			./venv/bin/pytest test_f1.py
 		'''
 		}	
 	}
