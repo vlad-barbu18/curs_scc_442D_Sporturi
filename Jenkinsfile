@@ -15,6 +15,7 @@ pipeline {
 		steps {
 			echo 'Se construieste imaginea Docker pentru formula 1'
 			sh 'docker build -t f1-app-stancu-andreea .'
+		}
 	}
     }
     post {
