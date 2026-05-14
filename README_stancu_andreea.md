@@ -75,8 +75,27 @@ Interfața este construită conform cerințelor de a avea rute pentru temă, ele
 * **Tema (`/formula1`)**: Afișează podiumul piloților obținut prin funcția `primii_trei_piloti()`.
 * **Elemente (`/circuit/Monaco`, `/circuit/Spa`)**: Detalii specifice extrase prin funcția `detalii_circuit()`.
 
-![Interfața Web](media/browser_view.png)
-*Captură de ecran: Interfața web accesată din browser, demonstrând accesibilitatea funcționalității.*
+<br>
+<br> <img width="1027" height="334" alt="WhatsApp Image 2026-05-14 at 18 19 09" src="https://github.com/user-attachments/assets/97c9a8b4-ce19-4bc7-9474-54ac35ecbe01" />
+<br>
+Captură de ecran: Interfața web accesată din browser, demonstrând accesibilitatea funcționalității
+<br>
+
+<br> <img width="736" height="395" alt="WhatsApp Image 2026-05-14 at 18 19 35" src="https://github.com/user-attachments/assets/3ac0ea14-2db7-4d92-abe0-f246b9e7b906" />
+<br>
+Captură de ecran: Buton Podium
+<br>
+
+<br> <img width="1131" height="388" alt="WhatsApp Image 2026-05-14 at 18 20 26" src="https://github.com/user-attachments/assets/4e5c6a6a-a584-4c41-9871-ed4ae7919354" />
+
+Captură de ecran: Buton Circuit Spa
+<br>
+
+<br> <img width="994" height="414" alt="WhatsApp Image 2026-05-14 at 18 20 02" src="https://github.com/user-attachments/assets/3661a752-5da3-43b9-919b-16d75933fb20" />
+<br>
+Captură de ecran: Buton Circuit Monaco
+<br>
+<br>
 
 ## <a name="testare-cu-pytest"></a> 7. Testare cu pytest
 Verificarea funcționalității se face prin unit-tests pentru a asigura calitatea codului adăugat:
@@ -93,8 +112,14 @@ Pentru asigurarea calității codului, se folosește analiza statică (code revi
 Aplicația a fost containerizată folosind un `Dockerfile` prezent pe branch-ul de dezvoltare.
 
 * **Imaginea**: Creată pentru a include tot mediul de rulare și dependințele necesare (Python, Flask).
+  <img width="512" height="73" alt="imagine_docker" src="https://github.com/user-attachments/assets/1bade727-25cf-4805-985f-cffef06f192d" />
+
 * **Containerul**: Instanțiat și pornit pe baza imaginii pentru a izola execuția aplicației.
+  <img width="1600" height="183" alt="container_creat_up" src="https://github.com/user-attachments/assets/fbf1e5f2-ae8d-42d7-8a62-3917e4042cb6" />
+
 * **Validare**: Log-urile din consolă demonstrează că apelurile din browser sunt procesate de container, atestând legătura funcțională.
+  <img width="1600" height="371" alt="mesaje_consola" src="https://github.com/user-attachments/assets/3dfa00b1-d7d8-4caa-9ada-38e3c83535bc" />
+
 
 ## <a name="devops-ci-jenkins"></a> 10. DevOps CI - Jenkins
 Procesul de integrare continuă este gestionat printr-un pipeline declarativ definit în fișierul `Jenkinsfile`.
@@ -102,8 +127,8 @@ Procesul de integrare continuă este gestionat printr-un pipeline declarativ def
 * **Etape automate**: Checkout, Build, Unit Tests (Pytest), Docker Build.
 * **Trigger**: Pipeline-ul rulează automat la fiecare `push` pe branch-ul `dev_stancu_andreea`.
 
-![Pipeline Jenkins](media/jenkins_pass.png)
-*Captură de ecran: Pipeline Jenkins cu status PASS, confirmând succesul execuției testelor.*
+<img width="1600" height="643" alt="BlueOcean_pass" src="https://github.com/user-attachments/assets/fe98cc47-eadc-4aba-853e-225ec3b8bd21" />
+
 
 ## <a name="integrare-github"></a> 11. Integrare GitHub
 Sistemul de versionare Git este utilizat pentru managementul codului și colaborare.
@@ -112,7 +137,36 @@ Sistemul de versionare Git este utilizat pentru managementul codului și colabor
 * **Flux Branch-uri**: Se utilizează `dev_stancu_andreea` pentru modificări locale și `main_stancu_andreea` pentru integrare intermediară.
 * **Pull Request (PR)**: Orice integrare în `main` necesită minim un review de la un coleg de grupă pentru a asigura calitatea aplicației.
 
+## <a name="reviewed-pr"></a> 12. Reviewed PRs
+Conform cerințelor de colaborare, am participat la procesul de evaluare a codului (Code Review) pentru colegii de echipă:
+* **PR ID**: #12
+* **Coleg**: [Nume Coleg]
+* **Status**: **Approved** (Validat după verificarea conformității cu standardele proiectului).
 
+## <a name="stadiul-implementarii"></a> 13. Stadiul implementării
+Următorul tabel centralizează progresul final al tuturor componentelor atribuite:
+
+| Componentă | Status | Observații |
+| :--- | :--- | :--- |
+| **Funcționalitate** | Gata (100%) | Toate rutele Flask sunt operative. |
+| **Testare Unitară** | Gata (PASS) | Testele Pytest trec cu succes în Jenkins. |
+| **Containerizare** | Gata (Finalizat) | Imagine Docker creată și testată local. |
+| **Documentare** | Gata (100%) | README completat conform stilului *sysinfo*. |
+<img width="272" height="488" alt="teste_passed" src="https://github.com/user-attachments/assets/364e3f99-3f29-49e7-a627-c0d64901800d" />
+
+
+## <a name="ce-mai-este-de-facut"></a> 14. Ce mai este de făcut
+Planificarea sarcinilor curente și viitoare:
+- [x] Integrare logică F1 în aplicația Flask.
+- [x] Reparare aserțiuni teste (corectare index `[0]` pentru validarea lui Max Verstappen).
+- [ ] **Integrarea finală a README-ului** în branch-ul `main` (după primirea review-ului de la coleg).
+- [ ] Închiderea Pull Request-ului după validarea finală a echipei de coordonare.
+
+## <a name="bibliografie"></a> 15. Bibliografie
+Resursele utilizate pentru documentarea și implementarea acestui proiect:
+1. **Îndrumar Proiect SCC** - Ciprian Chende, Cornelia Bădoi (Ghidul oficial de laborator).
+2. **Documentație Flask** - [https://flask.palletsprojects.com/](https://flask.palletsprojects.com/) (Resursa oficială pentru rute și server web).
+3. **Exemplu Proiect sysinfo** - [https://github.com/crchende/sysinfo](https://github.
 
 ---
 *Proiect realizat de: Stancu Andreea-Beatrice, grupa 442D*
