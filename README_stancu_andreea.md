@@ -1,12 +1,12 @@
 
 # Formula 1 - Stancu Andreea
 
-Acest proiect reprezintă o aplicație de monitorizare a datelor din Formula 1, dezvoltată ca parte a laboratorului de Servicii Cloud și Containerizare.
+Acest proiect reprezinta o aplicatie de monitorizare a datelor din Formula 1, dezvoltata ca parte a laboratorului de Servicii Cloud și Containerizare.
 
 ## 1. Funcționalitate adaugata
-Am implementat o aplicație web folosind **Flask** care permite vizualizarea datelor despre Formula 1:
-- **Podium Actual**: Afișeaza primii trei piloți din clasament.
-- **Detalii Circuite**: Ofera informatii specifice despre circuite faimoase (ex: Monaco, Spa, Monza).
+Am implementat o aplicatie web folosind **Flask** care permite vizualizarea datelor despre Formula 1:
+- **Podium Actual**: Afiseaza primii trei piloti din clasament.
+- **Detalii Circuite**: Ofera informatii specifice despre circuite faimoase (ex: Monaco, Spa).
 - **Interfata Interactiva**: Navigare prin butoane stilizate direct din browser.
 
 ## 2. Stadiul implementarii
@@ -30,7 +30,7 @@ Testarea automata este realizata cu **Pytest** prin intermediul **Jenkins**.
 - **Review-uri oferite**: Am efectuat review pentru colegul [Nume Coleg] la PR-ul cu ID #123.
 
 ## 5. Containerizare
-Aplicația este complet containerizata si poate fi rulata pe orice sistem cu Docker instalat.
+Aplicatia este complet containerizata si poate fi rulata pe orice sistem cu Docker instalat.
 
 ### Dovezi execuție:
 
