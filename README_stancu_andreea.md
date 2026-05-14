@@ -104,9 +104,11 @@ Verificarea funcționalității se face prin unit-tests pentru a asigura calitat
 * **Integrare**: Rezultatele sunt raportate automat în etapa de testare a pipeline-ului Jenkins.
 
 ## <a name="verificare-statica-cu-pylint"></a> 8. Verificare statică cu pylint
-Pentru asigurarea calității codului, se folosește analiza statică (code review automatizat):
-* Se verifică conformitatea codului din `sporturi.py` și `app/lib/f1_logic.py` cu standardele Python (PEP8).
+Pentru asigurarea calității codului, am folosit analiza statică (code review automatizat):
+* Am verificat conformitatea codului din `sporturi.py` și `app/lib/f1_logic.py` cu standardele Python (PEP8).
 * Obiectivul este menținerea unui scor ridicat de mentenabilitate și eliminarea erorilor potențiale înainte de integrare.
+<img width="1600" height="119" alt="pylint" src="https://github.com/user-attachments/assets/5a3817a4-8f8a-4053-9c85-e8e325dfedf5" />
+
 
 ## <a name="containerizare-docker"></a> 9. Containerizare Docker
 Aplicația a fost containerizată folosind un `Dockerfile` prezent pe branch-ul de dezvoltare.
