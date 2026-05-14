@@ -11,7 +11,11 @@ def home():
 @app.route('/formula1')
 def formula1():
     piloti = primii_trei_piloti()
-    return f"<h2>Podium F1:</h2><ul><li>{piloti[0]}</li><li>{piloti[1]}</li><li>{piloti[2]}</li></ul>"
+    # Verificăm dacă este listă; dacă nu, afișăm direct obiectul pentru a nu da eroare
+    if isinstance(piloti, list) and len(piloti) >= 3:
+        return f"<h2>Podium F1:</h2><ul><li>{piloti[0]}</li><li>{piloti[1]}</li><li>{piloti[2]}</li></ul>"
+    else:
+        return f"<h2>Date Formula 1:</h2><p>{piloti}</p>"
 
 @app.route('/circuit/<nume>')
 def circuit(nume):
