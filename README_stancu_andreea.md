@@ -69,7 +69,48 @@ Pentru rularea aplicației în afara containerului (pentru dezvoltare rapidă), 
   Aplicația este disponibilă la http://127.0.0.1:5000.
   ```
 
+## <a name="pagini-web"></a> 6. Pagini WEB
+Interfața este construită conform cerințelor de a avea rute pentru temă, element și informații specifice:
+* **Home (`/`)**: Pagina de start cu butoane de navigare.
+* **Tema (`/formula1`)**: Afișează podiumul piloților obținut prin funcția `primii_trei_piloti()`.
+* **Elemente (`/circuit/Monaco`, `/circuit/Spa`)**: Detalii specifice extrase prin funcția `detalii_circuit()`.
 
+![Interfața Web](media/browser_view.png)
+*Captură de ecran: Interfața web accesată din browser, demonstrând accesibilitatea funcționalității.*
+
+## <a name="testare-cu-pytest"></a> 7. Testare cu pytest
+Verificarea funcționalității se face prin unit-tests pentru a asigura calitatea codului adăugat:
+* **Execuție**: Testele verifică dacă lista de piloți are exact 3 elemente și dacă numele sunt corecte conform logicii de business.
+* **Comandă**: `pytest tests/test_f1.py`.
+* **Integrare**: Rezultatele sunt raportate automat în etapa de testare a pipeline-ului Jenkins.
+
+## <a name="verificare-statica-cu-pylint"></a> 8. Verificare statică cu pylint
+Pentru asigurarea calității codului, se folosește analiza statică (code review automatizat):
+* Se verifică conformitatea codului din `sporturi.py` și `app/lib/f1_logic.py` cu standardele Python (PEP8).
+* Obiectivul este menținerea unui scor ridicat de mentenabilitate și eliminarea erorilor potențiale înainte de integrare.
+
+## <a name="containerizare-docker"></a> 9. Containerizare Docker
+Aplicația a fost containerizată folosind un `Dockerfile` prezent pe branch-ul de dezvoltare.
+
+* **Imaginea**: Creată pentru a include tot mediul de rulare și dependințele necesare (Python, Flask).
+* **Containerul**: Instanțiat și pornit pe baza imaginii pentru a izola execuția aplicației.
+* **Validare**: Log-urile din consolă demonstrează că apelurile din browser sunt procesate de container, atestând legătura funcțională.
+
+## <a name="devops-ci-jenkins"></a> 10. DevOps CI - Jenkins
+Procesul de integrare continuă este gestionat printr-un pipeline declarativ definit în fișierul `Jenkinsfile`.
+
+* **Etape automate**: Checkout, Build, Unit Tests (Pytest), Docker Build.
+* **Trigger**: Pipeline-ul rulează automat la fiecare `push` pe branch-ul `dev_stancu_andreea`.
+
+![Pipeline Jenkins](media/jenkins_pass.png)
+*Captură de ecran: Pipeline Jenkins cu status PASS, confirmând succesul execuției testelor.*
+
+## <a name="integrare-github"></a> 11. Integrare GitHub
+Sistemul de versionare Git este utilizat pentru managementul codului și colaborare.
+
+* **Colaborare**: Repository-ul `curs_scc_442D_Sporturi` permite lucrul colaborativ prin adăugarea colegilor ca parteneri.
+* **Flux Branch-uri**: Se utilizează `dev_stancu_andreea` pentru modificări locale și `main_stancu_andreea` pentru integrare intermediară.
+* **Pull Request (PR)**: Orice integrare în `main` necesită minim un review de la un coleg de grupă pentru a asigura calitatea aplicației.
 
 
 
