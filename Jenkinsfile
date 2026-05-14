@@ -6,6 +6,7 @@ pipeline {
                 sh '''
 			python3 -m venv venv 
 			./venv/bin/pip install -r requirements.txt		
+			export PYTHONPATH=$PYTHONPATH:.
 			./venv/bin/python3 -m pytest test_f1.py
 		'''
 		}	
