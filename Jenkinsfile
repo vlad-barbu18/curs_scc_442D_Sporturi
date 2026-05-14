@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-	# etapa 1: checkout
+	// etapa 1: checkout
 	stage ('Checkout') {
 		steps {
 			checkout scm
 		}
 	}
 
-	#etapa 2: install
+	// etapa 2: install
         stage('Install') {
             steps {
                 sh '''
@@ -18,7 +18,7 @@ pipeline {
 		}	
 	}
 	
-	#etapa 3: unit tests
+	// etapa 3: unit tests
 	stage ('Test') {
 		steps {
 			sh '''
@@ -28,7 +28,7 @@ pipeline {
 		}
 	}
 
-	#etapa 4: crearea imaginii docker
+	// etapa 4: crearea imaginii docker
 	stage('Docker Build') {
 		steps {
 			echo 'Se construieste imaginea Docker pentru formula 1'
