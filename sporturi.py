@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask
 # Importăm funcțiile tale din folderul app/lib
 from app.lib.f1_logic import primii_trei_piloti, detalii_circuit
