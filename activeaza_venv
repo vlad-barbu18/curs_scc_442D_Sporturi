@@ -1,0 +1,11 @@
+# activeaza mediul virtual .venv
+. .venv/bin/activate
+
+# daca activarea esueaza, se creeaza venv-ul si se instaleaza dependintele
+if [ $? -eq 0 ]
+then
+    echo "SUCCESS: venv was activated."
+else
+    echo "FAIL: cannot activate venv"
+    . ./activeaza_venv_jenkins
+fi
