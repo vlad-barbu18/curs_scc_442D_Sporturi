@@ -46,6 +46,13 @@ Containerul `container_f1_andreea` in stare **Up**, cu portul 5000 mapat.
 
 **C. Browserul care acceseaza aplicatia**
 Interfata cu butoane accesata la `http://localhost:5000/formula1`.
+<img width="1027" height="334" alt="WhatsApp Image 2026-05-14 at 18 19 09" src="https://github.com/user-attachments/assets/8f929d1c-e453-4f36-89a8-e5a76fb74fbd" />
+
+<img width="736" height="395" alt="WhatsApp Image 2026-05-14 at 18 19 35" src="https://github.com/user-attachments/assets/ad85b632-2524-4131-b402-e010a41e1aeb" />
+
+<img width="994" height="414" alt="WhatsApp Image 2026-05-14 at 18 20 02" src="https://github.com/user-attachments/assets/b223cc3e-2ea5-4e64-b0f1-0d1c0ff7c0f4" />
+
+<img width="1131" height="388" alt="WhatsApp Image 2026-05-14 at 18 20 26" src="https://github.com/user-attachments/assets/def081f4-b37c-47bb-9bfb-a8783aa1ff1c" />
 
 
 **D. Mesajele afisate in consola**
@@ -54,4 +61,4 @@ Log-urile `GET` care atesta comunicarea dintre browser si container.
 
 
 ---
-*Proiect realizat de: Stancu Andreea (Grupă 442D)*
+*Proiect realizat de: Stancu Andreea-Beatrice, grupa 442D*
