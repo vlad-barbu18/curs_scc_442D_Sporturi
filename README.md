@@ -72,3 +72,100 @@ Dockerfile
 Jenkinsfile
 README.md
 ```
+
+
+---
+
+# Rulare locala
+
+Activarea mediului virtual:
+
+```bash
+source venv/bin/activate
+```
+Pornirea aplicatiei:
+```bash
+python sporturi.py
+```
+Accesarea aplicatiei:
+```bash
+http://127.0.0.1:5000
+```
+# Pagini WEB disponibile
+## /sporturi
+
+Pagina principala a aplicatiei.
+
+## /sporturi/volei
+
+Pagina dedicata sportului Volei.
+
+## /sporturi/volei/reguli
+
+Pagina care prezinta regulile jocului de volei.
+
+## /sporturi/volei/echipament
+
+Pagina care prezinta echipamentele utilizate in volei.
+
+# Testare automata
+
+Aplicatia a fost testata folosind pytest.
+
+Comanda utilizata:
+
+```bash
+PYTHONPATH=. pytest
+```
+Rezultat:
+
+- toate testele au trecut cu succes
+
+# Analiza statica cu pylint
+
+Exemplu de rulare:
+
+```bash
+pylint sporturi.py
+```
+# Containerizare Docker
+
+Build imagine:
+
+```bash
+sudo docker build -t sporturi-volei .
+```
+Rulare container:
+
+```bash
+sudo docker run -p 5000:5000 sporturi-volei
+```
+# Integrare Jenkins
+
+Proiectul contine fisierul Jenkinsfile pentru automatizarea testelor.
+
+# Utilizare GitHub
+
+Branch utilizat:
+
+```bash
+dev_bocai_alexandra
+```
+# Review pentru Pull Request-uri
+
+Aceasta sectiune va fi completata dupa realizarea review-urilor.
+
+# Stadiul proiectului
+
+Functionalitatea pentru Volei este implementata si functionala.
+
+# Posibile imbunatatiri
+- adaugarea mai multor sporturi
+- utilizarea unei baze de date
+- design responsive
+
+# Resurse utilizate
+- Flask Documentation
+- Docker Documentation
+- Jenkins Documentation
+
