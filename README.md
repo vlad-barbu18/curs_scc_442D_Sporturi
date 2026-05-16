@@ -24,8 +24,10 @@
 
 # Student
 
-- Bocai Alexandra
-
+Nume: Bocai Alexandra
+Grupa: 442D
+Tema: Sporturi
+Element ales: Volei
 ---
 
 # Prezentare proiect
@@ -137,7 +139,7 @@ PYTHONPATH=. pytest
 ```
 Rezultat:
 
-- toate testele au trecut cu succes
+- 2 teste au trecut cu succes
 
 # Analiza statica cu pylint
 
@@ -146,6 +148,8 @@ Exemplu de rulare:
 ```bash
 pylint sporturi.py
 ```
+Rezultat:
+- scor pylint: 10/10
 # Containerizare Docker
 
 Build imagine:
