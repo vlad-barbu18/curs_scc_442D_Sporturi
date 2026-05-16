@@ -5,39 +5,45 @@
 </head>
 <body style="font-family: Arial; background-color:#eef2f7; padding:40px;">
 
-<div style="background:white; padding:30px; border-radius:15px; width:800px; margin:auto;">
+<div style="background:white; padding:30px; border-radius:15px; width:850px; margin:auto; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
 
     <h1 style="color:#2563eb;">🏐 Volei</h1>
 
     <img src="{{ url_for('static', filename='images/volei.jpg') }}"
-         style="width:100%; border-radius:10px;">
+         style="width:100%; border-radius:12px;">
 
     <p style="margin-top:20px; font-size:18px;">
-    Voleiul este un sport de echipa foarte popular, practicat intre doua echipe
-    de cate 6 jucatori. Scopul jocului este trimiterea mingii peste fileu astfel
-    incat adversarii sa nu o poata returna corect.
-</p>
+        Voleiul este un sport de echipă practicat între două formații separate de un fileu.
+        Fiecare echipă încearcă să trimită mingea în terenul advers, respectând regulile de joc.
+    </p>
 
-<p style="font-size:18px;">
-    Acest sport necesita coordonare, viteza de reactie, forta si spirit de echipa.
-    Jucatorii trebuie sa colaboreze permanent pentru a realiza pase precise,
-    atacuri eficiente si blocaje defensive.
-</p>
+    <p style="font-size:18px;">
+        Acest sport dezvoltă coordonarea, viteza de reacție, comunicarea și spiritul de echipă.
+        Este practicat atât la nivel profesionist, cât și recreațional.
+    </p>
 
-<p style="font-size:18px;">
-    Voleiul este practicat atat la nivel profesionist, cat si recreational,
-    fiind unul dintre cele mai populare sporturi din lume. Exista mai multe
-    variante ale acestui sport, precum volei de sala, volei pe plaja si volei
-    pentru juniori.
-</p>
+    <h2 style="color:#1d4ed8;">Informații disponibile</h2>
 
-    <ul>
-        <li><a href="/sporturi/volei/reguli">Reguli</a></li>
-        <li><a href="/sporturi/volei/echipament">Echipament</a></li>
-    </ul>
+    <div style="margin-top:20px;">
+        <a href="/sporturi/volei/reguli">
+            <button style="background:#2563eb; color:white; border:none; padding:12px 22px; border-radius:8px; font-size:16px; cursor:pointer;">
+                Vezi reguli
+            </button>
+        </a>
+
+        <a href="/sporturi/volei/echipament">
+            <button style="background:#16a34a; color:white; border:none; padding:12px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-left:10px;">
+                Vezi echipament
+            </button>
+        </a>
+    </div>
+
+    <br>
 
     <a href="/sporturi">
-        <button>Inapoi</button>
+        <button style="background:#64748b; color:white; border:none; padding:10px 18px; border-radius:8px; font-size:15px; cursor:pointer;">
+            Înapoi la Sporturi
+        </button>
     </a>
 
 </div>

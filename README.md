@@ -108,6 +108,24 @@ Pagina care prezinta regulile jocului de volei.
 
 Pagina care prezinta echipamentele utilizate in volei.
 
+# Capturi aplicatie
+
+## Pagina principala
+
+![Pagina principala](doc/screenshots/home.png)
+
+## Pagina Volei
+
+![Pagina volei](doc/screenshots/volei.png)
+
+## Pagina Reguli
+
+![Pagina reguli](doc/screenshots/reguli.png)
+
+## Pagina Echipament
+
+![Pagina echipament](doc/screenshots/echipament.png)
+
 # Testare automata
 
 Aplicatia a fost testata folosind pytest.
