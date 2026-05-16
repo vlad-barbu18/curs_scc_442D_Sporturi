@@ -19,13 +19,13 @@ pipeline {
 
         stage('Verificare statica (pylint)') {
             steps {
-                sh '. .venv/bin/activate && pylint app/lib/inot.py sporturi.py --exit-zero'
+                sh '. .venv/bin/activate && PYTHONPATH=. pytest app/test/ -v'
             }
         }
 
         stage('Teste unitare (pytest)') {
             steps {
-                sh '. .venv/bin/activate && pytest app/test/ -v'
+                sh '. .venv/bin/activate && PYTHONPATH=. pytest app/test/ -v'
             }
         }
 
