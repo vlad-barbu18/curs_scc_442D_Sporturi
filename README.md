@@ -94,22 +94,12 @@ Accesarea aplicatiei:
 http://127.0.0.1:5000
 ```
 # Pagini WEB disponibile
-## /sporturi
-
-Pagina principala a aplicatiei.
-
-## /sporturi/volei
-
-Pagina dedicata sportului Volei.
-
-## /sporturi/volei/reguli
-
-Pagina care prezinta regulile jocului de volei.
-
-## /sporturi/volei/echipament
-
-Pagina care prezinta echipamentele utilizate in volei.
-
+| Ruta | Descriere |
+|------|------------|
+| /sporturi | Pagina principală a aplicației |
+| /sporturi/volei | Pagina dedicată sportului Volei |
+| /sporturi/volei/reguli | Pagina care prezintă regulile jocului |
+| /sporturi/volei/echipament | Pagina dedicată echipamentelor utilizate |
 # Capturi aplicatie
 
 ## Pagina principala
