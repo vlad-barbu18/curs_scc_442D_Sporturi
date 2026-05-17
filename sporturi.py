@@ -132,7 +132,7 @@ def rugby():
             <h2>Informatii disponibile</h2>
             <p>
             Mai jos pot fi accesate doua pagini cu informatii specifice despre rugby:
-            o descriere generala si cateva reguli de baza.
+            cateva reguli de baza si echipamentele necesare.
             </p>
         </div>
 
