@@ -19,12 +19,10 @@
 - [Bibliografie](#bibliografie)
 
 ## Descriere generală
-[cuprins](#cuprins)
 
 Obiectivul proiectului a fost realizarea unei aplicatii web folosind framework-ul Flask, parcurgerea unui proces complet de dezvoltare software in care folosim Jenkins, Docker, Python, GitHub pentru versionare, containerizare, programare si automatizare.
 
 ## Funcționalitate implementată
-[cuprins](#cuprins)
 
 În acest branch am adăugat și personalizat:
 
@@ -41,7 +39,6 @@ Obiectivul proiectului a fost realizarea unei aplicatii web folosind framework-u
 - Fișierul `app/test/test_biblioteca_sporturi.py` care conține testele automate pentru cele două funcții definite, validând prezența în HTML-ul generat a unor markeri specifici (FIFA World Cup, Champions League, Premier League, SuperLiga România, mănușile de portar, dimensiunile reglementare ale porții 7.32 × 2.44 m etc.).
 
 ## Stadiu dezvoltare
-[cuprins](#cuprins)
 
 - Funcționalitate complet implementată.
 - Cod adăugat în branch-ul de lucru `dev_barbu_vlad`.
@@ -49,7 +46,6 @@ Obiectivul proiectului a fost realizarea unei aplicatii web folosind framework-u
 - Testare locală, automată și containerizată realizată cu succes.
 
 ## Testare manuală în browser (rulare locală)
-[cuprins](#cuprins)
 
 Clonarea repository-ului și selectarea ramurii de dezvoltare:
 
@@ -99,7 +95,6 @@ Pagina cu echipamentele de fotbal (`/sporturi/fotbal/echipament_fotbal`):
 ![Pagina Echipament - local](doc/paginaEchipamentLocal.png)
 
 ## Testare automată cu `pytest`
-[cuprins](#cuprins)
 
 Testele au fost scrise în fișierul `app/test/test_biblioteca_sporturi.py`. Cu mediul virtual activ, rularea testelor se face astfel:
 
@@ -112,7 +107,6 @@ Toate cele 8 teste au fost executate cu succes, validând corectitudinea celor d
 ![Rezultate pytest](doc/pytest.png)
 
 ## Validare cod cu `pylint`
-[cuprins](#cuprins)
 
 Pentru verificarea calității codului sursă se utilizează pachetul **pylint**. Acesta analizează conformitatea codului cu standardele Python (verifică spații, convenții de numire a variabilelor, variabile neutilizate, prezența docstring-urilor etc.).
 
@@ -127,7 +121,6 @@ pylint --exit-zero sporturi.py
 ![Rezultate pylint](doc/pylint.png)
 
 ## Testare cu Docker
-[cuprins](#cuprins)
 
 Pentru asigurarea portabilității aplicației, am creat un container Docker pornind de la `Dockerfile`-ul din rădăcina proiectului. Pașii efectuați au fost:
 
@@ -180,7 +173,6 @@ Pagina cu echipamentele de fotbal accesată din container:
 ![Pagina Echipament - container](doc/paginaEchipamentContainer.png)
 
 # DevOps CI
-[cuprins](#cuprins)
 
 - **CI** = Continuous Integration (Integrare Continuă)
 
@@ -208,8 +200,6 @@ jenkins
 Se creează pipeline-ul în Jenkins, care este accesat local pe portul 8080 și se conectează cu repository-ul. Odată creat, se verifică funcționalitatea cu **Build Now**, urmat de confirmarea execuției cu succes în Console Output (log-uri).
 
 ## Concluzii
-[cuprins](#cuprins)
-
 Acest proiect atinge cu succes atât obiectivele funcționale, cât și pe cele tehnice, evidențiind următoarele aspecte:
 
 - **Dezvoltare modulară:** Implementarea unei aplicații web folosind framework-ul Flask, integrând bune practici de inginerie software prin separarea datelor și a logicii în module distincte (`app/lib/biblioteca_sporturi.py`).
@@ -219,6 +209,5 @@ Acest proiect atinge cu succes atât obiectivele funcționale, cât și pe cele 
 - **Asigurarea calității:** Testarea automată cu `pytest` și analiza statică a codului cu `pylint` au garantat stabilitatea aplicației la fiecare modificare a codului sursă.
 
 ## Bibliografie
-[cuprins](#cuprins)
 
 https://github.com/crchende/sysinfo.git
