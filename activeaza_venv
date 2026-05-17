@@ -1,0 +1,9 @@
+. .venv/bin/activate
+
+if [ $? -eq 0 ]
+then
+    echo "SUCCESS"
+else
+    echo "ERROR"
+    . ./activeaza_venv_jenkins
+fi
