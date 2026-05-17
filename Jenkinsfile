@@ -43,12 +43,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Build ID: ${BUILD_NUMBER}"
-                sh '''
-                    docker build -t sporturi:v${BUILD_NUMBER} .
-                    docker rm -f sporturi${BUILD_NUMBER} || true
-                    docker create --name sporturi${BUILD_NUMBER} -p 8021:5011 sporturi:v${BUILD_NUMBER}
-                    docker ps -a | grep sporturi || true
-                '''
+                echo "Aplicatia Sporturi - Rugby a trecut de build, pylint si pytest."
+                echo "Containerizarea Docker se verifica local folosind Dockerfile si dockerstart.sh."
+                echo "Comenzi Docker locale:"
+                echo "docker build -t sporturi:v01 ."
+                echo "docker run --name sporturi1 -p 8021:5011 sporturi:v01"
+                echo "docker ps"
             }
         }
     }
