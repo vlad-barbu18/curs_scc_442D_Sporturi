@@ -4,6 +4,10 @@ Aplicatie pentru rugby.
 
 
 from flask import Flask, redirect
+from app.lib.biblioteca_rugby import (
+    reguli_rugby as info_reguli_rugby,
+    echipament_rugby as info_echipament_rugby,
+)
 
 app = Flask(__name__)
 def pagina(titlu: str, continut: str) -> str:
@@ -98,7 +102,7 @@ def sporturi():
         </p>
 
         <div class="info">
-            <h2>Element ales: Rugby</h2>
+            <h2>Sportul ales: Rugby</h2>
             <p>
             Rugby-ul este un sport de echipa bazat pe forta, strategie,
             viteza si colaborare intre jucatori.
@@ -132,67 +136,31 @@ def rugby():
             </p>
         </div>
 
-        <a href="/sporturi/rugby/descriere">Descriere Rugby</a>
         <a href="/sporturi/rugby/reguli">Reguli Rugby</a>
+        <a href="/sporturi/rugby/echipament">Echipament Rugby</a>
         <a href="/sporturi">Inapoi la Sporturi</a>
         """
     )
 
 
-@app.route("/sporturi/rugby/descriere")
-def descriere_rugby():
-    return pagina(
-        "Descriere Rugby",
-        """
-        <h1>Descriere Rugby</h1>
-
-        <p>
-        Rugby-ul este un sport de echipa aparut in Anglia, cunoscut pentru
-        dinamica sa intensa si pentru combinatia dintre forta fizica si tactica.
-        Echipele incearca sa obtina puncte prin asezarea mingii in terenul de tinta
-        al adversarului sau prin lovituri reusite printre buturile de rugby.
-        </p>
-
-        <p>
-        Acest sport dezvolta rezistenta, coordonarea si comunicarea intre jucatori,
-        deoarece fiecare faza de joc depinde de colaborarea intregii echipe.
-        </p>
-
-        <a href="/sporturi/rugby">Inapoi la Rugby</a>
-        <a href="/sporturi">Inapoi la Sporturi</a>
-        """
-    )
+@app.route("/sporturi/rugby/echipament")
+def ruta_echipament_rugby():
+    """Ruta pentru echipamentul folosit in rugby."""
+    continut = "<h1>Echipament Rugby</h1>"
+    continut += info_echipament_rugby()
+    continut += '<a href="/sporturi/rugby">Inapoi la Rugby</a>'
+    continut += '<a href="/sporturi">Inapoi la Sporturi</a>'
+    return pagina("Echipament Rugby", continut)
 
 
 @app.route("/sporturi/rugby/reguli")
-def reguli_rugby():
-    return pagina(
-        "Reguli Rugby",
-        """
-        <h1>Reguli de baza in Rugby</h1>
-
-        <div class="info">
-            <p>
-            In rugby, mingea poate fi purtata in mana, lovita cu piciorul sau pasata
-            lateral si inapoi. Pasele inainte nu sunt permise.
-            </p>
-        </div>
-
-        <p>
-        Jucatorii pot placa adversarul care are mingea, insa contactul trebuie sa
-        respecte regulile jocului. Un eseu este inscris atunci cand mingea este
-        culcata in terenul de tinta al echipei adverse.
-        </p>
-
-        <p>
-        Pe langa eseuri, o echipa poate obtine puncte si prin transformari,
-        lovituri de pedeapsa sau drop-goal-uri.
-        </p>
-
-        <a href="/sporturi/rugby">Inapoi la Rugby</a>
-        <a href="/sporturi">Inapoi la Sporturi</a>
-        """
-    )
+def ruta_reguli_rugby():
+    """Ruta pentru regulile sportului rugby."""
+    continut = "<h1>Reguli Rugby</h1>"
+    continut += info_reguli_rugby()
+    continut += '<a href="/sporturi/rugby">Inapoi la Rugby</a>'
+    continut += '<a href="/sporturi">Inapoi la Sporturi</a>'
+    return pagina("Reguli Rugby", continut)
 
 
 if __name__ == "__main__":
