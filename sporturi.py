@@ -1,8 +1,12 @@
-"""
-Aplicatie pentru tema fotbal
-"""
+
+# Aplicatie pentru tema fotbal
+
 
 from flask import Flask, redirect
+from app.lib.biblioteca_sporturi import (
+    competitii_fotbal,
+    echipament_fotbal,
+)
 
 app = Flask(__name__)
 
@@ -48,18 +52,20 @@ def pagina(titlu: str, continut: str) -> str:
 
 
 
+# prima ruta cu tema
 @app.route("/sporturi")
 def sporturi():
     return pagina(
         "Sporturi",
         """
         <h1>Sporturi</h1>
-        <p>fotbal.</p>
+        <p>Proiect SCC 2026 - Barbu Vlad-Catalin</p>
         <a href="/sporturi/fotbal">Fotbal</a>
         """
     )
 
 
+# a doua ruta cu sportul ales
 @app.route("/sporturi/fotbal")
 def fotbal():
     return pagina(
@@ -71,15 +77,35 @@ def fotbal():
         cate 11 jucatori. Scopul este sa marchezi mai multe goluri decat
         adversarul intr-un meci de 90 de minute.
         </p>
-        <p>Pagina elementului. Rutele cu informatii specifice vin in etapa urmatoare.</p>
+        <a href="/sporturi/fotbal/competitii_fotbal">Competitii fotbal</a>
+        <a href="/sporturi/fotbal/echipament_fotbal">Echipament fotbal</a>
         <a href="/sporturi">Inapoi la Sporturi</a>
         """
     )
 
 
+# a treia ruta cu competitii
+@app.route("/sporturi/fotbal/competitii_fotbal")
+def ruta_competitii_fotbal():
+    continut = "<h1>Competitii de fotbal</h1>"
+    continut += competitii_fotbal()
+    continut += '<a href="/sporturi/fotbal">Inapoi la Fotbal</a>'
+    return pagina("Competitii Fotbal", continut)
+
+
+# a patra ruta cu echipmanet
+@app.route("/sporturi/fotbal/echipament_fotbal")
+def ruta_echipament_fotbal():
+    continut = "<h1>Echipament de fotbal</h1>"
+    continut += echipament_fotbal()
+    continut += '<a href="/sporturi/fotbal">Inapoi la Fotbal</a>'
+    return pagina("Echipament Fotbal", continut)
+
+
 @app.route("/")
 def index():
     return redirect("/sporturi")
+
 
 
 if __name__ == "__main__":
