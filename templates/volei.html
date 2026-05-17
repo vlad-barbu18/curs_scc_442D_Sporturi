@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volei</title>
+</head>
+<body style="font-family: Arial; background-color:#eef2f7; padding:40px;">
+
+<div style="background:white; padding:30px; border-radius:15px; width:850px; margin:auto; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+
+    <h1 style="color:#2563eb;">🏐 Volei</h1>
+
+    <img src="{{ url_for('static', filename='images/volei.jpg') }}"
+         style="width:100%; border-radius:12px;">
+
+    <p style="margin-top:20px; font-size:18px;">
+        Voleiul este un sport de echipă practicat între două formații separate de un fileu.
+        Fiecare echipă încearcă să trimită mingea în terenul advers, respectând regulile de joc.
+    </p>
+
+    <p style="font-size:18px;">
+        Acest sport dezvoltă coordonarea, viteza de reacție, comunicarea și spiritul de echipă.
+        Este practicat atât la nivel profesionist, cât și recreațional.
+    </p>
+
+    <h2 style="color:#1d4ed8;">Informații disponibile</h2>
+
+    <div style="margin-top:20px;">
+        <a href="/sporturi/volei/reguli">
+            <button style="background:#2563eb; color:white; border:none; padding:12px 22px; border-radius:8px; font-size:16px; cursor:pointer;">
+                Vezi reguli
+            </button>
+        </a>
+
+        <a href="/sporturi/volei/echipament">
+            <button style="background:#16a34a; color:white; border:none; padding:12px 22px; border-radius:8px; font-size:16px; cursor:pointer; margin-left:10px;">
+                Vezi echipament
+            </button>
+        </a>
+    </div>
+
+    <br>
+
+    <a href="/sporturi">
+        <button style="background:#64748b; color:white; border:none; padding:10px 18px; border-radius:8px; font-size:15px; cursor:pointer;">
+            Înapoi la Sporturi
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
