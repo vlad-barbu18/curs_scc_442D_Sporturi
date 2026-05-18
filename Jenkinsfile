@@ -28,15 +28,14 @@ pipeline {
         }
 
         stage('Unit Testing cu pytest') {
-            steps {
-                echo 'Rulare teste pytest...'
-                sh '''
-                    . ./activeaza_venv
-                    pytest
-                '''
-            }
-        }
-
+    steps {
+        echo 'Rulare teste pytest...'
+        sh '''
+            . ./activeaza_venv
+            .venv/bin/python -m pytest
+        '''
+    }
+}
         stage('Deploy') {
             steps {
                 echo "Build ID: ${BUILD_NUMBER}"
