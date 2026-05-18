@@ -196,8 +196,15 @@ Pentru a porni serviciul, se rulează în terminal comanda:
 ```bash
 jenkins
 ```
-
 Se creează pipeline-ul în Jenkins, care este accesat local pe portul 8080 și se conectează cu repository-ul. Odată creat, se verifică funcționalitatea cu **Build Now**, urmat de confirmarea execuției cu succes în Console Output (log-uri).
+
+Vizualizarea modernă a pipeline-ului din **Blue Ocean** arată toate cele 4 stages cu execuție reușită:
+
+![Pipeline Blue Ocean](doc/jenkinsBlueOcean.png)
+
+Detaliile build-ului în interfața clasică Jenkins, cu link către commit-ul de pe GitHub și informații despre durata fiecărui pas:
+
+![Pipeline Jenkins clasic](doc/jenkinsSimplu.png)
 
 ## Concluzii
 Acest proiect atinge cu succes atât obiectivele funcționale, cât și pe cele tehnice, evidențiind următoarele aspecte:
