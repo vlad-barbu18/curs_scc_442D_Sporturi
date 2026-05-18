@@ -11,8 +11,18 @@ def index():
 
 @app.route("/golf")
 def golf():
-    return "Pagina pentru sportul Golf."
+    return """
+    <h1>Golf</h1>
+    <p>Pagina pentru sportul Golf.</p>
 
+    <img src="/static/images/golf.jpg" width="400">
+
+    <br><br>
+
+    <a href="/golf/reguli">Reguli</a> |
+    <a href="/golf/echipament">Echipament</a> |
+    <a href="/golf/teren">Teren</a>
+    """
 
 @app.route("/golf/reguli")
 def golf_reguli():
