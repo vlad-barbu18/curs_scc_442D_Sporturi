@@ -484,6 +484,16 @@ Acesta creează mediul virtual `.venv`, îl activează și instalează dependen�
 - `app/tests/*.py`;
 - `sporturi.py`.
 
+Comenzile folosite sunt:
+
+```bash
+pylint --exit-zero app/lib/*.py
+pylint --exit-zero app/tests/*.py
+pylint --exit-zero sporturi.py
+```
+
+Opțiunea `--exit-zero` permite afișarea observațiilor fără oprirea pipeline-ului.
+
 ### Pytest
 
 În etapa de testare se rulează:
@@ -498,23 +508,50 @@ Rezultatul obținut:
 4 passed
 ```
 
+Acest rezultat confirmă faptul că funcțiile implementate în `app/lib/biblioteca_sporturi.py` sunt testate cu succes.
+
 ### Docker build
 
-În etapa Docker se construiește imaginea:
+În etapa Docker se construiește imaginea aplicației:
 
 ```bash
 docker build -t sporturi-ciclism:latest .
 ```
 
-### Rezultat Jenkins
+Această etapă verifică faptul că aplicația poate fi containerizată și că imaginea Docker se construiește corect pe baza fișierului `Dockerfile`.
 
-Pipeline-ul rulează etapele de build, verificare statică, testare și construire imagine Docker.
+### Rezultat Jenkins - interfața clasică
 
-Captură:
+Pipeline-ul a fost rulat din Jenkins folosind branch-ul `dev_taga_andrei`. În interfața clasică Jenkins se poate observa rularea job-ului și rezultatul final al execuției.
+
+Captură Jenkins clasic:
 
 ![Jenkins pass](doc/screenshots/jenkins_pass.png)
 
----
+### Rezultat Jenkins - Blue Ocean
+
+Pentru o vizualizare mai clară a pipeline-ului, a fost folosit și pluginul **Blue Ocean** din Jenkins. Acesta afișează etapele pipeline-ului într-un mod grafic, fiind mai ușor de urmărit dacă fiecare etapă a fost executată cu succes.
+
+În Blue Ocean se pot observa etapele:
+- Build;
+- pylint - calitate cod;
+- Unit Testing cu pytest;
+- Docker build;
+- Deploy.
+
+Captură Blue Ocean:
+
+![Jenkins Blue Ocean](doc/screenshots/jenkins_blueocean.png)
+
+### Concluzie Jenkins
+
+Rularea pipeline-ului Jenkins confirmă faptul că proiectul poate fi verificat automat. Pipeline-ul realizează instalarea dependențelor, verificarea statică a codului, rularea testelor unitare și construirea imaginii Docker.
+
+Rezultatul final al pipeline-ului este:
+
+```text
+PASS
+```
 
 
 ## Stadiul implementării
