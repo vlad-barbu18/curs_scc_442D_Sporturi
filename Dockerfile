@@ -7,10 +7,14 @@ WORKDIR /home/sporturi/
 COPY app app
 COPY static static
 COPY sporturi.py sporturi.py
-COPY requirements.txt requirements.txt
+COPY dockerstart.sh dockerstart.sh
+COPY pytest.ini pytest.ini
+COPY quickrequirements.txt quickrequirements.txt
 
-RUN pip install -r requirements.txt
+RUN python3 -m venv .venv
+RUN .venv/bin/pip install -r quickrequirements.txt
+RUN chmod +x dockerstart.sh
 
-EXPOSE 5000
+EXPOSE 5010
 
-CMD ["python3", "sporturi.py"]
+ENTRYPOINT ["./dockerstart.sh"]
