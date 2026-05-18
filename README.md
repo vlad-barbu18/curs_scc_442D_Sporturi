@@ -1,223 +1,589 @@
+# Proiect SCC - Sporturi: Ciclism
 
-`sysinfo`
-===================================
+## Cuprins
 
-# Cuprins
+1. [Descriere aplicație](#descriere-aplicație)
+2. [Student](#student)
+3. [Funcționalitate implementată](#funcționalitate-implementată)
+4. [Structura proiectului](#structura-proiectului)
+5. [Configurare și rulare locală](#configurare-și-rulare-locală)
+6. [Pagini web implementate](#pagini-web-implementate)
+7. [Testare cu pytest](#testare-cu-pytest)
+8. [Verificare statică folosind pylint](#verificare-statică-folosind-pylint)
+9. [Containerizare Docker](#containerizare-docker)
+10. [Pipeline Jenkins](#pipeline-jenkins)
+11. [Stadiul implementării](#stadiul-implementării)
+12. [Bibliografie](#bibliografie)
 
-1. [Descriere aplicatie](#descriere-aplicatie)
-1. [Descriere versiune](#descriere-versiune)
-   1. [Buguri cunoscute](#probleme-cunoscute)
-1. [Configurare](#configurare)
-1. [Exemple pagina web](#exemple-pagina-web)
-1. [Testare cu pytest](#testare-cu-pytest)
-1. [Verificare statica. pylint - calitate cod](#verificare-statica-cu-pylint)
-1. [Reprezentari grafice](#reprezentari-grafice)
-1. [Utilizare Docker si containerizare alicatie](https://github.com/crchende/sysinfo/blob/main/doc/dockerdoc.md)
-1. [DevOps](#devops-ci)
-   1. [Pipeline Jenkins](#exemplu-executie-pipeline-jenkins)
-   1. [Workflow GitHub Actions](#exemplu-executie-workflow-in-github-actions)
-1. [Bibliografie](#bibliografie)
+---
 
-# Descriere aplicatie
+## Descriere aplicație
 
-Aplicatia sysinfo citeste date despre sistemul de operare si despre retea si le afiseaza intr-o pagina web.
-Poate fi executata doar pe Linux. A fost testata pe Ubuntu 22.04.
-Componenta WEB a aplicatiei se bazeaza pe framework-ul `Flask`.
-Aplicatia este simpla, citeste informatiile folosind modulul `subprocess` din Python si comenzi shell pentru a obtine informatiile despre sistemul de operare si despre retea.
-Acestea sunt preluate apoi in functii `view` si returnate clientului WEB care apeleaza serverul.
+Această aplicație web este realizată în Python, folosind framework-ul Flask. Aplicația are la bază scheletul proiectului `sysinfo`, însă funcționalitatea a fost adaptată pentru tema grupei: **Sporturi**.
 
-Pentru o navigare mai usoara in browser, pagina principala contine link-uri catre celelalte pagini.
-Fiecare pagina specifica (cea care afiseaza informatii despre memorie, cpu etc) contine un link catre pagina principala.
+Elementul ales pentru implementare este **ciclismul**. Aplicația afișează informații despre ciclism, competiții importante de ciclism și echipamente folosite de cicliști.
 
-Am adaugat si un exemplu de afisare grafica folosind biblioteca Python `matplotlib`, pentru un set de valori al functiei `f(x) = x*x`.
+Aplicația poate fi:
+- rulată local;
+- testată cu `pytest`;
+- verificată static folosind `pylint`;
+- rulată într-un container Docker;
+- verificată automat printr-un pipeline Jenkins.
 
-Aplicatia include suport pentru containerizare in fisierul `Dockerfile` din directorul principal al aplicatiei.
+---
 
-Din punct de vedere al testarii, este inculs unit testing cu pytest, pentru o parte din functiile din biblioteca aplicatiei, aflate in directorul `app/lib`.
+## Student
 
-`DevOps CI`.
-Pipeline-ul pentru Jenkins este definint in fisierul `Jenkinsfile`.
-Worflow-ul (pipeline-ul) pentru GitHub Actions, in fisierul `.github/workflows/sysinfo_test.yml`.
+Nume: Taga Andrei  
+Grupa: 442D  
+Tema grupei: Sporturi  
+Sport ales: Ciclism  
 
-Ambele pipeline-uri cloneaza codul, creaza mediul de lucru virtual (venv-ul), il activeaza si ruleaza testele (unit test - cu pytest, verificari statice cu pylint).
-
-# Descriere versiune
-## v0.02 - afisare 'raw' fara formatare. Adaugare link-uri intre pagini si modul generare si afisare grafice.
-
- * ruta standard '/' - URL: http://127.0.0.1:5011
- * rute in aplicatia WEB pentru:
-   * versiune ubuntu: '/vos' - URL: 'http://127.0.0.1:5011/vos',
-   * memorie:         '/mem' -                        .../mem
-   * cpu:             '/cpu' -                        .../cpu
-   * rute retea:      'retea/rute'      - URL: 'http://127.0.0.1:5011/retea/rute'
-   * retea/interfete: 'retea/interfete' - URL: 'http://127.0.0.1:5011/retea/interfete'
-  
-## Probleme cunoscute
-(Bug-uri)
-
-1. Pagina care afiseaza graficele are o problema cunoscuta. Daca este reincarcata sau accesata de mai multe ori, aplicatia poate da crash cu eroarea:
-  [<matplotlib.lines.Line2D object at 0x7ff7d72e5c00>] <class 'list'>
-  /home/cip/programare/git/sysinfo/app/grafice/exemplu_func_grad_2.py:65: UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail.
-  Un workaround poate fi utilizare modulului subproces pentru a genera graficele.
-  (EXERCITIU)
-  Totusi la primul apel merge si asa si uneori pagina poate fi accesata de mai multe ori.
-
-
-# Configurare
-[cuprins](#cuprins)
-
-Clonare repository
-
-Creati spatiul de lucru si clonati aplicatia sysinfo: 
-
-```text   
-   mkdir laborator_scc
-   cd laborator_scc
-   git clone https://github.com/crchende/sysinfo.git
-
-   ********
-   NOTA: INSTALARE dependinte (cu apt)
-
-   sudo apt upgrade
-   sudo apt install net-tools
-   sudo apt install git
-   sudo apt install python3
-   sudo apt install python3-pip
-   sudo apt install python3.10-venv
-
-   # Posibil sa fie sa instalati alt pachet ...-venv. 
-   # Daca comanda de mai sus nu merge, verificati mesajul de eroare din consola.
-   ********
-
-   cd sysinfo
-
-   git checkout avansat_main
-   
-```
-
-Configurare .venv si instalare pachete
-
-In directorul 'sysinfo' rulati comenzile:
-
-1) activeaza_venv: Incearca sa activeze venv-ul. 
-                   Daca nu poate, configureaza venv-ul in directorul .venv si apoi instaleaza flask si flask-bootstrap.
-                   La urmatoarea rulare, va activa doar venv-ul.
-                
-2) ruleaza_aplicatia: De rulat doar dupa activarea venv-ului. 
-                      Va porni serverul pe IP: 127.0.0.1 si port: 5011.
-                      Acces server din browser: http://127.0.0.1:5011
-
-# EXEMPLU activare venv si rulare
-```text
-    cip@cip:sysinfo$ source activeaza_venv 
-    SUCCESS: venv was activated.
-    
-    (.venv) cip@cip:sysinfo$ source ruleaza_aplicatia 
-    sysinfo
-    WARNING: rand 6 []
-     * Serving Flask app 'sysinfo'
-     * Debug mode: off
-    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-     * Running on http://127.0.0.1:5011
-    Press CTRL+C to quit
-     * Restarting with stat
-    sysinfo
-```
-![image](https://user-images.githubusercontent.com/57460107/222927371-97c8c4b9-37c0-4d1f-b6ab-c2f3851c77f7.png)
-
-
-
-# EXEMPLE pagina web 
-## Pagina principala
-
-Varianta avansat main:
-
-![image](https://github.com/crchende/sysinfo/assets/57460107/a2620e64-98dd-4fdc-9251-0454bc799be9)
-
-
-Varianta simplu_main:
-
-![image](https://github.com/crchende/sysinfo/assets/57460107/97f4c5ff-1c12-4ec6-8334-ad1950d8f664)
-
-## Vizualizare versiune ubuntu 
-
-Varianta simplu_main:
-
-![image](https://github.com/crchende/sysinfo/assets/57460107/0316f339-a277-4418-a1b0-d8ec0f022472)
-
-# Comutare intre branch-uri: avansat_main si simplu_main
+Branch de dezvoltare:
 
 ```text
-   git stash
-   git checkout simplu_main
-   source ruleaza_aplicatia
-
-   [Ctrl-C] pentru a opri aplicatia
-
-   git stash
-   git checkout avansat_main
-   source ruleaza_aplicatia
-
-   NOTA:
-   'git stash'   - are rolul de a salva local (in stash) fisierele imagine generate de aplicatie
-                   daca accesati link-ul 'Grafice' din meniu
-                 - fara aceasta comanda 'git checkout' da eroare
+dev_taga_andrei
 ```
 
-# Testare cu pytest
-[cuprins](#cuprins)
+Branch personal principal:
 
-O parte din functiile din biblioteca de functii a aplicatie:
-- directorul lib, fisierele:
-  - ubuntu.py
-  - network.py
-au teste de tip 'unit - test' asociate - adica - este apelata functia si se asteapta o anumita valoare.
-Testul compara valoarea obtinuta la apelul functie cu valoarea asteptata si returneaza PASS daca valoarea primita de la functie este cea asteptata si FAIL in caz contrar.
+```text
+main_taga_andrei
+```
 
-Pentru testare s-a folosit pachetul **pytest** din python. Acesta se afla in lista de pachete care trebuie instalate, in fisierul quickrequirements.txt.
+Repository GitHub:
+
+```text
+https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
+```
+
+---
+
+## Funcționalitate implementată
+
+Funcționalitatea adăugată constă în realizarea unei aplicații web Flask care prezintă informații despre ciclism.
+
+Fișierul principal al aplicației este:
+
+```text
+sporturi.py
+```
+
+Fișierul bibliotecă este:
+
+```text
+app/lib/biblioteca_sporturi.py
+```
+
+În biblioteca aplicației au fost implementate două funcții principale:
+
+```python
+competitii_ciclism()
+echipament_ciclism()
+```
+
+Funcția `competitii_ciclism()` afișează informații despre competiții importante de ciclism, precum:
+- Tour de France;
+- Giro d'Italia / Turul Italiei;
+- La Vuelta a Espana;
+- Campionatele Mondiale UCI;
+- Jocurile Olimpice.
+
+Funcția `echipament_ciclism()` afișează informații despre echipamente folosite în ciclism, precum:
+- bicicleta;
+- casca;
+- mănușile;
+- ochelarii;
+- tricoul de ciclism;
+- pantalonii cu bazon;
+- încălțămintea specială;
+- computerul de bicicletă.
+
+Aplicația include și imagini statice:
+- `static/images/stage2.jpeg` - imagine personală de la Turul Italiei 2026, etapa a 2-a;
+- `static/images/bicla.jpeg` - imagine cu bicicleta personală de șosea.
+
+---
+
+## Structura proiectului
+
+Structura principală a proiectului este:
+
+```text
+curs_scc_442D_Sporturi/
+├── .github/
+│   └── workflows/
+├── app/
+│   ├── grafice/
+│   ├── lib/
+│   │   └── biblioteca_sporturi.py
+│   ├── tests/
+│   │   └── test_biblioteca_sporturi.py
+│   └── test_bash_eroare/
+├── doc/
+│   ├── dockerdoc.md
+│   └── screenshots/
+├── static/
+│   ├── images/
+│   │   ├── bicla.jpeg
+│   │   └── stage2.jpeg
+│   └── imagini/
+├── .gitignore
+├── Dockerfile
+├── Jenkinsfile
+├── README.md
+├── activeaza_venv
+├── activeaza_venv_jenkins
+├── dockerstart.sh
+├── pytest.ini
+├── quickrequirements.txt
+├── ruleaza_aplicatia
+└── sporturi.py
+```
+
+Rolul fișierelor principale:
+
+| Fișier / folder | Rol |
+|---|---|
+| `sporturi.py` | Fișierul principal al aplicației Flask |
+| `app/lib/biblioteca_sporturi.py` | Biblioteca în care sunt definite funcțiile pentru conținutul paginilor |
+| `app/tests/test_biblioteca_sporturi.py` | Teste unitare pentru funcțiile din bibliotecă |
+| `static/images/` | Folder pentru imaginile afișate în paginile web |
+| `Dockerfile` | Fișier pentru construirea imaginii Docker |
+| `dockerstart.sh` | Script folosit pentru pornirea aplicației în container |
+| `Jenkinsfile` | Pipeline Jenkins pentru build, verificare statică, teste și Docker build |
+| `activeaza_venv` | Script pentru activarea mediului virtual local |
+| `activeaza_venv_jenkins` | Script pentru crearea/activarea mediului virtual în Jenkins |
+| `quickrequirements.txt` | Lista dependențelor Python necesare |
+| `pytest.ini` | Configurare pentru rularea testelor cu pytest |
+| `doc/screenshots/` | Folder pentru capturile de ecran folosite în documentație |
+
+---
+
+## Configurare și rulare locală
+
+Pentru rularea locală a aplicației se folosește un mediu virtual Python.
+
+### 1. Clonare repository
+
+```bash
+git clone https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
+cd curs_scc_442D_Sporturi
+git checkout main_taga_andrei
+```
+
+### 2. Activare mediu virtual
+
+Activarea mediului virtual se face cu:
+
+```bash
+source activeaza_venv
+```
+
+Dacă mediul virtual există deja, acesta este activat. Dacă nu există, scriptul creează mediul virtual și instalează dependențele necesare.
+
+Dependențele proiectului sunt definite în fișierul:
+
+```text
+quickrequirements.txt
+```
+
+Conținutul fișierului este:
+
+```text
+flask
+pytest
+pylint
+```
+
+### 3. Pornire aplicație local
+
+După activarea mediului virtual, aplicația se rulează cu:
+
+```bash
+./ruleaza_aplicatia
+```
+
+Aplicația rulează pe portul `5011` și poate fi accesată în browser la:
+
+```text
+http://127.0.0.1:5011
+```
+
+---
+
+## Pagini web implementate
+
+Aplicația conține următoarele pagini:
+
+| Rută | Descriere |
+|---|---|
+| `/` | Pagina principală |
+| `/ciclism` | Pagina de prezentare a ciclismului |
+| `/ciclism/competitii` | Pagina cu informații despre competiții de ciclism |
+| `/ciclism/echipament` | Pagina cu informații despre echipamente de ciclism |
+
+### Pagina principală
+
+URL:
+
+```text
+http://127.0.0.1:5011/
+```
+
+Captură:
+
+![Pagina principală](doc/screenshots/pagina_principala.png)
+
+### Pagina Ciclism
+
+URL:
+
+```text
+http://127.0.0.1:5011/ciclism
+```
+
+Captură:
+
+![Pagina ciclism](doc/screenshots/pagina_ciclism.png)
+
+### Pagina Competiții
+
+URL:
+
+```text
+http://127.0.0.1:5011/ciclism/competitii
+```
+
+Captură:
+
+![Pagina competitii](doc/screenshots/pagina_competitii.png)
+
+### Pagina Echipament
+
+URL:
+
+```text
+http://127.0.0.1:5011/ciclism/echipament
+```
+
+Captură:
+
+![Pagina echipament](doc/screenshots/pagina_echipament.png)
+
+---
+
+## Testare cu pytest
+
+Pentru testarea aplicației a fost folosit `pytest`.
+
+Fișierul de testare este:
+
+```text
+app/tests/test_biblioteca_sporturi.py
+```
+
+Testele verifică funcțiile din biblioteca aplicației:
+
+```python
+competitii_ciclism()
+echipament_ciclism()
+```
+
+Comanda de rulare a testelor este:
+
+```bash
+pytest -v
+```
+
+Rezultat obținut:
+
+```text
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.0.3
+collected 4 items
+
+app/tests/test_biblioteca_sporturi.py::test_competitii_ciclism_contine_tour_de_france PASSED
+app/tests/test_biblioteca_sporturi.py::test_competitii_ciclism_contine_giro PASSED
+app/tests/test_biblioteca_sporturi.py::test_echipament_ciclism_contine_casca PASSED
+app/tests/test_biblioteca_sporturi.py::test_echipament_ciclism_contine_bicicleta PASSED
+
+============================== 4 passed in 0.01s ===============================
+```
+
+Captură:
+
+![Pytest pass](doc/screenshots/pytest_pass.png)
+
+---
+
+## Verificare statică folosind pylint
+
+Pentru verificarea calității codului a fost folosit `pylint`.
+
+Comenzile folosite în pipeline sunt:
+
+```bash
+pylint --exit-zero app/lib/*.py
+pylint --exit-zero app/tests/*.py
+pylint --exit-zero sporturi.py
+```
+
+Opțiunea `--exit-zero` permite afișarea observațiilor fără oprirea pipeline-ului.
+
+În cadrul verificării statice sunt analizate:
+- fișierele din `app/lib/`;
+- fișierele de test din `app/tests/`;
+- fișierul principal `sporturi.py`.
+
+Captură:
+
+![Pylint](doc/screenshots/pylint.png)
+
+---
+
+## Containerizare Docker
+
+Aplicația a fost containerizată folosind Docker.
+
+Fișierul folosit pentru definirea imaginii este:
+
+```text
+Dockerfile
+```
+
+Scriptul de pornire în container este:
+
+```text
+dockerstart.sh
+```
+
+### Build imagine Docker
+
+Comanda pentru construirea imaginii Docker este:
+
+```bash
+sudo docker build -t sporturi-ciclism:latest .
+```
+
+Verificarea imaginii create:
+
+```bash
+sudo docker images
+```
+
+Captură:
+
+![Docker images](doc/screenshots/docker_images.png)
+
+### Rulare container Docker
+
+Comanda pentru rularea containerului este:
+
+```bash
+sudo docker run --name sporturi-ciclism-container -p 5011:5011 sporturi-ciclism:latest
+```
+
+Dacă există deja un container cu același nume, acesta se poate șterge cu:
+
+```bash
+sudo docker rm -f sporturi-ciclism-container
+```
+
+Apoi se poate rula din nou:
+
+```bash
+sudo docker run --name sporturi-ciclism-container -p 5011:5011 sporturi-ciclism:latest
+```
+
+Verificarea containerului pornit:
+
+```bash
+sudo docker ps
+```
+
+Captură:
+
+![Docker ps](doc/screenshots/docker_ps.png)
+
+### Accesare aplicație din container
+
+Aplicația rulată în container poate fi accesată în browser la:
+
+```text
+http://127.0.0.1:5011
+```
+
+Captură:
+
+![Aplicatie container](doc/screenshots/aplicatie_container.png)
+
+### Verificare loguri container
+
+Pentru a verifica faptul că browserul accesează aplicația din container, se pot consulta logurile:
+
+```bash
+sudo docker logs sporturi-ciclism-container
+```
+
+În loguri se observă cererile HTTP către aplicație:
+
+```text
+GET / HTTP/1.1
+GET /ciclism HTTP/1.1
+GET /ciclism/competitii HTTP/1.1
+GET /ciclism/echipament HTTP/1.1
+```
+
+Captură:
+
+![Docker logs](doc/screenshots/docker_logs.png)
+
+---
+
+## Pipeline Jenkins
+
+Pipeline-ul Jenkins este definit în fișierul:
+
+```text
+Jenkinsfile
+```
+
+Pipeline-ul folosește branch-ul:
+
+```text
+dev_taga_andrei
+```
+
+Job-ul Jenkins este configurat să preia codul din repository-ul GitHub și să ruleze pașii definiți în `Jenkinsfile`.
+
+### Etape pipeline Jenkins
+
+| Etapă | Descriere |
+|---|---|
+| Build | Creează mediul virtual și instalează dependențele |
+| pylint - calitate cod | Rulează verificarea statică a codului |
+| Unit Testing cu pytest | Rulează testele unitare |
+| Docker build | Construiește imaginea Docker |
+| Deploy | Etapă demonstrativă de finalizare |
+
+### Build
+
+În etapa de build se rulează scriptul:
+
+```bash
+. ./activeaza_venv_jenkins
+```
+
+Acesta creează mediul virtual `.venv`, îl activează și instalează dependențele din `quickrequirements.txt`.
+
+### Pylint
+
+În etapa de verificare statică se rulează `pylint` pentru:
+- `app/lib/*.py`;
+- `app/tests/*.py`;
+- `sporturi.py`.
+
+Comenzile folosite sunt:
+
+```bash
+pylint --exit-zero app/lib/*.py
+pylint --exit-zero app/tests/*.py
+pylint --exit-zero sporturi.py
+```
+
+Opțiunea `--exit-zero` permite afișarea observațiilor fără oprirea pipeline-ului.
+
+### Pytest
+
+În etapa de testare se rulează:
+
+```bash
+pytest -v
+```
+
+Rezultatul obținut:
+
+```text
+4 passed
+```
+
+Acest rezultat confirmă faptul că funcțiile implementate în `app/lib/biblioteca_sporturi.py` sunt testate cu succes.
+
+### Docker build
+
+În etapa Docker se construiește imaginea aplicației:
+
+```bash
+docker build -t sporturi-ciclism:latest .
+```
+
+Această etapă verifică faptul că aplicația poate fi containerizată și că imaginea Docker se construiește corect pe baza fișierului `Dockerfile`.
+
+### Rezultat Jenkins - interfața clasică
+
+Pipeline-ul a fost rulat din Jenkins folosind branch-ul `dev_taga_andrei`. În interfața clasică Jenkins se poate observa rularea job-ului și rezultatul final al execuției.
+
+Captură Jenkins clasic:
+
+![Jenkins pass](doc/screenshots/jenkins_pass.png)
+
+### Rezultat Jenkins - Blue Ocean
+
+Pentru o vizualizare mai clară a pipeline-ului, a fost folosit și pluginul **Blue Ocean** din Jenkins. Acesta afișează etapele pipeline-ului într-un mod grafic, fiind mai ușor de urmărit dacă fiecare etapă a fost executată cu succes.
+
+În Blue Ocean se pot observa etapele:
+- Build;
+- pylint - calitate cod;
+- Unit Testing cu pytest;
+- Docker build;
+- Deploy.
+
+Captură Blue Ocean:
+
+![Jenkins Blue Ocean](doc/screenshots/jenkins_blueocean.png)
+
+### Concluzie Jenkins
+
+Rularea pipeline-ului Jenkins confirmă faptul că proiectul poate fi verificat automat. Pipeline-ul realizează instalarea dependențelor, verificarea statică a codului, rularea testelor unitare și construirea imaginii Docker.
+
+Rezultatul final al pipeline-ului este:
+
+```text
+PASS
+```
 
 
+## Stadiul implementării
 
-# Verificare statica cu pylint
-[cuprins](#cuprins)
+| Componentă | Status |
+|---|---|
+| Aplicație Flask | Finalizat |
+| Fișier principal `sporturi.py` | Finalizat |
+| Bibliotecă `app/lib/biblioteca_sporturi.py` | Finalizat |
+| Funcția `competitii_ciclism()` | Finalizat |
+| Funcția `echipament_ciclism()` | Finalizat |
+| Rute web | Finalizat |
+| Imagini statice | Finalizat |
+| Teste unitare pytest | Finalizat |
+| Verificare statică pylint | Finalizat |
+| Dockerfile | Finalizat |
+| Container Docker | Finalizat |
+| Jenkinsfile | Finalizat |
+| Pipeline Jenkins | Finalizat |
+| Pull Request `dev_taga_andrei -> main_taga_andrei` | Finalizat |
+| Review primit de la coleg | Finalizat |
+| Review făcut la PR-ul unui coleg | Finalizat |
+| Integrare în `main` | Finalizat |
 
-- **pylint** - pachet python folosit la testarea calitatii codului (spatii, nume variabile, variabile neutilizate etc.)
-- in cazul de fata, problemele returnate de pylint doar sunt afisate, nu sunt considerate erori
+---
 
+## Bibliografie
 
-
-# Reprezentari grafice
-[cuprins](#cuprins)
-* Pachetul matplotlib pune la dispozitie o metoda de a face reprezentari grafice
-* O aplicatie concretea pentru informatii de sistem, pot fi grafice cu utilizarea memoriei, a procesorului, retelei etc.
-* Pentru simplitate aplicatia curenta genereaza valorile si afiseaza graficul unei functii de grad 2: **y = x*x**
-    * valorile sunt discrete, x in {-10, -9, ... 9, 10}
-    * matplotlib poate desena punctele sau un grafic continuu pe baza acestor puncte
-
-
-## Exemplu pagina web cu grafice
-
-* sunt mai multe grafice in pagina, captura cuprinde doar doua reprezentari cu puncte, cu culori si caractere diferite:
-![image](https://github.com/crchende/sysinfo/assets/57460107/02c977f7-16b4-48c2-9747-3c6a3885af48)
-
-
-
-# DevOps CI
-[cuprins](#cuprins)
-- CI = Continuous Integration
-
-## Exemplu executie pipeline Jenkins
-![image](https://github.com/crchende/sysinfo/assets/57460107/8fdaa372-44ee-409b-855c-053e78baf800)
-
-## Exemplu executie Workflow in GitHub Actions
-![image](https://github.com/crchende/sysinfo/assets/57460107/9981d699-aa34-4ec5-aa94-d0284ea93fca)
-
-Aplicatia poate fi accesata si de pe AZURE
-
-URL: https://sysinfov3.azurewebsites.net
-
-
-# Bibliografie:
-[cuprins](#cuprins)
-- [Github Actions](https://docs.github.com/en/actions)
-
+- Repository model `sysinfo`: https://github.com/crchende/sysinfo
+- Repository proiect grupă: https://github.com/vlad-barbu18/curs_scc_442D_Sporturi
+- Flask Documentation: https://flask.palletsprojects.com/
+- Docker Documentation: https://docs.docker.com/
+- Jenkins Documentation: https://www.jenkins.io/doc/
+- pytest Documentation: https://docs.pytest.org/
+- pylint Documentation: https://pylint.readthedocs.io/
