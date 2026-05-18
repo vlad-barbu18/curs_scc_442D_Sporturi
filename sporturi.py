@@ -6,7 +6,7 @@ Dezvoltator: Borza Iustin
 """
 
 from flask import Flask, redirect
-
+from app.lib.biblioteca_sporturi import echipament_balet, stiluri_balet
 app = Flask(__name__)
 
 
@@ -106,7 +106,22 @@ def balet():
         """,
     )
 
+@app.route("/sporturi/balet/stiluri_balet")
+def ruta_stiluri_balet():
+    """Pagina cu stiluri de balet."""
+    continut = "<h1>Stiluri de balet</h1>"
+    continut += stiluri_balet()
+    continut += '<a href="/sporturi/balet">Inapoi la Balet</a>'
+    return pagina("Stiluri de balet", continut)
 
+
+@app.route("/sporturi/balet/echipament_balet")
+def ruta_echipament_balet():
+    """Pagina cu echipamentul folosit in balet."""
+    continut = "<h1>Echipament de balet</h1>"
+    continut += echipament_balet()
+    continut += '<a href="/sporturi/balet">Inapoi la Balet</a>'
+    return pagina("Echipament de balet", continut)
 @app.route("/")
 def index():
     """Redirect catre pagina principala."""
