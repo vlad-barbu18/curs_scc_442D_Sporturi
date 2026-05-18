@@ -309,28 +309,48 @@ docker logs sporturi-patinaj-container
 
 ## DevOps CI — Jenkins
 
-Pipeline-ul este definit în fișierul `Jenkinsfile` și rulează automat pașii principali pentru verificarea aplicației.
+Pentru integrarea continuă am folosit Jenkins, pornit local din terminal:
 
-Job-ul Jenkins este configurat pe repository-ul proiectului și pe branch-ul:
+```bash
+java -jar /usr/share/java/jenkins.war
+```
+
+Interfața Jenkins a fost accesată în browser la:
+
+```text
+http://127.0.0.1:8080
+```
+
+Pipeline-ul este definit în fișierul `Jenkinsfile` și este configurat să preia codul din repository-ul GitHub, de pe branch-ul:
 
 ```text
 dev_oprea_andreea
 ```
 
-Etapele pipeline-ului sunt:
+Înainte de rularea pipeline-ului, modificările au fost încărcate pe GitHub prin `git add`, `git commit` și `git push`, deoarece Jenkins preia codul din repository, nu direct din directorul local.
+
+### Etape pipeline
 
 | Etapă | Descriere |
 |---|---|
 | Build | Creează mediul virtual `.venv` și instalează dependențele folosind `activeaza_venv_jenkins` |
-| pylint - calitate cod | Verifică static fișierele `app/lib/*.py`, `app/test/*.py` și `sporturi.py` |
+| pylint - calitate cod | Rulează verificarea statică pentru `app/lib/*.py`, `app/test/*.py` și `sporturi.py` |
 | Unit Testing cu pytest | Rulează testele automate; rezultatul obținut este `4 passed` |
 | Deploy | Etapă demonstrativă pentru finalizarea pipeline-ului |
 
-Pipeline-ul a fost rulat cu succes în Jenkins. Pentru vizualizare a fost folosit și Blue Ocean, unde se văd toate etapele finalizate cu succes.
+Pipeline-ul a rulat cu succes, iar Jenkins a preluat ultimul commit de pe branch-ul `dev_oprea_andreea`.
 
-Captură Jenkins / Blue Ocean:
+### Rezultat Jenkins - interfața clasică
 
-![Jenkins pass](doc/screenshots/testare_j.png)
+În interfața clasică Jenkins se observă build-ul executat cu succes, repository-ul folosit și commit-ul testat.
+
+![Jenkins clasic](doc/screenshots/jenkins.png)
+
+### Rezultat Jenkins - Blue Ocean
+
+Pentru o vizualizare mai clară am folosit și Blue Ocean. În această interfață se văd etapele pipeline-ului, toate finalizate cu succes.
+
+![Jenkins Blue Ocean](doc/screenshots/testare_j.png)
 
 ---
 
@@ -352,6 +372,13 @@ Branch-uri folosite:
 | `dev_oprea_andreea` | Branch personal de dezvoltare |
 | `main_oprea_andreea` | Branch personal principal |
 | `main` | Branch comun al grupei |
+
+PR #1 dev_oprea_andreea → main_oprea_andreea (intermediar)
+
+Pull Request verificat:
+
+```text
+PR #9 — TagaAndrei — Aplicatie Web Ciclism
 
 ---
 
