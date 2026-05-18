@@ -281,11 +281,11 @@ Pentru a evita conflictele cu un container mai vechi, acesta poate fi șters în
 
 ```bash
 docker rm -f sporturi-patinaj-container
-docker run -d -p 5010:5000 --name sporturi-patinaj-container sporturi-patinaj-app
+docker run -d -p 5010:5010 --name sporturi-patinaj-container sporturi-patinaj-app
 docker ps
 ```
 
-Portul `5000` din container este legat de portul `5000` al calculatorului, astfel că aplicația poate fi accesată în browser la:
+Portul `5010` din container este legat de portul `5010` al calculatorului, astfel că aplicația poate fi accesată în browser la:
 
 ```text
 http://127.0.0.1:5010/sporturi
