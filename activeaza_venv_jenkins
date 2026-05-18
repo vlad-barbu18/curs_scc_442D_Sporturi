@@ -1,0 +1,6 @@
+echo "se creaza scrierea: .venv"
+python3 -m venv .venv
+echo "se activeaza venv"
+. .venv/bin/activate
+echo "instalare quickrequirements"
+pip install -r quickrequirements.txt
