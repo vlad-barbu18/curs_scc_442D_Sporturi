@@ -265,12 +265,6 @@ Capturi pentru rularea Docker:
 
 ![Pagina temă în container](doc/paginaTemaContainer.png)
 
-![Pagina element în container](doc/paginaElementContainer.png)
-
-![Pagina reguli în container](doc/paginaFunctie1Container.png)
-
-![Pagina echipament în container](doc/paginaFunctie2Container.png)
-
 ---
 
 ## 12. Pipeline Jenkins
@@ -321,7 +315,7 @@ dev_bocai_alexandra -> main_bocai_alexandra
 Status actual:
 
 ```text
-Modificările sunt pregătite local și urmează commit, push și review.
+Modificările au fost pregătite pe branch-ul de dezvoltare și urmează integrarea prin Pull Request.
 ```
 
 ---
@@ -340,10 +334,6 @@ PR #<id> - Review pentru funcționalitatea <elementului>.
 
 ## 15. Ce mai este de făcut
 
-- Commit pentru modificările locale;
-- Push pe branch-ul `dev_bocai_alexandra`;
-- Rulare Docker și adăugarea capturilor aferente;
-- Rulare Jenkins și adăugarea capturilor din pipeline;
 - Crearea Pull Request-ului către `main_bocai_alexandra`;
 - Obținerea unui review de la un coleg;
 - Realizarea unui review pentru Pull Request-ul unui coleg.
