@@ -1,11 +1,15 @@
-import logging
+"""
+Teste pentru functionalitatea Echitatie.
+"""
 
-logger = logging.getLogger(__name__)
+import logging
 
 from app.lib.biblioteca_sporturi import (
     discipline_echitatie,
     echipamente_echitatie,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def test_discipline_contine_dresaj():
