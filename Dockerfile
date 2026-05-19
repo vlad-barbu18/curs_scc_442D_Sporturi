@@ -15,5 +15,5 @@ COPY sporturi.py sporturi.py
 RUN python3 -m venv .venv
 RUN .venv/bin/pip install -r quickrequirements.txt
 
-EXPOSE 5012
+EXPOSE 5014
 ENTRYPOINT ["./dockerstart.sh"]
