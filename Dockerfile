@@ -1,11 +1,20 @@
-FROM python:3.10-slim
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+FROM python:3.10-alpine
+
+ENV FLASK_APP sporturi
+
+RUN adduser -D sporturi
+USER sporturi
+WORKDIR /home/sporturi/
+
 COPY app app
 COPY static static
+COPY dockerstart.sh dockerstart.sh
+COPY pytest.ini pytest.ini
+COPY quickrequirements.txt quickrequirements.txt
 COPY sporturi.py sporturi.py
-EXPOSE 5000
-CMD ["python3", "sporturi.py"]
+
+RUN python3 -m venv .venv
+RUN .venv/bin/pip install -r quickrequirements.txt
+
+EXPOSE 5012
+ENTRYPOINT ["./dockerstart.sh"]
