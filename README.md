@@ -6,19 +6,20 @@
 
 # Cuprins
 
-1. Scopul proiectului
-2. Date generale
-3. Structura proiectului
-4. Functionalitati implementate
-5. Descrierea fisierelor
-6. Descrierea functiilor implementate
-7. Descrierea rutelor implementate
-8. Testare locala
-9. Rezultatele testarii
-10. Integrare Git si GitHub
-11. Jenkins
-12. Containerizare Docker
-13. Screenshots
+1. [Scopul proiectului](#scopul-proiectului)
+2. [Date generale](#date-generale)
+3. [Structura proiectului](#structura-proiectului)
+4. [Functionalitati implementate](#functionalitati-implementate)
+5. [Descrierea fisierelor](#descrierea-fisierelor)
+6. [Descrierea functiilor implementate](#descrierea-functiilor-implementate)
+7. [Descrierea rutelor implementate](#descrierea-rutelor-implementate)
+8. [Testare locala](#testare-locala)
+9. [Rezultatele testarii](#rezultatele-testarii)
+10. [Integrare Git si GitHub](#integrare-git-si-github)
+11. [Jenkins](#jenkins)
+12. [Containerizare Docker](#containerizare-docker)
+13. [Screenshots](#screenshots)
+14. [Ce urmeaza a fi implementat](#ce-urmeaza-a-fi-implementat)
 
 ---
 
