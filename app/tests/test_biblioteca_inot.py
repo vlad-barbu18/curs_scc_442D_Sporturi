@@ -1,69 +1,92 @@
 """
-Teste unitare pentru functiile din app/lib/inot.py.
+Teste pentru cele 2 functii publice din app.lib.biblioteca_inot.
 """
+import logging
 
-from app.lib.inot import get_concursuri_inot, get_inotatori_profesionisti
+from app.lib import biblioteca_inot as bi
 
-
-def test_concursuri_returneaza_lista():
-    rezultat = get_concursuri_inot()
-    assert isinstance(rezultat, list)
+logger = logging.getLogger(__name__)
 
 
-def test_concursuri_are_5_elemente():
-    rezultat = get_concursuri_inot()
-    assert len(rezultat) == 5
+# ----------------------------- Functia 1 -----------------------------
 
 
-def test_concursuri_au_chei_corecte():
-    rezultat = get_concursuri_inot()
-    chei_asteptate = {"nume", "organizator", "frecventa", "descriere"}
-    for concurs in rezultat:
-        assert set(concurs.keys()) == chei_asteptate
+def test_functie_1_returneaza_string():
+    """Functia 1 trebuie sa returneze un sir non-gol."""
+    rezultat = bi.functie_1_concursuri_inot()
+    assert isinstance(rezultat, str)
+    assert len(rezultat) > 0
 
 
-def test_concursuri_contine_jocuri_olimpice():
-    rezultat = get_concursuri_inot()
-    nume = [c["nume"] for c in rezultat]
-    assert "Jocurile Olimpice" in nume
+def test_functie_1_contine_html():
+    """Rezultatul functiei 1 trebuie sa contina taguri HTML."""
+    rezultat = bi.functie_1_concursuri_inot()
+    assert "<h2>" in rezultat
+    assert "<div" in rezultat
+    assert "</div>" in rezultat
 
 
-def test_concursuri_contine_world_aquatics():
-    rezultat = get_concursuri_inot()
-    organizatori = " ".join(c["organizator"] for c in rezultat)
-    assert "World Aquatics" in organizatori
+def test_functie_1_contine_concursurile_principale():
+    """Functia 1 trebuie sa mentioneze cele 3 concursuri majore."""
+    rezultat = bi.functie_1_concursuri_inot()
+    assert "Jocurile Olimpice" in rezultat
+    assert "Campionatele Mondiale" in rezultat
+    assert "Campionatele Europene" in rezultat
 
 
-def test_inotatori_returneaza_lista():
-    rezultat = get_inotatori_profesionisti()
-    assert isinstance(rezultat, list)
+def test_functie_1_referinte_imagini():
+    """Fiecare concurs trebuie sa aiba o imagine asociata."""
+    rezultat = bi.functie_1_concursuri_inot()
+    assert "/static/images/" in rezultat
+    assert "olympics.jpg" in rezultat
+    assert "mondiale.jpg" in rezultat
 
 
-def test_inotatori_are_6_elemente():
-    rezultat = get_inotatori_profesionisti()
-    assert len(rezultat) == 6
+def test_functie_1_numar_carduri():
+    """Lista interna CONCURSURI trebuie reflectata in numarul de carduri."""
+    rezultat = bi.functie_1_concursuri_inot()
+    nr_concursuri = len(bi.CONCURSURI)
+    nr_carduri = rezultat.count('class="card"')
+    assert nr_carduri == nr_concursuri
 
 
-def test_inotatori_au_chei_corecte():
-    rezultat = get_inotatori_profesionisti()
-    chei_asteptate = {"nume", "tara", "specialitate", "realizare"}
-    for sportiv in rezultat:
-        assert set(sportiv.keys()) == chei_asteptate
+# ----------------------------- Functia 2 -----------------------------
 
 
-def test_inotatori_contine_phelps():
-    rezultat = get_inotatori_profesionisti()
-    nume = [i["nume"] for i in rezultat]
-    assert "Michael Phelps" in nume
+def test_functie_2_returneaza_string():
+    """Functia 2 trebuie sa returneze un sir non-gol."""
+    rezultat = bi.functie_2_inotatori_inot()
+    assert isinstance(rezultat, str)
+    assert len(rezultat) > 0
 
 
-def test_inotatori_contine_popovici():
-    rezultat = get_inotatori_profesionisti()
-    nume = [i["nume"] for i in rezultat]
-    assert "David Popovici" in nume
+def test_functie_2_contine_html():
+    """Rezultatul functiei 2 trebuie sa contina taguri HTML."""
+    rezultat = bi.functie_2_inotatori_inot()
+    assert "<h2>" in rezultat
+    assert "<div" in rezultat
+    assert "<img" in rezultat
 
 
-def test_inotatori_are_cel_putin_un_roman():
-    rezultat = get_inotatori_profesionisti()
-    tari = [i["tara"] for i in rezultat]
-    assert "Romania" in tari
+def test_functie_2_contine_inotatori_celebri():
+    """Functia 2 trebuie sa mentioneze cativa inotatori de top."""
+    rezultat = bi.functie_2_inotatori_inot()
+    assert "Michael Phelps" in rezultat
+    assert "Katie Ledecky" in rezultat
+    assert "David Popovici" in rezultat
+
+
+def test_functie_2_referinte_imagini():
+    """Fiecare inotator trebuie sa aiba o imagine asociata."""
+    rezultat = bi.functie_2_inotatori_inot()
+    assert "phelps.jpg" in rezultat
+    assert "ledecky.jpg" in rezultat
+    assert "popovici.jpg" in rezultat
+
+
+def test_functie_2_numar_carduri():
+    """Lista interna INOTATORI trebuie reflectata in numarul de carduri."""
+    rezultat = bi.functie_2_inotatori_inot()
+    nr_inotatori = len(bi.INOTATORI)
+    nr_carduri = rezultat.count('class="card"')
+    assert nr_carduri == nr_inotatori
