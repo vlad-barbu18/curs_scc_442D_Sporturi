@@ -3,7 +3,7 @@
 ## Dezvoltator
 - **Nume:** Lazar Iulian
 - **Grupa:** 442D
-- **Element alocat:** Sport
+- **Element alocat:** Minifotbal
 
 ---
 
