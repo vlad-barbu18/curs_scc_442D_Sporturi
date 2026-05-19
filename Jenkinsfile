@@ -19,8 +19,8 @@ pipeline {
                 sh '''
                     . ./activeaza_venv;
                     pylint --exit-zero app/lib/*.py;
-                    pylint --exit-zero app/tests/*.py;
-                    pylint --exit-zero <tema>.py;
+                    pylint --exit-zero app/test/*.py;
+                    pylint --exit-zero sporturi.py;
                 '''
             }
         }
@@ -39,8 +39,8 @@ pipeline {
             steps {
                 echo "Build ID: ${BUILD_NUMBER}"
                 sh '''
-                    docker build -t <tema>:v${BUILD_NUMBER} .
-                    docker create --name <tema>${BUILD_NUMBER} -p 8021:5012 <tema>:v${BUILD_NUMBER}
+                    docker build -t sporturi:v${BUILD_NUMBER} .
+                    docker create --name sporturi${BUILD_NUMBER} -p 8021:5012 sporturi:v${BUILD_NUMBER}
                 '''
             }
         }
