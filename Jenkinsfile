@@ -18,10 +18,10 @@ pipeline {
             steps {
                 sh '''
                     . ./activeaza_venv;
-                    export PYTHONPATH=.;
-                    pylint --exit-zero app/lib/biblioteca_sporturi.py;
-                    pylint --exit-zero app/tests/test_biblioteca_sporturi.py;
-                    pylint --exit-zero sporturi.py;
+                    export PYTHONPATH="${WORKSPACE}";
+                    python3 -m pylint --exit-zero app.lib.biblioteca_sporturi;
+                    python3 -m pylint --exit-zero app.tests.test_biblioteca_sporturi;
+                    python3 -m pylint --exit-zero sporturi;
                 '''
             }
         }
@@ -31,8 +31,8 @@ pipeline {
                 echo 'Unit testing...'
                 sh '''
                     . ./activeaza_venv;
-                    export PYTHONPATH=.;
-                    pytest;
+                    export PYTHONPATH="${WORKSPACE}";
+                    python3 -m pytest;
                 '''
             }
         }
