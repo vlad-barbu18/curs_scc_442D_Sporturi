@@ -166,13 +166,12 @@ Afiseaza informatii despre principalele discipline ecvestre:
 
 Afiseaza informatii despre echipamentele folosite in echitatie:
 
-- seaua
+- saua
 - pad-ul
 - ham-ul
 - etrierele
 - casca
 
-Include si o imagine reprezentativa.
 
 ---
 
