@@ -369,6 +369,8 @@ docker rm sporturi1
 
 ![Docker Consola](doc/consola_docker.png)
 
+![Mesaje consola container](doc/consola_docker2.png)
+
 ---
 
 ### Docker PS
