@@ -19,9 +19,9 @@ pipeline {
                 sh '''
                     . ./activeaza_venv;
                     export PYTHONPATH="${WORKSPACE}";
-                    python3 -m pylint --exit-zero app.lib.biblioteca_sporturi;
-                    python3 -m pylint --exit-zero app.tests.test_biblioteca_sporturi;
-                    python3 -m pylint --exit-zero sporturi;
+                    pylint --exit-zero app/lib/biblioteca_sporturi.py;
+                    pylint --exit-zero app/tests/test_biblioteca_sporturi.py;
+                    pylint --exit-zero sporturi.py;
                 '''
             }
         }
@@ -32,7 +32,7 @@ pipeline {
                 sh '''
                     . ./activeaza_venv;
                     export PYTHONPATH="${WORKSPACE}";
-                    python3 -m pytest;
+                    pytest;
                 '''
             }
         }
