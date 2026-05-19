@@ -407,6 +407,19 @@ docker rm sporturi1
 
 ![BlueOcean](doc/Jenkins_BlueOcean.png)
 
+---
+
+## Console Output Jenkins
+
+![Console Output Jenkins pylint](doc/pylint_Jenkins.png)
+
+![Console Output Jenkins pytest](doc/pytest_Jenkins.png)
+
+![Jenkins success](doc/Jenkins_success.png)
+
+
+---
+
 
 # Ce urmeaza a fi implementat:
 
