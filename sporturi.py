@@ -6,6 +6,11 @@ Cel mai top dezvoltator: Lazar Iulian
 """
 
 from flask import Flask, redirect
+# Importul aliniat perfect cu structura ta din folderul app
+from app.lib.biblioteca_sporturi import (
+    functie_1_sport,
+    functie_2_sport,
+)
 
 app = Flask(__name__)
 
@@ -114,54 +119,31 @@ def minifotbal():
             In acest proiect sunt prezentate doua aspecte importante despre acest sport: 
             regulile de baza si echipamentul necesar pentru desfasurarea unui meci in siguranta.
         </p>
-        <a href="/sporturi/minifotbal/reguli">Reguli de joc</a>
-        <a href="/sporturi/minifotbal/echipament">Echipament necesar</a>
+        
+        <a href="/sporturi/minifotbal/functie_1_sport">Informatia 1</a>
+        <a href="/sporturi/minifotbal/functie_2_sport">Informatia 2</a>
         <br><br>
         <a href="/sporturi" class="btn-back">Inapoi la Sporturi</a>
         """,
     )
 
 
-@app.route("/sporturi/minifotbal/reguli")
-def reguli():
-    """Prima categorie: Reguli de joc."""
-    return pagina(
-        "Reguli de joc - Minifotbal",
-        """
-        <h1>Reguli de Joc la Minifotbal</h1>
-        <p>Minifotbalul se ghideaza dupa un set de reguli menite sa pastreze jocul rapid si dinamic:</p>
-        <ul>
-            <li><strong>Numarul de jucatori:</strong> Se joaca de obicei in format de 5+1 (5 jucatori de camp si un portar).</li>
-            <li><strong>Durata meciului:</strong> In mod oficial, o partida are doua reprize a cate 20 sau 25 de minute fiecare.</li>
-            <li><strong>Dimensiunea terenului:</strong> Suprafata de joc este redusa, avand de obicei lungimi intre 36-46 metri si latimi intre 18-26 metri.</li>
-            <li><strong>Fara ofsaid:</strong> In minifotbal nu se aplica regula ofsaidului, ceea ce face jocul mult mai spectaculos si plin de goluri.</li>
-            <li><strong>Schimbari nelimitate:</strong> Inlocuirile de jucatori se pot face in mod repetat si in orice moment al meciului.</li>
-        </ul>
-        <br>
-        <a href="/sporturi/minifotbal" class="btn-back">Inapoi la Minifotbal</a>
-        """,
-    )
+@app.route("/sporturi/minifotbal/functie_1_sport")
+def ruta_functie_1_sport():
+    """Ruta 3: afiseaza informatia 1."""
+    continut = "<h1>Informatia 1 despre sport</h1>"
+    continut += functie_1_sport()
+    continut += '<br><br><a href="/sporturi/minifotbal" class="btn-back">Inapoi</a>'
+    return pagina("Informatia 1", continut)
 
 
-@app.route("/sporturi/minifotbal/echipament")
-def echipament():
-    """A doua categorie: Echipament."""
-    return pagina(
-        "Echipament - Minifotbal",
-        """
-        <h1>Echipament de Minifotbal</h1>
-        <p>Pentru a practica minifotbalul in conditii optime si de siguranta, un jucator are nevoie de:</p>
-        <ul>
-            <li><strong>Incaltaminte adecvata:</strong> Ghete de tip TF (turf) cu crampoane mici de cauciuc, ideale pentru terenul sintetic, sau AG (artificial grass).</li>
-            <li><strong>Echipamentul echipei:</strong> Tricou din material respirabil, sort si jambiere.</li>
-            <li><strong>Protectie:</strong> Aparatorile de tibie sunt puternic recomandate sau chiar obligatorii in competitii pentru a preveni accidentarile.</li>
-            <li><strong>Echipamentul portarului:</strong> Manusi speciale de portar si bluza cu protectii la coate.</li>
-            <li><strong>Mingea de joc:</strong> O minge marimea 4 sau 5, adaptata desfasurarii jocului pe suprafete reduse.</li>
-        </ul>
-        <br>
-        <a href="/sporturi/minifotbal" class="btn-back">Inapoi la Minifotbal</a>
-        """,
-    )
+@app.route("/sporturi/minifotbal/functie_2_sport")
+def ruta_functie_2_sport():
+    """Ruta 4: afiseaza informatia 2."""
+    continut = "<h1>Informatia 2 despre sport</h1>"
+    continut += functie_2_sport()
+    continut += '<br><br><a href="/sporturi/minifotbal" class="btn-back">Inapoi</a>'
+    return pagina("Informatia 2", continut)
 
 
 @app.route("/")
