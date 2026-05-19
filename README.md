@@ -16,7 +16,7 @@
 - [Testare automata cu pytest](#testare-automata-cu-pytest)
 - [Validare cod cu pylint](#validare-cod-cu-pylint)
 - [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
+- [Testare si integrare continua cu Jenkins](#testare-si-integrare-continua-cu-jenkins)
 - [Concluzii](#concluzii)
 - [Bibliografie](#bibliografie)
 
@@ -84,9 +84,11 @@ rutele proiectului.
 │       ├── __init__.py
 │       └── test_biblioteca_sporturi.py
 ├── doc
+│   ├── blue_ocean.png
 │   ├── docker_console.png
 │   ├── docker_image.png
-│   └── docker_ps.png
+│   ├── docker_ps.png
+│   └── jenkins.png
 ├── Dockerfile
 ├── Jenkinsfile
 ├── quickrequirements.txt
@@ -186,9 +188,14 @@ Capturi Docker disponibile:
 ![Consola Docker](doc/docker_console.png)
 ![Container Docker](doc/docker_ps.png)
 
-## DevOps CI
+## Testare si integrare continua cu Jenkins
 
-Pipeline-ul declarativ este definit in `Jenkinsfile` si contine patru etape:
+Pipeline-ul declarativ este definit in `Jenkinsfile` si automatizeaza fluxul de
+validare al proiectului. Denumirea mai potrivita pentru aceasta sectiune este
+**testare si integrare continua**, deoarece Jenkins ruleaza atat verificari de
+calitate si teste automate, cat si pasii de build si deploy cu Docker.
+
+Pipeline-ul contine patru etape:
 
 1. **Build** - creeaza mediul virtual si instaleaza dependentele din
    `quickrequirements.txt`.
@@ -209,6 +216,11 @@ Containerul este creat cu portul aplicatiei expus astfel:
 ```text
 8021:5012
 ```
+
+Capturi Jenkins si Blue Ocean disponibile:
+
+![Pipeline Jenkins](doc/jenkins.png)
+![Vizualizare Blue Ocean](doc/blue_ocean.png)
 
 ## Concluzii
 
