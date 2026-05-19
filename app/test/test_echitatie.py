@@ -12,6 +12,17 @@ from app.lib.biblioteca_sporturi import (
 logger = logging.getLogger(__name__)
 
 
+def test_discipline_returneaza_html():
+    """
+    Verifica daca functia returneaza HTML.
+    """
+
+    rezultat = discipline_echitatie()
+
+    assert len(rezultat) > 0
+    assert "<html>" in rezultat
+
+
 def test_discipline_contine_dresaj():
     """
     Verifica daca informatiile despre discipline contin Dresaj.
@@ -42,19 +53,29 @@ def test_discipline_contine_polo():
         assert False
 
 
-def test_discipline_contine_sarituri():
+def test_discipline_contine_obstacole():
     """
-    Verifica daca informatiile despre discipline contin sarituri.
+    Verifica daca informatiile contin obstacole.
     """
 
     rezultat = discipline_echitatie()
 
     if "obstacole" in rezultat:
-        logger.info("Informatiile despre sarituri au fost gasite.")
+        logger.info("Informatiile despre obstacole au fost gasite.")
         assert True
     else:
-        logger.error("Nu am gasit informatii despre sarituri.")
+        logger.error("Nu am gasit informatii despre obstacole.")
         assert False
+
+
+def test_echipamente_returneaza_lista():
+    """
+    Verifica daca functia returneaza lista HTML.
+    """
+
+    rezultat = echipamente_echitatie()
+
+    assert "<ul>" in rezultat
 
 
 def test_echipamente_contine_casca():
