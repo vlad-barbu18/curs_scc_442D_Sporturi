@@ -5,6 +5,11 @@ Element ales: badminton.
 
 from flask import Flask, redirect
 
+from app.lib.biblioteca_sporturi import (
+    reguli_badminton,
+    echipament_badminton,
+)
+
 app = Flask(__name__)
 
 
@@ -131,8 +136,10 @@ def prezentare_badminton():
             </p>
         </div>
 
+        <a href="/badminton/prezentare/reguli_badminton">Reguli badminton</a>
+        <a href="/badminton/prezentare/echipament_badminton">Echipament badminton</a>
         <a href="/badminton">Inapoi la Badminton</a>
-        """
+     """
     )
 
 
@@ -141,6 +148,22 @@ def index():
     """Redirect spre pagina temei."""
     return redirect("/badminton")
 
+@app.route("/badminton/prezentare/reguli_badminton")
+def ruta_reguli_badminton():
+    """Ruta 3: afiseaza regulile pentru badminton."""
+    continut = "<h1>Reguli de badminton</h1>"
+    continut += reguli_badminton()
+    continut += '<a href="/badminton/prezentare">Inapoi</a>'
+    return pagina("Reguli Badminton", continut)
+
+
+@app.route("/badminton/prezentare/echipament_badminton")
+def ruta_echipament_badminton():
+    """Ruta 4: afiseaza echipamentul pentru badminton."""
+    continut = "<h1>Echipament de badminton</h1>"
+    continut += echipament_badminton()
+    continut += '<a href="/badminton/prezentare">Inapoi</a>'
+    return pagina("Echipament Badminton", continut)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5012)
