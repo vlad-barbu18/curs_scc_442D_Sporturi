@@ -191,8 +191,7 @@ Capturi Docker disponibile:
 ## Testare si integrare continua cu Jenkins
 
 Pipeline-ul declarativ este definit in `Jenkinsfile` si automatizeaza fluxul de
-validare al proiectului. Denumirea mai potrivita pentru aceasta sectiune este
-**testare si integrare continua**, deoarece Jenkins ruleaza atat verificari de
+validare al proiectului. Jenkins ruleaza atat verificari de
 calitate si teste automate, cat si pasii de build si deploy cu Docker.
 
 Pipeline-ul contine patru etape:
