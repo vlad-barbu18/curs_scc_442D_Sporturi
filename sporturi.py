@@ -18,11 +18,11 @@ def pagina(titlu: str, continut: str) -> str:
     return f"""
     <html><head><title>{titlu}</title>
     <style>
-      body {{ font-family: Arial; background: #eaf4ff; padding: 30px; }}
+      body {{ font-family: Arial; background: #ffe4e6; padding: 30px; }}
       .container {{ background: white; max-width: 900px; margin: auto;
                    padding: 30px; border-radius: 12px; }}
       h1 {{ color: #1d4ed8; }} h2 {{ color: #16a34a; }}
-      a {{ background: #2563eb; color: white; padding: 10px 15px;
+      a {{ background: #f87171; color: white; padding: 10px 15px;
           text-decoration: none; border-radius: 8px; display: inline-block;
           margin: 5px; }}
     </style></head><body><div class="container">{continut}</div></body></html>
@@ -34,7 +34,20 @@ def tema():
     """Pagina temei."""
     return pagina("Sporturi",
         """<h1>Sporturi</h1>
-        <p>Tema proiectului este Sporturi. Elementul ales este scrima.</p>
+        <p> Sportul reprezinta o activitate importanta pentru dezvoltarea fizica
+    si mentala, contribuind la imbunatatirea conditiei fizice, disciplinei
+    si spiritului competitiv. De-a lungul timpului, diferite ramuri sportive
+    au devenit populare la nivel mondial datorita valorilor promovate,
+    precum fair-play-ul, perseverenta si munca in echipa.</p>
+
+<div style="text-align: center;">
+    <img src="https://arenavalceana.ro/wp-content/uploads/2023/11/WP-top-10-cele-mai-populare-sporturi-din-lume-e1701093886968.jpg"
+         width="500"
+         style="border-radius: 12px; margin-top: 20px;">
+</div>
+
+<br><br>
+
         <a href="/sporturi/scrima">Scrima</a>""")
 
 
@@ -43,10 +56,21 @@ def sport():
     """Pagina elementului ales."""
     return pagina("Scrima",
         """<h1>Scrima</h1>
-        <p>Scrima este un sport de luptă practicat cu arme albe convenționale.</p>
+        <p> Scrima reprezinta unul dintre cele mai tehnice si elegante sporturi
+    olimpice, bazat pe reflexe rapide, tactica si control. Competitiile
+    de scrima implica dueluri intre sportivi folosind arme specializate,
+    fiecare avand reguli si stiluri diferite de joc.</p>
         
-	<a href="/sporturi/scrima/functie_1_scrima">Informatia 1</a>
-	<a href="/sporturi/scrima/functie_2_scrima">Informatia 2</a>
+
+    <img src="https://sportriposta.ro/wp-content/uploads/2022/05/Istoric-scrima%CC%86.png"
+         width="500"
+         style="border-radius: 12px; margin-top: 20px;">
+
+    <br><br>
+
+
+	<a href="/sporturi/scrima/functie_1_scrima">Generalitati</a>
+	<a href="/sporturi/scrima/functie_2_scrima">Tipuri de arme</a>
 	<a href="/sporturi">Inapoi la Sporturi</a>""")
 
 
@@ -62,7 +86,7 @@ def ruta_functie_1_scrima():
     continut = "<h1>Informatii generale despre scrima</h1>"
     continut += functie_1_scrima()
     continut += '<a href="/sporturi/scrima">Inapoi</a>'
-    return pagina("Informatia 1", continut)
+    return pagina("Informatii generale", continut)
 
 
 @app.route("/sporturi/scrima/functie_2_scrima")
@@ -71,7 +95,7 @@ def ruta_functie_2_scrima():
     continut = "<h1>Tipuri de arme in scrima</h1>"
     continut += functie_2_scrima()
     continut += '<a href="/sporturi/scrima">Inapoi</a>'
-    return pagina("Informatia 2", continut)
+    return pagina("Tipuri de arme", continut)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5012)
