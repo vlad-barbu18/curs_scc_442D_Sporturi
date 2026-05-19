@@ -1,7 +1,11 @@
 from flask import Flask, redirect
 
-app = Flask(__name__)
+from app.lib.biblioteca_sporturi import (
+    functie_1_padel,
+    functie_2_padel,
+)
 
+app = Flask(__name__)
 
 def pagina(titlu: str, continut: str) -> str:
     return f"""
@@ -73,10 +77,27 @@ def padel():
             Este un sport rapid, accesibil si popular datorita combinatiei
             dintre tehnica, strategie si lucru in echipa.
         </p>
+
+        <a href="/sporturi/padel/functie_1_padel">Informatia 1</a>
+        <a href="/sporturi/padel/functie_2_padel">Informatia 2</a>
         <a href="/sporturi">Inapoi la Sporturi</a>
         """
     )
 
+@app.route("/sporturi/padel/functie_1_padel")
+def ruta_functie_1_padel():
+    continut = "<h1>Informatia 1 despre padel</h1>"
+    continut += functie_1_padel()
+    continut += '<a href="/sporturi/padel">Inapoi la Padel</a>'
+    return pagina("Informatia 1", continut)
+
+
+@app.route("/sporturi/padel/functie_2_padel")
+def ruta_functie_2_padel():
+    continut = "<h1>Informatia 2 despre padel</h1>"
+    continut += functie_2_padel()
+    continut += '<a href="/sporturi/padel">Inapoi la Padel</a>'
+    return pagina("Informatia 2", continut)
 
 @app.route("/")
 def index():
