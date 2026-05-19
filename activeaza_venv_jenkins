@@ -12,7 +12,7 @@ echo "Installing the dependencies"
 #pip install pylint
 
 # sau prin intermediul fisierului de requirements
-pip install -r quickrequirements.txt
+pip install -r requirements.txt
 
 # toate pachetele instalate pot fi vazute cu:
 # pip freeze
