@@ -20,7 +20,7 @@ pipeline {
                     . ./activeaza_venv;
                     pylint --exit-zero app/lib/*.py;
                     pylint --exit-zero app/tests/*.py;
-                    pylint --exit-zero <tema>.py;
+                    pylint --exit-zero sporturi.py;
                 '''
             }
         }
