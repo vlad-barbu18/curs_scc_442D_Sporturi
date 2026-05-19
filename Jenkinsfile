@@ -44,7 +44,7 @@ pipeline {
                 echo "Build ID: ${BUILD_NUMBER}"
                 sh '''
                     docker build -t sporturi:v${BUILD_NUMBER} .
-                    docker create --name sporturi${BUILD_NUMBER} -p 8021:5012 sporturi:v${BUILD_NUMBER}
+                    docker create --name sporturi${BUILD_NUMBER} -p 8014:5014 sporturi:v${BUILD_NUMBER}
                 '''
             }
         }

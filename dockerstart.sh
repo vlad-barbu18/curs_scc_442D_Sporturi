@@ -4,4 +4,4 @@ echo "Activare venv:"
 echo "Configurare FLASK_APP"
 export FLASK_APP=sporturi
 echo "Start server:"
-exec flask run -h 0.0.0.0 -p 5012 --reload
+exec flask run -h 0.0.0.0 -p 5014 --reload

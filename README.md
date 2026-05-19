@@ -73,7 +73,7 @@ sudo chmod 764 ./activeaza_venv ./ruleaza_aplicatia
 Aplicația poate fi accesată în browser la adresa:
 
 ```
-http://127.0.0.1:5012/sporturi
+http://127.0.0.1:5014/sporturi
 ```
 
 Capturile de mai jos prezintă cele patru rute ale aplicației, accesate din browser în timp ce serverul Flask rulează local.
@@ -137,7 +137,7 @@ Imaginea creată poate fi vizualizată în lista locală de imagini Docker (ală
 2. Rularea containerului din imaginea creată:
 
 ```bash
-docker run --name sporturi1 -p 8021:5012 sporturi:v01
+docker run --name sporturi1 -p 8014:5014 sporturi:v01
 ```
 
 La pornirea containerului, în consolă sunt afișate mesajele de activare a mediului virtual și de pornire a serverului Flask:
@@ -151,7 +151,7 @@ Containerul activ se poate vizualiza cu comanda `docker ps`:
 3. Accesarea aplicației în browser, de această dată servită din interiorul containerului Docker:
 
 ```
-http://localhost:8021/sporturi
+http://localhost:8014/sporturi
 ```
 
 Capturile de mai jos prezintă cele patru rute ale aplicației, accesate din browser în timp ce aplicația rulează în containerul Docker. Comportamentul este identic cu cel din rulare locală, însă aplicația este complet izolată în container, ceea ce confirmă reușita procesului de containerizare.
@@ -189,7 +189,7 @@ Dacă folosiți mașină virtuală Linux, restartați mașina după ce faceți c
 1. **Build**: Crearea mediului virtual și instalarea dependințelor.
 2. **Linter**: Verificarea stilului codului cu `pylint`.
 3. **Unit Tests**: Rularea testelor cu `pytest`.
-4. **Deploy**: Construirea imaginii Docker și pornirea containerului pe portul **8021**.
+4. **Deploy**: Construirea imaginii Docker și pornirea containerului pe portul **8014**.
 
 Pentru a porni serviciul, se rulează în terminal comanda:
 

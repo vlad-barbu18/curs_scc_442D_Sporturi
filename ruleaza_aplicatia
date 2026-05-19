@@ -1,2 +1,2 @@
 export FLASK_APP=sporturi
-flask run -h 127.0.0.1 -p 5012 --reload
+flask run -h 127.0.0.1 -p 5014 --reload
