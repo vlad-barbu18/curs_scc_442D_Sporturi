@@ -222,3 +222,5 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+!app/lib/
+!app/lib/**
