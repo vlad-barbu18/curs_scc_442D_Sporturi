@@ -12,7 +12,7 @@ def pagina_html(titlu, continut, afiseaza_home=True):
     buton_home = ""
 
     if afiseaza_home:
-        buton_home = '<a href="/">Inapoi la Home</a>'
+        buton_home = '<a href="/sporturi">Inapoi la Home</a>'
 
     return f"""
     <html>

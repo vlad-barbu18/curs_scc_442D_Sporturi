@@ -2,7 +2,7 @@
 Aplicatie Flask pentru tema Sporturi - Echitatie.
 """
 
-from flask import Flask
+from flask import Flask, redirect
 
 from app.lib.biblioteca_sporturi import (
     discipline_echitatie,
@@ -14,6 +14,15 @@ app = Flask(__name__)
 
 
 @app.route("/")
+def home():
+    """
+    Redirect catre pagina principala.
+    """
+
+    return redirect("/sporturi")
+
+
+@app.route("/sporturi")
 def index():
     """
     Afiseaza pagina principala a aplicatiei.
@@ -27,15 +36,15 @@ def index():
     Alege una dintre sectiunile de mai jos.
     </p>
 
-    <a href="/echitatie">Despre echitatie</a>
-    <a href="/echitatie/discipline">Discipline</a>
-    <a href="/echitatie/echipamente">Echipamente</a>
+    <a href="/sporturi/echitatie">Despre echitatie</a>
+    <a href="/sporturi/echitatie/discipline">Discipline</a>
+    <a href="/sporturi/echitatie/echipamente">Echipamente</a>
     """
 
     return pagina_html("Sporturi - Echitatie", continut, False)
 
 
-@app.route("/echitatie")
+@app.route("/sporturi/echitatie")
 def echitatie():
     """
     Afiseaza informatii generale despre echitatie.
@@ -65,7 +74,7 @@ def echitatie():
     return pagina_html("Despre Echitatie", continut)
 
 
-@app.route("/echitatie/discipline")
+@app.route("/sporturi/echitatie/discipline")
 def discipline():
     """
     Afiseaza disciplinele din echitatie.
@@ -74,7 +83,7 @@ def discipline():
     return discipline_echitatie()
 
 
-@app.route("/echitatie/echipamente")
+@app.route("/sporturi/echitatie/echipamente")
 def echipamente():
     """
     Afiseaza echipamentele folosite in echitatie.
