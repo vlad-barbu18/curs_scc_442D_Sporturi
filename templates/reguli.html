@@ -13,26 +13,11 @@
          style="width:100%; border-radius:12px;">
 
     <p style="margin-top:20px; font-size:18px;">
-        Voleiul se joacă între două echipe formate din câte 6 jucători.
-        Obiectivul principal este trimiterea mingii peste fileu astfel încât
-        adversarii să nu poată returna mingea corect.
+        Pagina foloseste functia <b>reguli_volei()</b> din biblioteca proiectului
+        pentru a afisa informatiile cerute.
     </p>
 
-    <p style="font-size:18px;">
-        Fiecare echipă are dreptul la maximum trei atingeri înainte de a trimite
-        mingea în terenul advers. Jucătorii trebuie să respecte rotația pe teren
-        și să evite atingerea fileului în timpul fazelor de joc.
-    </p>
-
-    <h2 style="color:#1d4ed8;">Reguli importante</h2>
-
-    <ul style="font-size:18px; line-height:1.8;">
-        <li>Un set se joacă până la 25 de puncte.</li>
-        <li>Este necesară o diferență de minimum două puncte pentru câștigarea setului.</li>
-        <li>Fiecare echipă are maximum trei atingeri.</li>
-        <li>Jucătorii trebuie să respecte ordinea rotației.</li>
-        <li>Mingea nu poate fi prinsă sau ținută.</li>
-    </ul>
+    {{ reguli_html|safe }}
 
     <a href="/sporturi/volei">
         <button style="background:#64748b; color:white; border:none; padding:10px 18px; border-radius:8px; font-size:15px; cursor:pointer;">

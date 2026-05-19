@@ -13,9 +13,11 @@
          style="width:100%; border-radius:10px;">
 
     <p style="margin-top:20px; font-size:18px;">
-        Voleiul se joaca intre doua echipe de cate 6 jucatori.
-        Scopul este trimiterea mingii peste fileu in terenul advers.
+        Pagina foloseste functia <b>reguli_volei()</b> din biblioteca proiectului
+        pentru a afisa informatiile cerute.
     </p>
+
+    {{ reguli_html|safe }}
 
     <a href="/sporturi/volei">
         <button>Inapoi la Volei</button>

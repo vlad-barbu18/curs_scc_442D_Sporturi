@@ -1,183 +1,349 @@
-# curs_scc_442D_Sporturi — Volei
+# curs_scc_442D_Sporturi
+
+# Funcționalitate Volei - Bocai Alexandra
+
+## 1. Prezentarea proiectului
+
+Proiectul face parte din disciplina **Servicii Cloud și Containerizare**, grupa **442D**. Tema generală a proiectului este **Sporturi**, iar elementul implementat de mine este **Volei**.
+
+Aplicația este realizată în Flask și prezintă informații despre sportul ales, regulile principale și echipamentul folosit. Pentru partea de dezvoltare și verificare am inclus teste automate, analiză statică, configurare Docker și pipeline Jenkins.
 
 ---
 
-# Cuprins
+## 2. Funcționalități realizate
 
-1. [Student](#student)
-2. [Prezentare proiect](#prezentare-proiect)
-3. [Functionalitate implementata](#functionalitate-implementata)
-4. [Structura aplicatiei](#structura-aplicatiei)
-5. [Rulare locala](#rulare-locala)
-6. [Pagini WEB disponibile](#pagini-web-disponibile)
-7. [Testare automata](#testare-automata)
-8. [Analiza statica cu pylint](#analiza-statica-cu-pylint)
-9. [Containerizare Docker](#containerizare-docker)
-10. [Integrare Jenkins](#integrare-jenkins)
-11. [Utilizare GitHub](#utilizare-github)
-12. [Review pentru Pull Request-uri](#review-pentru-pull-request-uri)
-13. [Stadiul proiectului](#stadiul-proiectului)
-14. [Posibile imbunatatiri](#posibile-imbunatatiri)
-15. [Resurse utilizate](#resurse-utilizate)
+Pentru elementul Volei am implementat:
+
+- pagina principală a temei Sporturi;
+- pagina dedicată sportului Volei;
+- pagina pentru regulile jocului de volei;
+- pagina pentru echipamentul folosit în volei;
+- două funcții publice în biblioteca proiectului:
+  - `reguli_volei()`;
+  - `echipament_volei()`;
+- teste automate pentru funcțiile din bibliotecă;
+- fișiere de configurare pentru rulare locală, Docker și Jenkins.
 
 ---
 
-# Student
-
-Nume: Bocai Alexandra
-Grupa: 442D
-Tema: Sporturi
-Element ales: Volei
----
-
-# Prezentare proiect
-
-Acest proiect a fost realizat folosind limbajul Python si framework-ul Flask.
-Tema aleasa pentru implementare este sportul Volei.
-
-Aplicatia WEB permite utilizatorului sa navigheze intre mai multe pagini
-care contin informatii despre:
-- sportul Volei
-- regulile de joc
-- echipamentele utilizate
-
-Scopul proiectului este dezvoltarea unei aplicatii simple folosind concepte
-de programare, testare automata si containerizare Docker.
-
----
-
-# Functionalitate implementata
-
-In cadrul aplicatiei au fost dezvoltate urmatoarele functionalitati:
-
-- pagina principala pentru sporturi
-- pagina dedicata sportului Volei
-- prezentarea regulilor principale din volei
-- prezentarea echipamentelor utilizate
-- utilizarea imaginilor statice
-- navigare intre pagini prin link-uri si butoane
-- stilizare HTML/CSS simpla
-
-Aplicatia foloseste Flask pentru gestionarea rutelor si afisarea template-urilor HTML.
-
----
-
-# Structura aplicatiei
+## 3. Structura implementării
 
 ```text
-app/
-static/
-templates/
-sporturi.py
-requirements.txt
-Dockerfile
-Jenkinsfile
-README.md
+curs_scc_442D_Sporturi/
+│
+├── sporturi.py
+├── Dockerfile
+├── Jenkinsfile
+├── README.md
+├── requirements.txt
+├── quickrequirements.txt
+├── pytest.ini
+├── activeaza_venv
+├── activeaza_venv_jenkins
+├── ruleaza_aplicatia
+├── dockerstart.sh
+├── .gitignore
+│
+├── app/
+│   ├── __init__.py
+│   │
+│   ├── lib/
+│   │   ├── __init__.py
+│   │   └── biblioteca_sporturi.py
+│   │
+│   └── tests/
+│       ├── __init__.py
+│       └── test_biblioteca_sporturi.py
+│
+├── templates/
+│   ├── index.html
+│   ├── volei.html
+│   ├── reguli.html
+│   └── echipament.html
+│
+├── static/
+│   └── images/
+│       ├── volei.jpg
+│       ├── reguli.jpg
+│       └── echipament.jpg
+│
+└── doc/
+    └── screenshots/
+        ├── home.png
+        ├── volei.png
+        ├── reguli.png
+        └── echipament.png
 ```
-
 
 ---
 
-# Rulare locala
+## 4. Fișiere adăugate sau modificate
 
-Activarea mediului virtual:
+- `sporturi.py`
+- `app/lib/biblioteca_sporturi.py`
+- `app/tests/test_biblioteca_sporturi.py`
+- `templates/reguli.html`
+- `templates/echipament.html`
+- `requirements.txt`
+- `quickrequirements.txt`
+- `pytest.ini`
+- `Dockerfile`
+- `dockerstart.sh`
+- `Jenkinsfile`
+- `activeaza_venv`
+- `activeaza_venv_jenkins`
+- `ruleaza_aplicatia`
+- `README.md`
+
+---
+
+## 5. Rute disponibile
+
+| Rută | Ce afișează |
+|---|---|
+| `/` | Pagina principală a aplicației |
+| `/sporturi` | Pagina generală pentru tema Sporturi |
+| `/sporturi/volei` | Pagina elementului ales, Volei |
+| `/sporturi/volei/reguli` | Reguli generate prin `reguli_volei()` |
+| `/sporturi/volei/echipament` | Echipamente generate prin `echipament_volei()` |
+
+---
+
+## 6. Stadiul proiectului
+
+| Componentă | Stadiu |
+|---|---|
+| Aplicație Flask | Implementată |
+| Rute pentru Volei | Implementate |
+| Funcții în bibliotecă | Implementate |
+| Teste cu pytest | Implementate și rulate local |
+| Pylint | Rulat local |
+| Dockerfile | Configurat |
+| Jenkinsfile | Configurat |
+| Capturi aplicație locală | Adăugate |
+| Capturi Docker/Jenkins | De adăugat după rulare |
+
+---
+
+# Testare și rulare
+
+## 7. Rulare locală
+
+Pentru pregătirea mediului virtual se folosește:
 
 ```bash
-source venv/bin/activate
+. ./activeaza_venv_jenkins
 ```
-Pornirea aplicatiei:
+
+Pentru pornirea aplicației:
+
 ```bash
-python sporturi.py
+. ./activeaza_venv
+. ./ruleaza_aplicatia
 ```
-Accesarea aplicatiei:
-```bash
-http://127.0.0.1:5000
+
+Aplicația pornește pe portul `5000` și poate fi accesată la:
+
+```text
+http://127.0.0.1:5000/sporturi
 ```
-# Pagini WEB disponibile
-| Ruta | Descriere |
-|------|------------|
-| /sporturi | Pagina principală a aplicației |
-| /sporturi/volei | Pagina dedicată sportului Volei |
-| /sporturi/volei/reguli | Pagina care prezintă regulile jocului |
-| /sporturi/volei/echipament | Pagina dedicată echipamentelor utilizate |
-# Capturi aplicatie
 
-## Pagina principala
+Rutele verificate local:
 
-![Pagina principala](doc/screenshots/home.png)
+- `http://127.0.0.1:5000/sporturi`
+- `http://127.0.0.1:5000/sporturi/volei`
+- `http://127.0.0.1:5000/sporturi/volei/reguli`
+- `http://127.0.0.1:5000/sporturi/volei/echipament`
 
-## Pagina Volei
+---
 
-![Pagina volei](doc/screenshots/volei.png)
+## 8. Capturi aplicație
 
-## Pagina Reguli
+### Pagina Sporturi
 
-![Pagina reguli](doc/screenshots/reguli.png)
+![Pagina Sporturi](doc/screenshots/home.png)
 
-## Pagina Echipament
+### Pagina Volei
 
-![Pagina echipament](doc/screenshots/echipament.png)
+![Pagina Volei](doc/screenshots/volei.png)
 
-# Testare automata
+### Pagina Reguli Volei
 
-Aplicatia a fost testata folosind pytest.
+![Pagina Reguli](doc/screenshots/reguli.png)
 
-Comanda utilizata:
+### Pagina Echipament Volei
 
-```bash
-PYTHONPATH=. pytest
+![Pagina Echipament](doc/screenshots/echipament.png)
+
+---
+
+## 9. Testare automată cu pytest
+
+Testele sunt în fișierul:
+
+```text
+app/tests/test_biblioteca_sporturi.py
 ```
-Rezultat:
 
-- 2 teste au trecut cu succes
-
-# Analiza statica cu pylint
-
-Exemplu de rulare:
+Comanda de rulare:
 
 ```bash
-pylint sporturi.py
+pytest
 ```
-Rezultat:
-- scor pylint: 10/10
-# Containerizare Docker
 
-Build imagine:
+Rezultatul obținut local:
 
-```bash
-sudo docker build -t sporturi-volei .
+```text
+4 passed
 ```
-Rulare container:
+
+Testele verifică faptul că funcțiile `reguli_volei()` și `echipament_volei()` returnează HTML și conțin informații relevante despre Volei.
+
+![Rezultat pytest](doc/pytest.png)
+
+---
+
+## 10. Verificare cu pylint
+
+Pentru analiza statică am folosit `pylint`.
+
+Comenzi:
 
 ```bash
-sudo docker run -p 5000:5000 sporturi-volei
+export PYLINTHOME=.pylint.d
+pylint --exit-zero app/lib/*.py
+pylint --exit-zero app/tests/*.py
+pylint --exit-zero sporturi.py
 ```
-# Integrare Jenkins
 
-Proiectul contine fisierul Jenkinsfile pentru automatizarea testelor.
+Rezultatul obținut local:
 
-# Utilizare GitHub
+```text
+Your code has been rated at 10.00/10
+```
 
-Branch utilizat:
+![Rezultat pylint](doc/pylint.png)
+
+---
+
+## 11. Containerizare Docker
+
+Aplicația este pregătită pentru rulare în container.
+
+Construirea imaginii:
 
 ```bash
+docker build -t sporturi:v01 .
+```
+
+Pornirea containerului:
+
+```bash
+docker run --name sporturi1 -p 5000:5000 sporturi:v01
+```
+
+Ruta aplicației din container:
+
+```text
+http://127.0.0.1:5000/sporturi
+```
+
+Oprirea containerului:
+
+```bash
+docker stop sporturi1
+docker rm sporturi1
+```
+
+Capturi pentru rularea Docker:
+
+![Imagine Docker](doc/dockerimages.png)
+
+![Consolă container](doc/dockerconsola.png)
+
+![Container Docker](doc/dockerps.png)
+
+![Pagina temă în container](doc/paginaTemaContainer.png)
+
+![Pagina element în container](doc/paginaElementContainer.png)
+
+![Pagina reguli în container](doc/paginaFunctie1Container.png)
+
+![Pagina echipament în container](doc/paginaFunctie2Container.png)
+
+---
+
+## 12. Pipeline Jenkins
+
+Pipeline-ul este definit în `Jenkinsfile` și este pregătit pentru rulare pe branch-ul:
+
+```text
 dev_bocai_alexandra
 ```
-# Review pentru Pull Request-uri
 
-Aceasta sectiune va fi completata dupa realizarea review-urilor.
+Etapele configurate sunt:
 
-# Stadiul proiectului
+| Stage | Rol |
+|---|---|
+| `Build` | Creează mediul virtual și instalează dependențele |
+| `pylint - calitate cod` | Rulează analiza statică |
+| `Unit Testing cu pytest` | Rulează testele automate |
+| `Deploy` | Construiește imaginea Docker și creează containerul |
 
-Functionalitatea pentru Volei este implementata si functionala.
+Capturi pentru rularea Jenkins:
 
-# Posibile imbunatatiri
-- adaugarea mai multor sporturi
-- utilizarea unei baze de date
-- design responsive
+![Pipeline Jenkins Blue Ocean](doc/jenkinsBlueOcean.png)
 
-# Resurse utilizate
-- Flask Documentation
-- Docker Documentation
-- Jenkins Documentation
+![Pipeline Jenkins clasic](doc/jenkinsSimplu.png)
 
+---
+
+## 13. Integrare GitHub
+
+Branch-ul de dezvoltare folosit:
+
+```text
+dev_bocai_alexandra
+```
+
+Branch-ul către care se va face Pull Request:
+
+```text
+main_bocai_alexandra
+```
+
+Fluxul de integrare:
+
+```text
+dev_bocai_alexandra -> main_bocai_alexandra
+```
+
+Status actual:
+
+```text
+Modificările sunt pregătite local și urmează commit, push și review.
+```
+
+---
+
+## 14. Review Pull Request-uri
+
+Această secțiune va fi completată după ce voi face review pentru Pull Request-ul unui coleg.
+
+Model de completare:
+
+```text
+PR #<id> - Review pentru funcționalitatea <elementului>.
+```
+
+---
+
+## 15. Ce mai este de făcut
+
+- Commit pentru modificările locale;
+- Push pe branch-ul `dev_bocai_alexandra`;
+- Rulare Docker și adăugarea capturilor aferente;
+- Rulare Jenkins și adăugarea capturilor din pipeline;
+- Crearea Pull Request-ului către `main_bocai_alexandra`;
+- Obținerea unui review de la un coleg;
+- Realizarea unui review pentru Pull Request-ul unui coleg.
