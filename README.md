@@ -179,7 +179,7 @@ Afiseaza informatii despre echipamentele folosite in echitatie:
 
 ## Ruta /
 
-Realizeaza redirect catre pagina principala.
+Realizeaza redirect catre pagina principala: /sporturi (nu afiseaza pagina proprie).
 
 ---
 
@@ -249,24 +249,30 @@ python3 sporturi.py
 
 # Rutele verificate in browser
 
-```text
+
 http://127.0.0.1:5000/sporturi
 
 ![Pagina Sporturi](doc/pagSporturi_Local.png)
+
+---
 
 http://127.0.0.1:5000/sporturi/echitatie
 
 ![Pagina Echitatie](doc/pagEchitatie_Local.png)
 
+---
+
 http://127.0.0.1:5000/sporturi/echitatie/discipline
 
 ![Pagina Discipline](doc/pagDiscipline_Local.png)
+
+---
 
 http://127.0.0.1:5000/sporturi/echitatie/echipamente
 
 ![Pagina Echipamente](doc/pagEchipamente_Local.png)
 
-```
+
 
 ---
 
@@ -355,19 +361,19 @@ docker rm sporturi1
 
 ### Imagine Docker
 
-![Docker Images](doc/dockerimages.png)
+![Docker Images](doc/docker_images.png)
 
 ---
 
 ### Container pornit
 
-![Docker Consola](doc/dockerconsola.png)
+![Docker Consola](doc/consola_docker.png)
 
 ---
 
 ### Docker PS
 
-![Docker PS](doc/dockerps.png)
+![Docker PS](doc/docker_ps.png)
 
 ---
 
@@ -375,25 +381,25 @@ docker rm sporturi1
 
 ### Pagina principala
 
-![Home](doc/home_container.png)
+![Home](doc/pagSporturi_Container.png)
 
 ---
 
 ### Pagina Echitatie
 
-![Echitatie](doc/echitatie_container.png)
+![Echitatie](doc/pagEchitatie_Container.png)
 
 ---
 
 ### Pagina Discipline
 
-![Discipline](doc/discipline_container.png)
+![Discipline](doc/pagDiscipline-Competitii_Container.png)
 
 ---
 
 ### Pagina Echipamente
 
-![Echipamente](doc/echipamente_container.png)
+![Echipamente](doc/pagEchipament_Container.png)
 
 ---
 
