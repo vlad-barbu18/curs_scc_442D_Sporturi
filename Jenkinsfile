@@ -1,4 +1,4 @@
-
+/* Jenkinsfile - pipeline declarativ adaptat pentru Minifotbal */
 pipeline {
     agent any
 
@@ -18,8 +18,9 @@ pipeline {
             steps {
                 sh '''
                     . ./activeaza_venv;
-                    pylint --exit-zero app/lib/*.py;
-                    pylint --exit-zero app/tests/*.py;
+                    export PYTHONPATH=.;
+                    pylint --exit-zero app/lib/biblioteca_sporturi.py;
+                    pylint --exit-zero app/tests/test_biblioteca_sporturi.py;
                     pylint --exit-zero sporturi.py;
                 '''
             }
@@ -30,6 +31,7 @@ pipeline {
                 echo 'Unit testing...'
                 sh '''
                     . ./activeaza_venv;
+                    export PYTHONPATH=.;
                     pytest;
                 '''
             }
