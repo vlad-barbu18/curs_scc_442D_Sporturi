@@ -1,124 +1,163 @@
 """
-Biblioteca cu informatii despre inot.
-Returneaza date Python (liste de dicționare).
-Formatarea HTML se face in rutele Flask din sporturi.py.
+Biblioteca cu cele doua functii pentru elementul ales: inot.
+
+Functiile returneaza HTML formatat cu informatii despre:
+- Concursuri internationale de inot
+- Inotatori profesionisti de top
 """
 
+CONCURSURI = [
+    {
+        "nume": "Jocurile Olimpice",
+        "imagine": "olympics.jpg",
+        "organizator": "Comitetul International Olimpic (CIO)",
+        "frecventa": "o data la 4 ani",
+        "descriere": (
+            "Cea mai importanta competitie sportiva internationala. "
+            "Inotul este prezent din 1896 (Atena). "
+            "Probele se desfasoara in bazin de 50m."
+        ),
+    },
+    {
+        "nume": "Campionatele Mondiale",
+        "imagine": "mondiale.jpg",
+        "organizator": "World Aquatics (fosta FINA)",
+        "frecventa": "o data la 2 ani",
+        "descriere": (
+            "Cea mai prestigioasa competitie anuala dupa Jocurile Olimpice. "
+            "Reuneste cei mai buni inotatori din toate continentele."
+        ),
+    },
+    {
+        "nume": "Campionatele Europene",
+        "imagine": "europene.jpg",
+        "organizator": "LEN (Ligue Europeenne de Natation)",
+        "frecventa": "o data la 2 ani",
+        "descriere": (
+            "Principala competitie continentala. Are forme atat in bazin de 50m, "
+            "cat si in bazin scurt (25m), reunind toate tarile europene."
+        ),
+    },
+    {
+        "nume": "FINA World Cup",
+        "imagine": "fina_cup.jpg",
+        "organizator": "World Aquatics",
+        "frecventa": "anual (mai multe etape)",
+        "descriere": (
+            "Circuit international cu mai multe etape pe an. "
+            "Inotatorii acumuleaza puncte si premii in bani."
+        ),
+    },
+    {
+        "nume": "Universiada",
+        "imagine": "universiade.jpg",
+        "organizator": "FISU",
+        "frecventa": "o data la 2 ani",
+        "descriere": (
+            "Competitia mondiala pentru studenti-sportivi. "
+            "Multi campioni olimpici au inceput sa se afirme aici."
+        ),
+    },
+]
 
-def get_concursuri_inot():
-    """
-    Returneaza o lista cu cele mai importante concursuri internationale de inot.
-    Fiecare concurs e un dictionar cu: nume, organizator, frecventa, descriere.
-    """
-    return [
-        {
-            "nume": "Jocurile Olimpice",
-            "organizator": "Comitetul International Olimpic (CIO)",
-            "frecventa": "o data la 4 ani",
-            "descriere": (
-                "Cea mai importanta competitie sportiva internationala. "
-                "Inotul este prezent din 1896 (Atena). Probele se desfasoara "
-                "in bazin de 50m."
-            ),
-        },
-        {
-            "nume": "Campionatele Mondiale",
-            "organizator": "World Aquatics (fosta FINA)",
-            "frecventa": "o data la 2 ani",
-            "descriere": (
-                "Cea mai prestigioasa competitie anuala dupa Jocurile Olimpice. "
-                "Reuneste cei mai buni inotatori din toate continentele."
-            ),
-        },
-        {
-            "nume": "Campionatele Europene",
-            "organizator": "LEN (Ligue Europeenne de Natation)",
-            "frecventa": "o data la 2 ani",
-            "descriere": (
-                "Principala competitie continentala europeana. Se desfasoara "
-                "atat in bazin lung (50m) cat si in bazin scurt (25m)."
-            ),
-        },
-        {
-            "nume": "FINA World Cup",
-            "organizator": "World Aquatics",
-            "frecventa": "anual",
-            "descriere": (
-                "Serie de competitii in bazin scurt (25m) organizate in mai "
-                "multe orase din lume pe parcursul unui sezon."
-            ),
-        },
-        {
-            "nume": "Universiada",
-            "organizator": "FISU (Federatia Internationala Sportiva Universitara)",
-            "frecventa": "o data la 2 ani",
-            "descriere": (
-                "Competitia mondiala studenteasca de varf. Inotul este una "
-                "dintre disciplinele principale."
-            ),
-        },
-    ]
+INOTATORI = [
+    {
+        "nume": "Michael Phelps",
+        "imagine": "phelps.jpg",
+        "tara": "Statele Unite",
+        "probe": "fluture, mix individual, liber",
+        "descriere": (
+            "Cel mai medaliat sportiv olimpic din istorie, cu 28 de medalii "
+            "(23 de aur). Considerat cel mai mare inotator al tuturor timpurilor."
+        ),
+    },
+    {
+        "nume": "Katie Ledecky",
+        "imagine": "ledecky.jpg",
+        "tara": "Statele Unite",
+        "probe": "fond - 400m, 800m, 1500m liber",
+        "descriere": (
+            "Una dintre cele mai mari inotatoare de fond din toate timpurile. "
+            "Detine recordurile mondiale la 800m si 1500m liber."
+        ),
+    },
+    {
+        "nume": "Adam Peaty",
+        "imagine": "peaty.jpg",
+        "tara": "Marea Britanie",
+        "probe": "bras - 50m, 100m",
+        "descriere": (
+            "Dublu campion olimpic la 100m bras. Primul inotator care a coborat "
+            "sub 57 de secunde la aceasta proba."
+        ),
+    },
+    {
+        "nume": "Sarah Sjostrom",
+        "imagine": "sjostrom.jpg",
+        "tara": "Suedia",
+        "probe": "fluture, liber - sprint",
+        "descriere": (
+            "Detinatoare a recordului mondial la 100m fluture. "
+            "Multipla campioana olimpica si mondiala."
+        ),
+    },
+    {
+        "nume": "Caeleb Dressel",
+        "imagine": "dressel.jpg",
+        "tara": "Statele Unite",
+        "probe": "sprint - liber, fluture",
+        "descriere": (
+            "Campion olimpic multiplu la sprint. Detinator al recordului mondial "
+            "la 100m fluture in bazin de 50m."
+        ),
+    },
+    {
+        "nume": "David Popovici",
+        "imagine": "popovici.jpg",
+        "tara": "Romania",
+        "probe": "liber - 100m, 200m",
+        "descriere": (
+            "Campion olimpic la 200m liber (Paris 2024). Detinator al recordului "
+            "mondial la 100m liber. Cea mai mare speranta a inotului romanesc."
+        ),
+    },
+]
 
 
-def get_inotatori_profesionisti():
-    """
-    Returneaza o lista cu inotatori profesionisti celebri.
-    Fiecare inotator e un dictionar cu: nume, tara, specialitate, realizare.
-    """
-    return [
-        {
-            "nume": "Michael Phelps",
-            "tara": "Statele Unite",
-            "specialitate": "fluture, mix individual, liber",
-            "realizare": (
-                "Cel mai medaliat sportiv olimpic din istorie, cu 28 de "
-                "medalii (23 de aur). Considerat cel mai mare inotator "
-                "al tuturor timpurilor."
-            ),
-        },
-        {
-            "nume": "Katie Ledecky",
-            "tara": "Statele Unite",
-            "specialitate": "fond - 400m, 800m, 1500m liber",
-            "realizare": (
-                "Dominatoare absoluta a probelor de fond feminin. Detine "
-                "recordurile mondiale la 800m si 1500m liber."
-            ),
-        },
-        {
-            "nume": "Caeleb Dressel",
-            "tara": "Statele Unite",
-            "specialitate": "sprint - 50m si 100m liber, fluture",
-            "realizare": (
-                "Multiplu campion olimpic si mondial pe distantele scurte. "
-                "Cunoscut pentru startul exploziv si finalul puternic."
-            ),
-        },
-        {
-            "nume": "David Popovici",
-            "tara": "Romania",
-            "specialitate": "100m si 200m liber",
-            "realizare": (
-                "Campion olimpic la 200m liber la Paris 2024. Fost detinator "
-                "al recordului mondial la 100m liber. Mandria inotului romanesc."
-            ),
-        },
-        {
-            "nume": "Sarah Sjostrom",
-            "tara": "Suedia",
-            "specialitate": "fluture si liber - sprint",
-            "realizare": (
-                "Una dintre cele mai bune sprintere din istorie. Detine "
-                "recordul mondial la 100m fluture."
-            ),
-        },
-        {
-            "nume": "Adam Peaty",
-            "tara": "Marea Britanie",
-            "specialitate": "bras - 50m si 100m",
-            "realizare": (
-                "Specialist absolut in bras. Campion olimpic si detinator "
-                "al recordului mondial la 100m bras."
-            ),
-        },
-    ]
+def functie_1_concursuri_inot():
+    """Functia 1: returneaza HTML cu lista concursurilor internationale de inot."""
+    html = '<h2>Concursuri internationale</h2>'
+    for concurs in CONCURSURI:
+        html += '<div class="card">'
+        html += (
+            f'<img src="/static/images/{concurs["imagine"]}" '
+            f'alt="{concurs["nume"]}" class="card-img">'
+        )
+        html += '<div class="card-body">'
+        html += f'<h3>{concurs["nume"]}</h3>'
+        html += (
+            f'<p class="meta">{concurs["organizator"]} '
+            f'- {concurs["frecventa"]}</p>'
+        )
+        html += f'<p>{concurs["descriere"]}</p>'
+        html += '</div></div>'
+    return html
+
+
+def functie_2_inotatori_inot():
+    """Functia 2: returneaza HTML cu lista inotatorilor profesionisti."""
+    html = '<h2>Inotatori profesionisti</h2>'
+    for inotator in INOTATORI:
+        html += '<div class="card">'
+        html += (
+            f'<img src="/static/images/{inotator["imagine"]}" '
+            f'alt="{inotator["nume"]}" class="card-img">'
+        )
+        html += '<div class="card-body">'
+        html += f'<h3>{inotator["nume"]}</h3>'
+        html += (
+            f'<p class="meta">{inotator["tara"]} - {inotator["probe"]}</p>'
+        )
+        html += f'<p>{inotator["descriere"]}</p>'
+        html += '</div></div>'
+    return html
