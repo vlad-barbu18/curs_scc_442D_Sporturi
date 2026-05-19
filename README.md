@@ -2,6 +2,26 @@
 
 # Funcționalitate Volei - Bocai Alexandra
 
+## Cuprins
+
+1. [Prezentarea proiectului](#1-prezentarea-proiectului)
+2. [Funcționalități realizate](#2-funcționalități-realizate)
+3. [Structura implementării](#3-structura-implementării)
+4. [Fișiere adăugate sau modificate](#4-fișiere-adăugate-sau-modificate)
+5. [Rute disponibile](#5-rute-disponibile)
+6. [Stadiul proiectului](#6-stadiul-proiectului)
+7. [Rulare locală](#7-rulare-locală)
+8. [Capturi aplicație](#8-capturi-aplicație)
+9. [Testare automată cu pytest](#9-testare-automată-cu-pytest)
+10. [Verificare cu pylint](#10-verificare-cu-pylint)
+11. [Containerizare Docker](#11-containerizare-docker)
+12. [Pipeline Jenkins](#12-pipeline-jenkins)
+13. [Integrare GitHub](#13-integrare-github)
+14. [Review Pull Request-uri](#14-review-pull-request-uri)
+15. [Ce mai este de făcut](#15-ce-mai-este-de-făcut)
+
+---
+
 ## 1. Prezentarea proiectului
 
 Proiectul face parte din disciplina **Servicii Cloud și Containerizare**, grupa **442D**. Tema generală a proiectului este **Sporturi**, iar elementul implementat de mine este **Volei**.
