@@ -5,6 +5,11 @@ Element ales: scrima.
 
 from flask import Flask, redirect
 
+from app.lib.biblioteca_sporturi import (
+    functie_1_scrima,
+    functie_2_scrima,
+)
+
 app = Flask(__name__)
 
 
@@ -39,7 +44,10 @@ def sport():
     return pagina("Scrima",
         """<h1>Scrima</h1>
         <p>Scrima este un sport de luptă practicat cu arme albe convenționale.</p>
-        <a href="/sporturi">Inapoi</a>""")
+        
+	<a href="/sporturi/scrima/functie_1_scrima">Informatia 1</a>
+	<a href="/sporturi/scrima/functie_2_scrima">Informatia 2</a>
+	<a href="/sporturi">Inapoi la Sporturi</a>""")
 
 
 @app.route("/")
@@ -47,6 +55,23 @@ def index():
     """Redirect spre pagina temei."""
     return redirect("/sporturi")
 
+
+@app.route("/sporturi/scrima/functie_1_scrima")
+def ruta_functie_1_scrima():
+    """Ruta 3: afiseaza informatia 1."""
+    continut = "<h1>Informatii generale despre scrima</h1>"
+    continut += functie_1_scrima()
+    continut += '<a href="/sporturi/scrima">Inapoi</a>'
+    return pagina("Informatia 1", continut)
+
+
+@app.route("/sporturi/scrima/functie_2_scrima")
+def ruta_functie_2_scrima():
+    """Ruta 4: afiseaza informatia 2."""
+    continut = "<h1>Tipuri de arme in scrima</h1>"
+    continut += functie_2_scrima()
+    continut += '<a href="/sporturi/scrima">Inapoi</a>'
+    return pagina("Informatia 2", continut)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5012)
