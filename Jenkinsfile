@@ -1,48 +1,48 @@
+/* Jenkinsfile - pipeline declarativ pentru proiectul SCC (tema Sporturi, element Inot) */
 pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                echo 'Codul a fost deja clonat de Jenkins.'
-                sh 'ls -la'
+                echo 'Building...'
+                sh '''
+                    pwd;
+                    ls -l;
+                    . ./activeaza_venv_jenkins
+                '''
             }
         }
 
-        stage('Setup mediu virtual') {
+        stage('pylint - calitate cod') {
             steps {
-                sh 'python3 -m venv .venv'
-                sh '. .venv/bin/activate && pip install --upgrade pip'
-                sh '. .venv/bin/activate && pip install -r requirements.txt'
+                sh '''
+                    . ./activeaza_venv;
+                    pylint --exit-zero app/lib/*.py;
+                    pylint --exit-zero app/tests/*.py;
+                    pylint --exit-zero sporturi.py;
+                '''
             }
         }
 
-        stage('Verificare statica (pylint)') {
+        stage('Unit Testing cu pytest') {
             steps {
-                sh '. .venv/bin/activate && PYTHONPATH=. pytest app/test/ -v'
+                echo 'Unit testing...'
+                sh '''
+                    . ./activeaza_venv;
+                    pytest;
+                '''
             }
         }
 
-        stage('Teste unitare (pytest)') {
+        stage('Deploy') {
             steps {
-                sh '. .venv/bin/activate && PYTHONPATH=. pytest app/test/ -v'
+                echo "Build ID: ${BUILD_NUMBER}"
+                sh '''
+                    docker build -t sporturi:v${BUILD_NUMBER} .
+                    docker create --name sporturi${BUILD_NUMBER} -p 8021:5012 sporturi:v${BUILD_NUMBER}
+                '''
             }
-        }
-
-        stage('Build imagine Docker') {
-            steps {
-                sh 'docker build -t inot:latest .'
-                sh 'docker images | grep inot'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline finalizat cu succes!'
-        }
-        failure {
-            echo 'Pipeline-ul a esuat. Verifica log-urile.'
         }
     }
 }
