@@ -7,6 +7,7 @@ from app.lib.biblioteca_sporturi import (
 
 app = Flask(__name__)
 
+#comentariu 
 
 def pagina(titlu: str, continut: str) -> str:
     return f"""
