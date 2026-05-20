@@ -2,11 +2,15 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY app app
+COPY static static
+COPY sporturi.py sporturi.py
+COPY quickrequirements.txt quickrequirements.txt
+COPY dockerstart.sh dockerstart.sh
 
-COPY . .
+RUN pip install -r quickrequirements.txt
 
-EXPOSE 5000
+EXPOSE 5011
 
-CMD ["python", "sporturi.py"]
+ENTRYPOINT ["./dockerstart.sh"]
+
