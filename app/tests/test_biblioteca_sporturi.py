@@ -1,33 +1,21 @@
-"""Teste pentru cele 2 functii din app.lib.biblioteca_sporturi."""
-
-import logging
+"""Teste pentru continutul HTML din app.lib.biblioteca_sporturi."""
 
 from app.lib import biblioteca_sporturi as bs
 
-logger = logging.getLogger(__name__)
+
+def test_genereaza_regulament_sah_returneaza_html():
+    """Verifica sectiunea de regulament."""
+    rezultat = bs.genereaza_regulament_sah()
+
+    assert '<section class="content-grid">' in rezultat
+    assert "Obiectiv" in rezultat
+    assert "Rocada" in rezultat
 
 
-def test_functie_1_returneaza_html():
-    """Verifica ca functia 1 returneaza HTML non-gol."""
-    rezultat = bs.functie_1_sport()
-    assert len(rezultat) > 0
-    assert "<" in rezultat
+def test_genereaza_competitii_sah_returneaza_html():
+    """Verifica sectiunea de competitii."""
+    rezultat = bs.genereaza_competitii_sah()
 
-
-def test_functie_1_contine_marker():
-    """Verifica prezenta unui marker specific in HTML."""
-    rezultat = bs.functie_1_sport()
-    assert "valoare1" in rezultat
-
-
-def test_functie_2_returneaza_html():
-    """Verifica ca functia 2 returneaza HTML non-gol."""
-    rezultat = bs.functie_2_sport()
-    assert len(rezultat) > 0
-    assert "<ul>" in rezultat
-
-
-def test_functie_2_contine_marker():
-    """Verifica prezenta unui marker specific."""
-    rezultat = bs.functie_2_sport()
-    assert "titlu1" in rezultat
+    assert '<section class="competition-list">' in rezultat
+    assert "Campionatul Mondial" in rezultat
+    assert "Olimpiada de Sah" in rezultat
