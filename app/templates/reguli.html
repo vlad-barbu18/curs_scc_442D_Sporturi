@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reguli Volei</title>
+</head>
+<body style="font-family: Arial; background-color:#eef2f7; padding:40px;">
+
+<div style="background:white; padding:30px; border-radius:15px; width:800px; margin:auto;">
+
+    <h1 style="color:#2563eb;">📋 Reguli Volei</h1>
+
+    <img src="{{ url_for('static', filename='images/reguli.jpg') }}"
+         style="width:100%; border-radius:10px;">
+
+    <p style="margin-top:20px; font-size:18px;">
+        Pagina foloseste functia <b>reguli_volei()</b> din biblioteca proiectului
+        pentru a afisa informatiile cerute.
+    </p>
+
+    {{ reguli_html|safe }}
+
+    <a href="/sporturi/volei">
+        <button>Inapoi la Volei</button>
+    </a>
+
+</div>
+
+</body>
+</html>
