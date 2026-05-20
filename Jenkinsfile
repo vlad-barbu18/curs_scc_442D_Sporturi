@@ -19,6 +19,7 @@ pipeline {
                 sh '''
                     . ./activeaza_venv;
                     pylint --exit-zero app/lib/*.py;
+                    pylint --exit-zero app/routes/*.py;
                     pylint --exit-zero app/tests/*.py;
                     pylint --exit-zero sporturi.py;
                 '''
