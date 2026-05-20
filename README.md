@@ -126,10 +126,6 @@ pylint --exit-zero sporturi.py
 
 Flag-ul `--exit-zero` permite afișarea avertismentelor fără oprirea pipeline-ului Jenkins.
 
-Captură rezultate pylint:
-
-![Rezultate pylint](doc/pylint.png)
-
 ## Testare cu Docker
 
 Construirea imaginii Docker:
