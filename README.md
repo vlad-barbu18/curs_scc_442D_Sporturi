@@ -1,7 +1,6 @@
-# curs_scc_442D_Sporturi
 # Proiect SCC - Sporturi
 
-## Dezvoltator
+## Student
 - **Nume:** Voica Alina-Maria
 - **Grupa:** 442D
 - **Element alocat:** Scrima
