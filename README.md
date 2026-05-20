@@ -317,6 +317,8 @@ Testarea automata cu `pytest` a confirmat functionarea corecta a functiilor impl
 
 Prin Docker, aplicatia poate fi rulata intr-un mediu izolat si portabil, independent de configuratia locala a sistemului. Jenkins permite automatizarea procesului de build, testare si creare a containerului, ceea ce reproduce un flux de lucru apropiat de cel folosit in proiectele software reale.
 
+Proiectul a fost actualizat final pentru etapa de review.
+
 ---
 
 ## Bibliografie
