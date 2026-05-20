@@ -129,6 +129,10 @@ Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
 3. **Unit Tests** – rulare `pytest` pe testele automate.
 4. **Deploy** – build Docker (`sporturi:v${BUILD_NUMBER}`) și creare container (`sporturi${BUILD_NUMBER}`).
 
+Pipeline-ul rulat cu succes în Jenkins (vizualizare Blue Ocean):
+
+![Pipeline Jenkins reușit](doc/jenkins_pipeline.png)
+
 ## Concluzii
 
 - **Dezvoltare modulară:** aplicație Flask cu separarea datelor și logicii într-o bibliotecă dedicată (`app/lib/biblioteca_inot.py`).
