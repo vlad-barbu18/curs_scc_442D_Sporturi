@@ -1,95 +1,81 @@
-# curs_scc_442D_Sporturi — Biliard
+# Proiect SCC - Sporturi
 
----
-
-# Cuprins
-
-1. [Student](#student)
-2. [Prezentare proiect](#prezentare-proiect)
-3. [Functionalitate implementata](#functionalitate-implementata)
-4. [Structura aplicatiei](#structura-aplicatiei)
-5. [Rulare locala](#rulare-locala)
-6. [Pagini WEB disponibile](#pagini-web-disponibile)
-7. [Capturi aplicatie](#capturi-aplicatie)
-8. [Testare automata](#testare-automata)
-9. [Containerizare Docker](#containerizare-docker)
-10. [Integrare Jenkins](#integrare-jenkins)
-11. [Comenzi Git utilizate](#comenzi-git-utilizate)
-12. [Pull Request](#pull-request)
-13. [Concluzii](#concluzii)
-14. [Bibliografie](#bibliografie)
-
----
-
-# Student
+## Dezvoltator
 
 - **Nume:** Andriu Cosmin
 - **Grupa:** 442D
-- **Disciplina:** SCC
-- **Tema proiectului:** Sporturi
-- **Element ales:** Biliard
-- **Branch dezvoltare:** `dev_andriu_cosmin`
+- **Element alocat:** Biliard
+- **Branch de dezvoltare:** `dev_andriu_cosmin`
 - **Branch personal main:** `main_andriu_cosmin`
 
 ---
 
-# Prezentare proiect
+## Cuprins
 
-Acest proiect a fost realizat pentru disciplina SCC și are ca scop dezvoltarea unei aplicații WEB simple folosind framework-ul Flask. Tema generală a proiectului este **Sporturi**, iar elementul ales pentru implementare este **biliardul**.
-
-Aplicația prezintă informații despre biliard, un sport de precizie practicat pe o masă specială, cu bile și tacuri. În cadrul proiectului au fost implementate pagini WEB, funcții Python, teste automate, containerizare Docker și un pipeline Jenkins.
-
-Scopul proiectului este parcurgerea unui flux complet de dezvoltare software, care include:
-
-- folosirea Git și GitHub pentru versionare;
-- lucrul pe branch separat;
-- dezvoltarea unei aplicații Flask;
-- organizarea codului în module;
-- testare automată cu `pytest`;
-- verificarea codului cu `pylint`;
-- rularea aplicației într-un container Docker;
-- integrarea unui pipeline Jenkins.
-
-Proiectul a fost realizat pe branch separat pentru a evita modificarea directă a branch-ului principal al repository-ului comun.
-
----
-
-# Functionalitate implementata
-
-Aplicația conține patru rute principale, conform cerinței proiectului:
-
-1. Pagina principală a temei **Sporturi**;
-2. Pagina dedicată elementului ales **Biliard**;
-3. Pagina pentru prima funcție din bibliotecă;
-4. Pagina pentru a doua funcție din bibliotecă.
-
-Funcțiile implementate în biblioteca proiectului sunt:
-
-## `functie_1_biliard()`
-
-Această funcție returnează informații generale despre biliard, precum:
-
-- definiția sportului;
-- masa de joc;
-- scopul jocului.
-
-Funcția generează conținut HTML care este afișat într-o pagină separată a aplicației.
-
-## `functie_2_biliard()`
-
-Această funcție returnează reguli de bază ale biliardului, precum:
-
-- lovirea bilei albe;
-- respectarea rândului;
-- situațiile de fault.
-
-Funcția generează o listă HTML cu regulile de bază, care este afișată într-o rută dedicată.
-
-Aplicația folosește HTML generat în Python și stilizare simplă CSS pentru afișarea paginilor în browser.
+- [Descriere generală](#descriere-generală)
+- [Obiectivul proiectului](#obiectivul-proiectului)
+- [Funcționalitate implementată](#funcționalitate-implementată)
+- [Structura proiectului](#structura-proiectului)
+- [Rute implementate](#rute-implementate)
+- [Biblioteca implementată](#biblioteca-implementată)
+- [Rulare locală](#rulare-locală)
+- [Testare manuală în browser](#testare-manuală-în-browser)
+- [Testare automată cu pytest](#testare-automată-cu-pytest)
+- [Validare cod cu pylint](#validare-cod-cu-pylint)
+- [Testare cu Docker](#testare-cu-docker)
+- [DevOps CI - Jenkins](#devops-ci---jenkins)
+- [Flux Git și Pull Request](#flux-git-și-pull-request)
+- [Stadiu dezvoltare](#stadiu-dezvoltare)
+- [Concluzii](#concluzii)
+- [Bibliografie](#bibliografie)
 
 ---
 
-# Structura aplicatiei
+## Descriere generală
+
+Acest proiect a fost realizat în cadrul disciplinei SCC și are ca scop dezvoltarea unei aplicații web simple folosind framework-ul Flask. Proiectul urmărește parcurgerea unui flux complet de dezvoltare software, pornind de la implementarea codului sursă, organizarea funcționalităților în fișiere separate, testarea automată, analiza statică a codului, containerizarea aplicației și automatizarea procesului de build și testare cu Jenkins.
+
+Tema generală a proiectului este **Sporturi**, iar elementul implementat individual este **Biliard**. Aplicația prezintă informații despre biliard printr-o interfață web simplă, accesibilă din browser. Pentru o organizare mai bună, informațiile afișate sunt generate prin funcții definite într-o bibliotecă Python separată.
+
+Proiectul utilizează următoarele tehnologii:
+
+- **Python** pentru implementarea aplicației;
+- **Flask** pentru dezvoltarea aplicației web;
+- **Git și GitHub** pentru versionare;
+- **pytest** pentru testare automată;
+- **pylint** pentru analiza calității codului;
+- **Docker** pentru containerizarea aplicației;
+- **Jenkins** pentru automatizarea pașilor de build, testare și deploy.
+
+---
+
+## Obiectivul proiectului
+
+Obiectivul principal al proiectului este realizarea unei aplicații web funcționale, organizate modular, care să poată fi rulată local, testată automat, verificată din punct de vedere al calității codului și executată într-un container Docker.
+
+În plus, proiectul urmărește integrarea unui flux DevOps simplu prin utilizarea Jenkins. Prin intermediul pipeline-ului Jenkins, procesul de build, rularea testelor și etapa de deploy sunt automatizate, reducând riscul de erori manuale și oferind o metodă clară de validare a proiectului.
+
+---
+
+## Funcționalitate implementată
+
+În cadrul proiectului au fost implementate următoarele componente:
+
+- aplicație Flask pentru tema **Sporturi**;
+- pagină principală pentru tema generală;
+- pagină dedicată elementului **Biliard**;
+- două funcții publice într-o bibliotecă Python separată;
+- două rute suplimentare care folosesc funcțiile din bibliotecă;
+- teste automate pentru funcțiile implementate;
+- fișier `pytest.ini` pentru configurarea testelor;
+- fișier `Dockerfile` pentru construirea imaginii Docker;
+- fișier `dockerstart.sh` pentru pornirea aplicației în container;
+- fișier `Jenkinsfile` pentru pipeline-ul Jenkins;
+- documentație în README cu pașii de rulare și capturile relevante.
+
+---
+
+## Structura proiectului
 
 Structura principală a proiectului este următoarea:
 
@@ -98,6 +84,7 @@ curs_scc_442D_Sporturi/
 │
 ├── app/
 │   ├── __init__.py
+│   │
 │   ├── lib/
 │   │   ├── __init__.py
 │   │   └── biblioteca_sporturi.py
@@ -107,9 +94,15 @@ curs_scc_442D_Sporturi/
 │       └── test_biblioteca_sporturi.py
 │
 ├── doc/
+│   ├── doc.jenkinsPipeline.png
+│   ├── jenkinsPipeline.png
 │   ├── dockerimages.png
 │   ├── dockerconsola.png
 │   ├── dockerps.png
+│   ├── paginaTemaLocal.png
+│   ├── paginaElementLocal.png
+│   ├── paginaFunctie1Local.png
+│   ├── paginaFunctie2Local.png
 │   ├── paginaTemaContainer.png
 │   ├── paginaElementContainer.png
 │   ├── paginaFunctie1Container.png
@@ -120,101 +113,67 @@ curs_scc_442D_Sporturi/
 ├── activeaza_venv
 ├── activeaza_venv_jenkins
 ├── ruleaza_aplicatia
-├── pytest.ini
 ├── Dockerfile
 ├── dockerstart.sh
 ├── Jenkinsfile
-├── README.md
-└── .gitignore
+├── pytest.ini
+├── .gitignore
+└── README.md
 ```
 
-## Rolul fisierelor principale
-
-### `sporturi.py`
-
-Fișierul principal al aplicației. Acesta conține:
-
-- inițializarea aplicației Flask;
-- funcția `pagina()` pentru generarea paginilor HTML;
-- ruta `/sporturi`;
-- ruta `/sporturi/biliard`;
-- ruta `/sporturi/biliard/functie_1_biliard`;
-- ruta `/sporturi/biliard/functie_2_biliard`;
-- redirectarea de pe `/` către `/sporturi`.
-
-### `app/lib/biblioteca_sporturi.py`
-
-Acest fișier conține biblioteca proiectului, unde sunt definite cele două funcții cerute:
-
-- `functie_1_biliard()`;
-- `functie_2_biliard()`.
-
-Separarea acestor funcții într-un modul dedicat ajută la organizarea codului și la testarea mai ușoară a funcționalităților.
-
-### `app/tests/test_biblioteca_sporturi.py`
-
-Acest fișier conține testele automate realizate cu `pytest`. Testele verifică dacă funcțiile din bibliotecă returnează conținut HTML valid și dacă includ informațiile relevante despre biliard.
-
-### `quickrequirements.txt`
-
-Fișierul conține bibliotecile necesare pentru proiect:
-
-```text
-flask
-pytest
-pylint
-gunicorn
-```
-
-### `activeaza_venv`
-
-Script folosit pentru activarea mediului virtual local. Dacă mediul virtual nu există, scriptul apelează `activeaza_venv_jenkins`.
-
-### `activeaza_venv_jenkins`
-
-Script folosit pentru crearea mediului virtual și instalarea dependențelor. Este utilizat și în pipeline-ul Jenkins.
-
-### `ruleaza_aplicatia`
-
-Script folosit pentru pornirea aplicației Flask local, pe portul `5012`.
-
-### `Dockerfile`
-
-Fișierul definește imaginea Docker folosită pentru rularea aplicației într-un container.
-
-### `dockerstart.sh`
-
-Script folosit pentru pornirea aplicației Flask în interiorul containerului Docker.
-
-### `Jenkinsfile`
-
-Fișierul definește pipeline-ul Jenkins, cu etape de build, verificare cod, testare și deploy.
+Folderul `app/lib/` conține biblioteca în care sunt implementate funcțiile cerute. Folderul `app/tests/` conține testele automate, iar folderul `doc/` conține capturile de ecran folosite în README.
 
 ---
 
-# Rulare locala
+## Rute implementate
 
-Pentru rularea aplicației local, se clonează repository-ul și se intră pe branch-ul de dezvoltare personal:
+Aplicația Flask are patru rute principale:
+
+| Rută | Descriere |
+|---|---|
+| `/sporturi` | Pagina principală a temei Sporturi |
+| `/sporturi/biliard` | Pagina elementului ales: Biliard |
+| `/sporturi/biliard/functie_1_biliard` | Pagina care afișează informațiile returnate de prima funcție |
+| `/sporturi/biliard/functie_2_biliard` | Pagina care afișează informațiile returnate de a doua funcție |
+
+Prima rută prezintă tema generală a proiectului, a doua rută prezintă elementul ales, iar ultimele două rute afișează informațiile generate de funcțiile definite în biblioteca proiectului.
+
+---
+
+## Biblioteca implementată
+
+Fișierul bibliotecă este:
+
+```text
+app/lib/biblioteca_sporturi.py
+```
+
+Acesta conține cele două funcții publice cerute în proiect:
+
+```text
+functie_1_biliard()
+functie_2_biliard()
+```
+
+Funcția `functie_1_biliard()` returnează informații generale despre biliard în format HTML. Funcția `functie_2_biliard()` returnează reguli, caracteristici sau informații importante despre biliard, tot în format HTML.
+
+Separarea acestor funcții într-un fișier dedicat ajută la organizarea codului și permite testarea lor independentă cu `pytest`.
+
+---
+
+## Rulare locală
+
+Pentru rularea locală a aplicației se folosesc următoarele comenzi:
 
 ```bash
 git clone https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
 cd curs_scc_442D_Sporturi
 git checkout dev_andriu_cosmin
-```
-
-Se activează mediul virtual:
-
-```bash
 source ./activeaza_venv
-```
-
-Se pornește aplicația Flask:
-
-```bash
 source ./ruleaza_aplicatia
 ```
 
-Aplicația poate fi accesată în browser la adresa:
+Aplicația rulează local la adresa:
 
 ```text
 http://127.0.0.1:5012/sporturi
@@ -226,196 +185,86 @@ Pentru oprirea aplicației se folosește combinația:
 Ctrl + C
 ```
 
+Scriptul `activeaza_venv` activează mediul virtual Python, iar scriptul `ruleaza_aplicatia` setează aplicația Flask și pornește serverul local pe portul `5012`.
+
 ---
 
-# Pagini WEB disponibile
+## Testare manuală în browser
 
-Aplicația conține următoarele pagini WEB:
+După pornirea aplicației, au fost testate manual cele patru rute implementate.
 
-## 1. Pagina principală a temei
+Pagina principală a temei:
 
 ```text
 http://127.0.0.1:5012/sporturi
 ```
 
-Această pagină prezintă tema generală a proiectului, adică **Sporturi**, și oferă acces către pagina elementului ales, **Biliard**.
-
-## 2. Pagina elementului ales
+Pagina elementului Biliard:
 
 ```text
 http://127.0.0.1:5012/sporturi/biliard
 ```
 
-Această pagină conține o scurtă prezentare a sportului ales și legături către cele două pagini generate pe baza funcțiilor din bibliotecă.
-
-## 3. Pagina funcției 1
+Pagina pentru prima funcție:
 
 ```text
 http://127.0.0.1:5012/sporturi/biliard/functie_1_biliard
 ```
 
-Această pagină afișează informații generale despre biliard, generate de funcția `functie_1_biliard()`.
-
-## 4. Pagina funcției 2
+Pagina pentru a doua funcție:
 
 ```text
 http://127.0.0.1:5012/sporturi/biliard/functie_2_biliard
 ```
 
-Această pagină afișează reguli de bază despre biliard, generate de funcția `functie_2_biliard()`.
+Capturi de ecran pentru rularea locală:
+
+![Pagina tema - local](doc/paginaTemaLocal.png)
+
+![Pagina element - local](doc/paginaElementLocal.png)
+
+![Pagina functie 1 - local](doc/paginaFunctie1Local.png)
+
+![Pagina functie 2 - local](doc/paginaFunctie2Local.png)
 
 ---
 
-# Capturi aplicatie
+## Testare automată cu pytest
 
-În această secțiune sunt prezentate capturile aplicației rulate în container Docker.
+Pentru verificarea automată a funcțiilor implementate în bibliotecă a fost folosit framework-ul `pytest`.
 
-## Pagina principala - Sporturi
-
-![Pagina tema container](doc/paginaTemaContainer.png)
-
-## Pagina elementului ales - Biliard
-
-![Pagina element container](doc/paginaElementContainer.png)
-
-## Pagina functie 1 - Informatii generale
-
-![Pagina functie 1 container](doc/paginaFunctie1Container.png)
-
-## Pagina functie 2 - Reguli de baza
-
-![Pagina functie 2 container](doc/paginaFunctie2Container.png)
-
----
-
-# Testare automata
-
-Pentru testarea automată a fost folosit framework-ul `pytest`.
-
-Fișierul de testare este:
+Fișierul de teste este:
 
 ```text
 app/tests/test_biblioteca_sporturi.py
 ```
 
-Testele implementate verifică următoarele aspecte:
+Testele verifică dacă funcțiile returnează conținut HTML, dacă rezultatul nu este gol și dacă în răspuns apar elemente specifice implementării.
 
-- funcția `functie_1_biliard()` returnează conținut HTML;
-- funcția `functie_1_biliard()` conține informații despre definiția biliardului;
-- funcția `functie_2_biliard()` returnează o listă HTML;
-- funcția `functie_2_biliard()` conține reguli de bază despre biliard.
-
-Rularea testelor se face cu:
+Comanda de rulare a testelor este:
 
 ```bash
 source ./activeaza_venv
 pytest
 ```
 
-Rezultatul așteptat este ca toate testele să treacă fără erori.
-
-Exemplu rezultat așteptat:
+Rezultatul așteptat este ca toate testele să treacă, de forma:
 
 ```text
-4 passed
+N passed
 ```
 
-Prin aceste teste se verifică faptul că biblioteca proiectului funcționează corect și returnează informațiile necesare pentru paginile aplicației.
+Captură de ecran cu rezultatul testelor:
+
+![Rezultate pytest](doc/pytest.png)
 
 ---
 
-# Containerizare Docker
+## Validare cod cu pylint
 
-Pentru rularea aplicației într-un mediu izolat a fost folosit Docker.
+Pentru analiza statică a codului a fost folosit `pylint`. Acesta verifică stilul codului, posibile probleme de scriere și respectarea unor convenții de programare.
 
-Containerizarea permite rularea aplicației într-un mediu controlat, fără a depinde direct de configurația sistemului local.
-
-## Construirea imaginii Docker
-
-Imaginea Docker se construiește cu următoarea comandă:
-
-```bash
-docker build -t sporturi:v01 .
-```
-
-## Verificarea imaginii Docker
-
-După build, imaginea poate fi verificată cu:
-
-```bash
-docker images | grep sporturi
-```
-
-Captură imagine Docker:
-
-![Imagine Docker](doc/dockerimages.png)
-
-## Pornirea containerului
-
-Containerul se pornește cu următoarea comandă:
-
-```bash
-docker run --name sporturi1 -p 8021:5012 sporturi:v01
-```
-
-Prin această comandă, portul `5012` din container este mapat pe portul `8021` al sistemului local.
-
-Aplicația rulează în container și poate fi accesată în browser la:
-
-```text
-http://127.0.0.1:8021/sporturi
-```
-
-## Consola containerului
-
-În consola containerului se poate observa pornirea aplicației Flask.
-
-![Consola Docker](doc/dockerconsola.png)
-
-## Verificarea containerului activ
-
-Containerul activ poate fi verificat cu:
-
-```bash
-docker ps
-```
-
-Captură container activ:
-
-![Docker ps](doc/dockerps.png)
-
-## Oprirea containerului
-
-Pentru oprirea și ștergerea containerului se folosesc comenzile:
-
-```bash
-docker stop sporturi1
-docker rm sporturi1
-```
-
----
-
-# Integrare Jenkins
-
-Pentru automatizarea procesului de build, testare și deploy a fost creat fișierul `Jenkinsfile`.
-
-Pipeline-ul Jenkins conține următoarele etape:
-
-## 1. Build
-
-În această etapă se afișează folderul curent, se listează fișierele și se creează mediul virtual pentru Jenkins folosind scriptul:
-
-```bash
-./activeaza_venv_jenkins
-```
-
-Scopul acestei etape este pregătirea mediului de lucru și instalarea dependențelor necesare aplicației.
-
-## 2. Pylint - calitate cod
-
-În această etapă se verifică fișierele Python folosind `pylint`.
-
-Comenzile folosite în pipeline sunt:
+Comenzile folosite pentru validare sunt:
 
 ```bash
 pylint --exit-zero app/lib/*.py
@@ -423,75 +272,163 @@ pylint --exit-zero app/tests/*.py
 pylint --exit-zero sporturi.py
 ```
 
-Opțiunea `--exit-zero` permite afișarea avertismentelor fără oprirea pipeline-ului. Astfel, pipeline-ul continuă chiar dacă apar avertismente de stil.
+Opțiunea `--exit-zero` permite afișarea avertismentelor fără oprirea pipeline-ului Jenkins. Astfel, rezultatele `pylint` pot fi analizate fără ca execuția automată să fie întreruptă din cauza unor warning-uri minore.
 
-## 3. Unit Testing cu pytest
+Captură de ecran cu rezultatul `pylint`:
 
-În această etapă sunt rulate testele automate:
+![Rezultate pylint](doc/pylint.png)
 
-```bash
-pytest
+---
+
+## Testare cu Docker
+
+Pentru containerizarea aplicației a fost creat fișierul:
+
+```text
+Dockerfile
 ```
 
-Această etapă verifică funcționalitatea celor două funcții din biblioteca proiectului.
+Acesta definește imaginea Docker a aplicației, copiază fișierele necesare în container, creează mediul virtual și instalează dependențele din `quickrequirements.txt`.
 
-## 4. Deploy
+Pornirea aplicației în container se face prin scriptul:
 
-În această etapă Jenkins construiește imaginea Docker și creează containerul:
+```text
+dockerstart.sh
+```
+
+Comenzile folosite pentru construirea și rularea containerului sunt:
 
 ```bash
+docker build -t sporturi:v01 .
+docker run --name sporturi1 -p 8021:5012 sporturi:v01
+```
+
+Aplicația din container este accesibilă la adresa:
+
+```text
+http://127.0.0.1:8021/sporturi
+```
+
+Pentru verificarea imaginilor Docker:
+
+```bash
+docker images | grep sporturi
+```
+
+Pentru verificarea containerelor active:
+
+```bash
+docker ps
+```
+
+Capturi de ecran pentru Docker:
+
+![Imagine Docker](doc/dockerimages.png)
+
+![Consola container Docker](doc/dockerconsola.png)
+
+![Container Docker activ](doc/dockerps.png)
+
+Capturi de ecran cu aplicația rulată în container:
+
+![Pagina tema - container](doc/paginaTemaContainer.png)
+
+![Pagina element - container](doc/paginaElementContainer.png)
+
+![Pagina functie 1 - container](doc/paginaFunctie1Container.png)
+
+![Pagina functie 2 - container](doc/paginaFunctie2Container.png)
+
+---
+
+## DevOps CI - Jenkins
+
+Pentru automatizarea procesului de build, testare și deploy a fost folosit Jenkins. Pipeline-ul este definit în fișierul:
+
+```text
+Jenkinsfile
+```
+
+Pipeline-ul a fost configurat în Jenkins folosind opțiunea:
+
+```text
+Pipeline script from SCM
+```
+
+Repository-ul folosit este:
+
+```text
+https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
+```
+
+Branch-ul folosit în Jenkins este:
+
+```text
+*/dev_andriu_cosmin
+```
+
+Prin această configurare, Jenkins citește automat fișierul `Jenkinsfile` din branch-ul de dezvoltare personal și rulează pașii definiți în pipeline.
+
+Pipeline-ul conține următoarele etape:
+
+1. **Build**  
+   În această etapă se afișează workspace-ul Jenkins, se listează fișierele proiectului și se activează/creează mediul virtual prin scriptul `activeaza_venv_jenkins`. De asemenea, sunt instalate dependențele necesare proiectului.
+
+2. **pylint - calitate cod**  
+   Această etapă rulează analiza statică asupra fișierelor Python din proiect. Sunt analizate fișierele din bibliotecă, fișierele de test și fișierul principal `sporturi.py`.
+
+3. **Unit Testing cu pytest**  
+   În această etapă sunt rulate testele automate definite în folderul `app/tests/`. Testele verifică funcțiile din biblioteca proiectului.
+
+4. **Deploy**  
+   În etapa de deploy, Jenkins construiește imaginea Docker a aplicației și creează containerul pe baza imaginii generate.
+
+Exemplu de comenzi executate în pipeline:
+
+```bash
+. ./activeaza_venv_jenkins
+pylint --exit-zero app/lib/*.py
+pylint --exit-zero app/tests/*.py
+pylint --exit-zero sporturi.py
+pytest
 docker build -t sporturi:v${BUILD_NUMBER} .
 docker create --name sporturi${BUILD_NUMBER} -p 8021:5012 sporturi:v${BUILD_NUMBER}
 ```
 
-Prin folosirea variabilei `${BUILD_NUMBER}`, fiecare build primește o etichetă diferită.
+Pentru ca etapa de Docker să funcționeze, utilizatorul `jenkins` trebuie să aibă permisiuni pentru Docker. Acest lucru se face cu:
+
+```bash
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+```
+
+Verificarea accesului se poate face cu:
+
+```bash
+sudo -u jenkins docker ps
+```
+
+După configurare, pipeline-ul a fost rulat din interfața Jenkins folosind butonul **Build Now**. Build-ul a trecut cu succes prin etapele principale: Build, pylint, pytest și Deploy.
+
+Capturi de ecran pentru Jenkins:
+
+![Jenkins build reusit](doc/doc.jenkinsPipeline.png)
+
+![Jenkins pipeline overview](doc/jenkinsPipeline.png)
+
+Prima captură arată faptul că build-ul Jenkins a rulat cu succes, iar a doua captură prezintă vizual etapele pipeline-ului.
 
 ---
 
-# Comenzi Git utilizate
+## Flux Git și Pull Request
 
-Pentru acest proiect s-a lucrat pe branch separat, pentru a nu modifica direct branch-ul principal al repository-ului.
-
-Branch-ul de dezvoltare folosit:
+Pentru dezvoltarea proiectului a fost folosit un branch personal de lucru:
 
 ```text
 dev_andriu_cosmin
 ```
 
-Branch-ul personal de main:
-
-```text
-main_andriu_cosmin
-```
-
-## Configurare Git
-
-```bash
-git config --global user.name "andriu_cosmin"
-git config --global user.email "emailul_contului_github"
-git config --global credential.helper store
-```
-
-## Clonare repository
-
-```bash
-git clone https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
-cd curs_scc_442D_Sporturi
-```
-
-## Trecere pe branch-ul personal de dezvoltare
-
-```bash
-git checkout dev_andriu_cosmin
-```
-
-## Verificarea branch-ului curent
-
-```bash
-git branch
-```
-
-## Salvarea modificărilor
+Pe acest branch au fost realizate modificările pentru elementul Biliard. După implementare, modificările au fost urcate pe GitHub folosind comenzile:
 
 ```bash
 git status
@@ -500,47 +437,56 @@ git commit -m "mesaj commit"
 git push
 ```
 
----
-
-# Pull Request
-
-La finalul implementării, se creează un Pull Request din branch-ul de dezvoltare personal către branch-ul personal de main:
+După finalizarea implementării, a fost creat un Pull Request din branch-ul de dezvoltare către branch-ul personal de main:
 
 ```text
-dev_andriu_cosmin → main_andriu_cosmin
+dev_andriu_cosmin -> main_andriu_cosmin
 ```
 
-Acest Pull Request conține implementarea proiectului pentru elementul ales, **Biliard**.
-
-După verificare, Pull Request-ul poate fi aprobat și făcut merge în branch-ul personal `main_andriu_cosmin`.
-
-Dacă este necesară integrarea în branch-ul principal al grupei, se poate crea ulterior un Pull Request separat, conform regulilor stabilite pentru proiect.
+Acest flux permite lucrul separat față de branch-ul principal al repository-ului și evită suprascrierea modificărilor realizate de alți colegi.
 
 ---
 
-# Concluzii
+## Stadiu dezvoltare
 
-În cadrul proiectului a fost realizată o aplicație WEB simplă, folosind Python și Flask. Aplicația prezintă tema **Sporturi**, cu elementul ales **Biliard**, și include patru rute principale, două funcții separate în bibliotecă și teste automate.
+Stadiul proiectului este următorul:
 
-Prin realizarea acestui proiect au fost parcurse etape importante dintr-un flux software complet:
+- aplicația Flask este implementată;
+- cele patru rute cerute sunt funcționale;
+- biblioteca Python conține cele două funcții publice;
+- testele automate cu pytest sunt implementate;
+- analiza statică prin pylint este integrată;
+- aplicația poate fi rulată local;
+- aplicația poate fi rulată în container Docker;
+- Jenkinsfile este configurat;
+- pipeline-ul Jenkins rulează etapele Build, pylint, pytest și Deploy;
+- README-ul conține explicații și capturi de ecran relevante.
 
-- dezvoltare aplicație Flask;
+---
+
+## Concluzii
+
+Prin realizarea acestui proiect a fost parcurs un flux complet de dezvoltare software, de la scrierea codului până la automatizarea verificărilor prin Jenkins.
+
+Aplicația Flask implementată pentru tema **Sporturi** și elementul **Biliard** demonstrează folosirea rutelor web, separarea funcționalităților în module Python, testarea automată și rularea într-un mediu containerizat.
+
+Utilizarea Docker oferă portabilitate aplicației, deoarece aceasta poate fi rulată într-un container independent de configurația sistemului gazdă. Integrarea Jenkins adaugă o etapă importantă de automatizare, permițând verificarea rapidă a codului după fiecare modificare.
+
+Proiectul evidențiază importanța următoarelor concepte:
+
 - organizarea codului în module;
-- versionare folosind Git și GitHub;
-- lucru pe branch separat;
-- testare automată cu `pytest`;
-- verificare cod cu `pylint`;
-- containerizare Docker;
-- integrare Jenkins.
-
-Proiectul este modular, ușor de rulat local și poate fi executat și într-un container Docker, ceea ce permite portabilitate și reproducerea mediului de rulare.
+- versionarea cu Git;
+- testarea automată;
+- analiza statică a codului;
+- containerizarea aplicațiilor;
+- automatizarea proceselor prin pipeline-uri CI/CD.
 
 ---
 
-# Bibliografie
+## Bibliografie
 
-- Documentație Flask: https://flask.palletsprojects.com/
-- Documentație Docker: https://docs.docker.com/
-- Documentație Jenkins: https://www.jenkins.io/doc/
-- Documentație pytest: https://docs.pytest.org/
-- Repository model: https://github.com/crchende/sysinfo.git
+- Documentația oficială Flask: https://flask.palletsprojects.com/
+- Documentația oficială pytest: https://docs.pytest.org/
+- Documentația oficială Docker: https://docs.docker.com/
+- Documentația oficială Jenkins: https://www.jenkins.io/doc/
+- Repository de referință: https://github.com/crchende/sysinfo.git
