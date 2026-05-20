@@ -11,8 +11,8 @@ Inregistreaza cele 4 rute conform cerintei:
 from flask import Blueprint, redirect
 
 from app.lib.biblioteca_inot import (
-    functie_1_concursuri_inot,
-    functie_2_inotatori_inot,
+    concursuri_inot,
+    inotatori_inot,
 )
 
 inot_bp = Blueprint("inot", __name__)
@@ -175,7 +175,7 @@ def inot():
 @inot_bp.route("/sporturi/inot/concursuri")
 def concursuri():
     """Ruta 3: functia 1 - concursuri internationale."""
-    continut = functie_1_concursuri_inot()
+    continut = concursuri_inot()
     continut += (
         '<a class="next-link" href="/sporturi/inot/inotatori">'
         'Pagina urmatoare: Inotatori &rarr;</a>'
@@ -186,7 +186,7 @@ def concursuri():
 @inot_bp.route("/sporturi/inot/inotatori")
 def inotatori():
     """Ruta 4: functia 2 - inotatori profesionisti."""
-    continut = functie_2_inotatori_inot()
+    continut = inotatori_inot()
     continut += '<a class="next-link" href="/sporturi/inot">&larr; Inapoi la Inot</a>'
     return pagina("Inot", "Tema proiect SCC - Ovezea Corina", "inotatori", continut)
 

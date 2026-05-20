@@ -124,8 +124,8 @@ INOTATORI = [
 ]
 
 
-def functie_1_concursuri_inot():
-    """Functia 1: returneaza HTML cu lista concursurilor internationale de inot."""
+def concursuri_inot():
+    """Returneaza HTML cu lista concursurilor internationale de inot."""
     html = '<h2>Concursuri internationale</h2>'
     for concurs in CONCURSURI:
         html += '<div class="card">'
@@ -144,8 +144,8 @@ def functie_1_concursuri_inot():
     return html
 
 
-def functie_2_inotatori_inot():
-    """Functia 2: returneaza HTML cu lista inotatorilor profesionisti."""
+def inotatori_inot():
+    """Returneaza HTML cu lista inotatorilor profesionisti."""
     html = '<h2>Inotatori profesionisti</h2>'
     for inotator in INOTATORI:
         html += '<div class="card">'
