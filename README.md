@@ -198,3 +198,4 @@ Principalele rezultate obținute sunt:
 ## Bibliografie
 
 https://github.com/crchende/sysinfo.git
+
