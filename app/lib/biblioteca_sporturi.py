@@ -1,79 +1,57 @@
 """
-Biblioteca proiectului pentru elementul ales: MMA.
-Contine doua functii care genereaza continut HTML.
+Teste pentru cele doua functii din app.lib.biblioteca_sporturi.
 """
 
+import logging
 
-DATE_LUPTATORI = [
-    {
-        "nume": "Conor McGregor",
-        "stil": "Striking",
-        "descriere": "luptator cunoscut pentru lovituri precise, carisma si promovare.",
-    },
-    {
-        "nume": "Khabib Nurmagomedov",
-        "stil": "Grappling",
-        "descriere": "luptator recunoscut pentru control la sol, wrestling si dominare tactica.",
-    },
-    {
-        "nume": "Jon Jones",
-        "stil": "Complet",
-        "descriere": "sportiv apreciat pentru creativitate, distanta, lovituri variate si adaptare.",
-    },
-]
+from app.lib import biblioteca_sporturi as bs
 
-DATE_TEHNICI = [
-    (
-        "Striking",
-        "tehnici de lovire cu pumnii, picioarele, genunchii si coatele.",
-    ),
-    (
-        "Grappling",
-        "tehnici de proiectare, control si lupta la sol.",
-    ),
-    (
-        "Submissions",
-        "procedee prin care adversarul este fortat sa renunte, precum armbar sau rear naked choke.",
-    ),
-]
+logger = logging.getLogger(__name__)
 
 
-def afiseaza_luptatori_mma():
-    """Returneaza o sectiune HTML cu luptatori reprezentativi din MMA."""
-    continut_html = """
-        <h2>Luptatori reprezentativi</h2>
-        <div class="grid">
-    """
+def test_afiseaza_luptatori_mma_returneaza_html():
+    """Verifica daca functia pentru luptatori returneaza HTML."""
+    rezultat = bs.afiseaza_luptatori_mma()
 
-    for luptator in DATE_LUPTATORI:
-        continut_html += f"""
-            <div class="stat-card">
-              <h3>{luptator['nume']}</h3>
-              <p><b>Stil principal:</b> {luptator['stil']}</p>
-              <p>{luptator['descriere']}</p>
-            </div>
-        """
-
-    continut_html += "</div>"
-
-    return continut_html
+    assert len(rezultat) > 0
+    assert "<h2>" in rezultat
+    assert 'class="grid"' in rezultat
+    assert 'class="stat-card"' in rezultat
 
 
-def afiseaza_tehnici_mma():
-    """Returneaza o lista HTML cu tehnici importante din MMA."""
-    continut_html = """
-        <h2>Tehnici importante</h2>
-        <div class="grid">
-    """
+def test_afiseaza_luptatori_mma_contine_conor():
+    """Verifica daca in rezultat apare Conor McGregor."""
+    rezultat = bs.afiseaza_luptatori_mma()
 
-    for tehnica, explicatie in DATE_TEHNICI:
-        continut_html += f"""
-            <div class="stat-card">
-              <h3>{tehnica}</h3>
-              <p>{explicatie}</p>
-            </div>
-        """
+    assert "Conor McGregor" in rezultat
 
-    continut_html += "</div>"
 
-    return continut_html
+def test_afiseaza_luptatori_mma_contine_khabib():
+    """Verifica daca in rezultat apare Khabib Nurmagomedov."""
+    rezultat = bs.afiseaza_luptatori_mma()
+
+    assert "Khabib Nurmagomedov" in rezultat
+
+
+def test_afiseaza_tehnici_mma_returneaza_html():
+    """Verifica daca functia pentru tehnici returneaza HTML cu carduri."""
+    rezultat = bs.afiseaza_tehnici_mma()
+
+    assert len(rezultat) > 0
+    assert "<h2>" in rezultat
+    assert 'class="grid"' in rezultat
+    assert 'class="stat-card"' in rezultat
+
+
+def test_afiseaza_tehnici_mma_contine_striking():
+    """Verifica daca in rezultat apare tehnica Striking."""
+    rezultat = bs.afiseaza_tehnici_mma()
+
+    assert "Striking" in rezultat
+
+
+def test_afiseaza_tehnici_mma_contine_grappling():
+    """Verifica daca in rezultat apare tehnica Grappling."""
+    rezultat = bs.afiseaza_tehnici_mma()
+
+    assert "Grappling" in rezultat
