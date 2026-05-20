@@ -22,9 +22,9 @@
 
 ## Descriere generală
 
-Obiectivul acestui proiect este dezvoltarea unei aplicații web utilizând limbajul Python și framework-ul Flask, având ca temă principală sporturile și ca subtemă polo pe apă. Aplicația are rolul de a prezenta informații generale despre acest sport de echipă intens, regulamentul de joc și echipamentul necesar.
+Acest proiect se concentrează pe dezvoltarea și livrarea automatizată a unei aplicații web dedicate poloului pe apă. Construită pe baza micro-framework-ului Flask (Python), platforma oferă vizitatorilor date esențiale despre regulile acestui sport de echipă și detaliază echipamentul specific necesar jucătorilor.
 
-Proiectul urmărește implementarea unor concepte de bază din dezvoltarea aplicațiilor web și din zona DevOps, precum organizarea codului pe module, testarea automată cu pytest, validarea calității codului cu pylint, containerizarea aplicației folosind Docker și automatizarea procesului de build și testare prin Jenkins Pipeline.
+Dincolo de componenta de programare web, proiectul are rolul de a pune în practică o serie de metodologii moderne din sfera DevOps. Acest lucru este demonstrat prin decuplarea logicii în module independente, validarea funcționalităților prin teste unitare (`pytest`) și asigurarea unui standard ridicat de scriere prin analiză statică (`pylint`). De asemenea, portabilitatea este garantată prin încapsularea aplicației într-un container Docker, în timp ce Jenkins orchestrează și automatizează întregul flux de la testare la lansare, printr-un pipeline CI/CD configurat declarativ.
 
 ## Funcționalitate implementată
 
