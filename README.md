@@ -96,7 +96,8 @@ curs_scc_442D_Sporturi/
 │   ├── pg1_container.png
 │   ├── pg2.png
 │   ├── pg3.png
-│   └── pg4.png
+│   ├── pg4.png
+│   └── pylint.png
 │
 ├── sporturi.py
 ├── activeaza_venv
@@ -228,6 +229,10 @@ pylint --exit-zero app/lib/*.py
 pylint --exit-zero app/tests/*.py
 pylint --exit-zero sporturi.py
 ```
+
+În urma rulării comenzilor, fișierele de test și fișierul principal `sporturi.py` au obținut scorul `10.00/10`, iar biblioteca `biblioteca_sporturi.py` a fost verificată cu avertismente minore legate de lungimea unor linii.
+
+![Rezultate pylint](doc/pylint.png)
 
 Opțiunea `--exit-zero` permite afișarea avertismentelor fără oprirea pipeline-ului Jenkins.
 
@@ -403,4 +408,3 @@ Aplicația poate fi extinsă ulterior prin adăugarea mai multor sporturi, mai m
 - Docker Documentation: https://docs.docker.com/
 - Jenkins Documentation: https://www.jenkins.io/doc/
 - GitHub Docs: https://docs.github.com/
-
