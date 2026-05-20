@@ -1,5 +1,4 @@
-# curs_scc_442D_Sporturi
-# Formula 1
+# Proiect SCC - Sistem Monitorizare Formula 1 (Grupă 442D)
 
 Acest proiect reprezintă contribuția individuală pentru tema **Sporturi**, axată pe monitorizarea și afișarea datelor din competiția **Formula 1**.
 
