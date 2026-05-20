@@ -15,30 +15,32 @@ def test_afiseaza_luptatori_mma_returneaza_html():
 
     assert len(rezultat) > 0
     assert "<h2>" in rezultat
-    assert "<p>" in rezultat
+    assert 'class="grid"' in rezultat
+    assert 'class="stat-card"' in rezultat
 
 
 def test_afiseaza_luptatori_mma_contine_conor():
-    """Verifica daca in rezultat apare un luptator MMA."""
+    """Verifica daca in rezultat apare Conor McGregor."""
     rezultat = bs.afiseaza_luptatori_mma()
 
     assert "Conor McGregor" in rezultat
 
 
 def test_afiseaza_luptatori_mma_contine_khabib():
-    """Verifica daca in rezultat apare Khabib."""
+    """Verifica daca in rezultat apare Khabib Nurmagomedov."""
     rezultat = bs.afiseaza_luptatori_mma()
 
     assert "Khabib Nurmagomedov" in rezultat
 
 
 def test_afiseaza_tehnici_mma_returneaza_html():
-    """Verifica daca functia pentru tehnici returneaza HTML."""
+    """Verifica daca functia pentru tehnici returneaza HTML cu carduri."""
     rezultat = bs.afiseaza_tehnici_mma()
 
     assert len(rezultat) > 0
-    assert "<ul>" in rezultat
-    assert "</ul>" in rezultat
+    assert "<h2>" in rezultat
+    assert 'class="grid"' in rezultat
+    assert 'class="stat-card"' in rezultat
 
 
 def test_afiseaza_tehnici_mma_contine_striking():
