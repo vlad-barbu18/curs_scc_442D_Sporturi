@@ -5,12 +5,13 @@
 - **Grupa:** 442D
 - **Element alocat:** Polo pe apa
 - **Branch dezvoltare:** `dev_dumitrascu_alexandru`
-- **Branch personal main:** `main_dumitrascu-alexandru`
+- **Branch personal main:** `main_dumitrascu_alexandru`
 
 ## Cuprins
 - [Descriere generală](#descriere-generală)
 - [Funcționalitate implementată](#funcționalitate-implementată)
 - [Stadiu dezvoltare](#stadiu-dezvoltare)
+- [Structura proiectului](#structura-proiectului)
 - [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
 - [Testare automată cu pytest](#testare-automată-cu-pytest)
 - [Validare cod cu pylint](#validare-cod-cu-pylint)
@@ -60,6 +61,49 @@ Funcționalitatea aplicației a fost implementată complet.
 - Pipeline-ul Jenkins pentru build, testare și deploy funcționează corect.
 - Capturile de ecran și documentația README au fost adăugate în proiect.
 - Testarea locală, automată și containerizată a fost realizată cu succes.
+
+## Structura proiectului 
+
+Structura principală a codului dezvoltat este următoarea:
+
+```text
+curs_scc_442D_Sporturi/
+│
+├── app/
+│   ├── __init__.py
+│   ├── lib/
+│   │   ├── __init__.py
+│   │   └── biblioteca_sporturi.py
+│   └── tests/
+│       ├── __init__.py
+│       └── test_biblioteca_sporturi.py
+├── doc/
+│   ├── dockerconsola.png
+│   ├── dockerimages.png
+│   ├── dockerps.png
+│   ├── jenkinsBlueOcean.png
+│   ├── jenkinsConsoleOutput.png
+│   ├── jenkinsSimplu.png
+│   ├── paginaEchipamentPoloLocal.png
+│   ├── paginaElementContainer.png
+│   ├── paginaFunctie1Container.png
+│   ├── paginaFunctie2Container.png
+│   ├── paginaPoloLocal.png
+│   ├── paginaReguliPoloLocal.png
+│   ├── paginaSporturiLocal.png
+│   ├── paginaTemaContainer.png
+│   ├── pylint.png
+│   ├── pytest.png
+├── activeaza_venv
+├── activeaza_venv_jenkins
+├── dockerstart.sh
+├── Dockerfile
+├── Jenkinsfile
+├── quickrequirements.txt
+├── ruleaza_aplicatia
+├── sporturi.py
+└── README.md
+```
   
 ## Testare manuală în browser (rulare locală)
 
@@ -83,6 +127,8 @@ Aplicația se accesează la: `http://127.0.0.1:5012/sporturi`
 ```bash
 pytest
 ```
+Pentru a ne asigura de corectitudinea funcționalităților înainte de integrarea pe server, am dezvoltat teste unitare folosind `pytest`. 
+Aceste teste validează automat faptul că funcțiile de backend (`reguli_polo()` și `echipament_polo()`) returnează cod HTML valid, nu sunt goale și conțin markerii textuali specifici acestui sport (elemente cheie din regulament și echipament).
 
 ![Rezultate pytest](doc/pytest.png)
 
@@ -93,6 +139,7 @@ pylint --exit-zero app/lib/biblioteca_sporturi.py
 pylint --exit-zero app/tests/test_biblioteca_sporturi.py
 pylint --exit-zero sporturi.py
 ```
+Analiza statică a codului a fost realizată cu `pylint` pentru a menține un standard ridicat de programare în Python, verificând formatarea, importurile neutilizate și existența docstring-urilor. 
 
 ![Rezultate pylint](doc/pylint.png)
 
@@ -102,6 +149,11 @@ pylint --exit-zero sporturi.py
 docker build -t sporturi:v01 .
 docker run --name sporturi1 -p 8021:5012 sporturi:v01
 ```
+Pentru a garanta portabilitatea aplicației pe orice sistem de operare, fără a fi necesară instalarea manuală a dependențelor locale din `quickrequirements.txt`, am containerizat aplicația folosind Docker, asigurând un mediu complet izolat.
+
+- Construirea imaginii: s-a făcut folosind comanda `docker build -t sporturi:v01 .`, creând pachetul de bază al aplicației.
+- Rularea containerului: s-a realizat cu `docker run --name sporturi1 -p 8021:5012 sporturi:v01`. Prin această comandă, portul intern `5012` expus de serverul Flask în container a fost mapat pe portul `8021` al mașinii gazdă.
+- Managementul containerelor: Pentru un mediu de dezvoltare curat și pentru a evita eroarea `Port already in use` la testări succesive, am utilizat comenzile de curățare `docker stop sporturi1` și `docker rm sporturi1`.
 
 ![Consolă container](doc/dockerconsola.png)
 ![Container Docker](doc/dockerps.png)
@@ -114,17 +166,12 @@ Aplicația din container, accesată la `http://localhost:8021/sporturi`:
 ![Pagina functia 2 - container](doc/paginaFunctie2Container.png)
 
 # DevOps CI
+Pentru a asigura o integrare și livrare continuă, procesul a fost automatizat complet printr-un pipeline declarativ definit în fișierul `Jenkinsfile`, structurat în 4 etape fundamentale:
 
-Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
-1. **Build**
-   - activarea mediului virtual,
-   - verificarea structurii proiectului,
-   - pregătirea dependențelor necesare.
-2. **pylint** 
-   - realizarea analizei statice a codului Python,
-   - identificarea warning-urilor și a problemelor de stil.
-3. **Unit Tests** - rularea testelor automate folosind 'pytest'
-4. **Deploy** - build Docker + creare container
+* **1. Etapa de Build (Construire mediu):** Jenkins preia codul sursă, instanțiază mediul virtual Python izolat și instalează toate dependențele necesare din fișierul `quickrequirements.txt`.
+* **2. Etapa de Analiză a calității (Pylint):** Se rulează linter-ul static pe fișierele sursă pentru a asigura respectarea standardelor de programare. Comenzile utilizează flag-ul `--exit-zero` pentru a afișa avertismentele de stil în consolă, fără a întrerupe prematur execuția pipeline-ului.
+* **3. Etapa de Testare Automată (Unit Testing):** Se execută suita de teste folosind framework-ul `pytest` pentru a valida automat corectitudinea funcțiilor dedicate sportului polo pe apă.
+* **4. Etapa de Deploy (Lansare):** În faza finală, Jenkins construiește noua imagine Docker și creează instantaneu containerul asociat noului build, pregătind aplicația pentru rulare.
  
 ## Pipeline Jenkins clasic
 ![Pipeline Jenkins clasic](doc/jenkinsSimplu.png)
@@ -139,11 +186,12 @@ Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
 
 Proiectul realizat demonstrează dezvoltarea cu succes a unei aplicații web folosind framework-ul Flask împreună cu tehnologii moderne utilizate în zona DevOps.
 
-- **Dezvoltare modulară:** aplicația a fost organizată pe module și funcții separate pentru o structură mai clară și mai ușor de întreținut.
-- **Interfață web:** au fost implementate pagini HTML dinamice, elemente vizuale și navigare între rute pentru prezentarea informațiilor despre **polo pe apă**.
-- **Testare automată și asigurarea calității:** funcționalitățile aplicației au fost verificate utilizând teste automate realizate cu pytest, iar analiza statică a codului a fost realizată folosind pylint.
-- **Portabilitate:** utilizarea Docker a permis rularea aplicației într-un mediu izolat și consistent.
-- **Automatizare DevOps:** Jenkins a fost utilizat pentru automatizarea etapelor de build, testare și deploy ale aplicației.
+Principalele rezultate obținute sunt:
+- **Proiectare web și modularitate:** Dezvoltarea rutelor Flask și a interfeței aplicației a fost realizată cu o separare clară între logica de rutare și datele specifice (regulamentul și echipamentul de polo), stocate într-o bibliotecă Python independentă (`biblioteca_sporturi.py`).
+- **Filtre de calitate și testare:** Pentru asigurarea robusteții funcțiilor, codul a fost supus unor verificări stricte. Validarea automată a rezultatelor HTML s-a realizat prin intermediul `pytest`, iar pentru menținerea unui standard curat de programare a fost integrat utilitarul `pylint`.
+* **Încapsulare și portabilitate:** Dependențele mediului local au fost izolate prin construirea unei imagini Docker, garantând astfel o rulare consistentă și independentă a aplicației în propriul container.
+- **Orchestrarea proceselor (CI/CD):** Instrumentele menționate anterior au fost integrate și automatizate cu succes prin intermediul Jenkins. Definirea unui pipeline declarativ a demonstrat capacitatea de a executa complet autonom procesele de preluare a codului, testare și lansare în execuție (Deploy).
+- **Depanare și infrastructură:** Pe parcursul integrării tehnologiilor au fost identificate și soluționate erori reale de sistem, incluzând conflicte de porturi pe rețea, alocarea permisiunilor de execuție în Docker și remedieri de formatare în mediul Linux.
 
 În urma implementării, aplicația a funcționat corect atât local, cât și în containerul Docker, iar pipeline-ul Jenkins a executat cu succes toate etapele configurate.
 
