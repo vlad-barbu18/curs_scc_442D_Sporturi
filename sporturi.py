@@ -2,7 +2,7 @@
 Aplicatie Flask pentru proiectul SCC.
 Tema: Sporturi
 Element ales: Minifotbal
-Cel mai top dezvoltator: Lazar Iulian
+dezvoltator: Lazar Iulian
 """
 
 from flask import Flask, redirect
