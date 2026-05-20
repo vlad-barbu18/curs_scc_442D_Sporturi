@@ -5,6 +5,10 @@ Element ales: MMA.
 """
 
 from flask import Flask, redirect
+from app.lib.biblioteca_sporturi import (
+    afiseaza_luptatori_mma,
+    afiseaza_tehnici_mma,
+)
 
 app = Flask(__name__)
 
@@ -85,9 +89,51 @@ def mma():
             Am ales MMA deoarece este un sport complex, modern si spectaculos,
             care necesita disciplina, pregatire fizica si strategie.
         </p>
-        <a href="/sporturi">Inapoi la Sporturi</a>
+        <a href="/sporturi/mma/afiseaza_luptatori_mma">Luptatori MMA</a>
+        <a href="/sporturi/mma/afiseaza_tehnici_mma">Tehnici MMA</a>
+        <a href="/sporturi">Inapoi la sporturi</a>
     """
     return pagina("MMA", continut)
+
+
+@app.route("/sporturi/mma/afiseaza_luptatori_mma")
+def ruta_luptatori_mma():
+    """Ruta pentru prima functie din biblioteca: luptatori MMA."""
+    continut = """
+        <h1>Luptatori MMA</h1>
+        <p>
+            Aceasta pagina afiseaza cativa luptatori cunoscuti din MMA.
+        </p>
+    """
+
+    continut += afiseaza_luptatori_mma()
+    continut += """
+        <br>
+        <a href="/sporturi/mma">Inapoi la MMA</a>
+        <a href="/sporturi">Inapoi la sporturi</a>
+    """
+
+    return pagina("Luptatori MMA", continut)
+
+
+@app.route("/sporturi/mma/afiseaza_tehnici_mma")
+def ruta_tehnici_mma():
+    """Ruta pentru a doua functie din biblioteca: tehnici MMA."""
+    continut = """
+        <h1>Tehnici MMA</h1>
+        <p>
+            Aceasta pagina prezinta cateva tehnici importante folosite in MMA.
+        </p>
+    """
+
+    continut += afiseaza_tehnici_mma()
+    continut += """
+        <br>
+        <a href="/sporturi/mma">Inapoi la MMA</a>
+        <a href="/sporturi">Inapoi la sporturi</a>
+    """
+
+    return pagina("Tehnici MMA", continut)
 
 
 @app.route("/")
