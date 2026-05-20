@@ -5,6 +5,11 @@ Element ales: sah.
 
 from flask import Flask, redirect
 
+from app.lib.biblioteca_sporturi import (
+    functie_1_sport,
+    functie_2_sport,
+)
+
 app = Flask(__name__)
 
 
@@ -29,23 +34,43 @@ def sporturi():
     """Pagina sporturi."""
     return pagina("sporturi",
         """<h1>sporturi</h1>
-        <p>Proiectul este despre sporturi. Elementul ales este sport.</p>
-        <a href="/sporturi/sport">Sport</a>""")
+        <p>Tema proiectului este sporturi. Sportul ales este sah.</p>
+        <a href="/sporturi/sah">Sah</a>""")
 
 
 @app.route("/sporturi/sah")
-def sport():
+def sah():
     """Pagina elementului ales."""
-    return pagina("Sport",
-        """<h1>Sport</h1>
+    return pagina("Sah",
+        """<h1>Sah</h1>
         <p>Descriere generala.</p>
-        <a href="/sporturi">Inapoi</a>""")
+        <a href="/sporturi/sah/functie_1_sport">Informatia 1</a>
+        <a href="/sporturi/sah/functie_2_sport">Informatia 2</a>
+        <a href="/sporturi">Inapoi la sporturi</a>""")
 
 
 @app.route("/")
 def index():
     """Redirect spre pagina sporturi."""
     return redirect("/sporturi")
+
+
+@app.route("/sporturi/sah/functie_1_sport")
+def ruta_functie_1_sport():
+    """Ruta 3: afiseaza informatia 1."""
+    continut = "<h1>Informatia 1 despre sah</h1>"
+    continut += functie_1_sport()
+    continut += '<a href="/sporturi/sah">Inapoi</a>'
+    return pagina("Informatia 1", continut)
+
+
+@app.route("/sporturi/sah/functie_2_sport")
+def ruta_functie_2_sport():
+    """Ruta 4: afiseaza informatia 2."""
+    continut = "<h1>Informatia 2 despre sah</h1>"
+    continut += functie_2_sport()
+    continut += '<a href="/sporturi/sah">Inapoi</a>'
+    return pagina("Informatia 2", continut)
 
 
 if __name__ == "__main__":
