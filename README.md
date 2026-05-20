@@ -340,20 +340,20 @@ Modificările au fost pregătite pe branch-ul de dezvoltare și urmează integra
 
 ---
 
-## 14. Review Pull Request-uri
+## 14. Pull Request-uri și review
 
-Această secțiune va fi completată după ce voi face review pentru Pull Request-ul unui coleg.
+Pentru integrarea funcționalității Volei am deschis Pull Request din branch-ul `dev_bocai_alexandra` către branch-ul `main_bocai_alexandra`.
 
-Model de completare:
+Am primit review de la colega cu username-ul GitHub **andragulap** pentru Pull Request-ul meu.
 
-```text
-PR #<id> - Review pentru funcționalitatea <elementului>.
-```
+De asemenea, am realizat review pentru Pull Request-ul colegei cu username-ul GitHub **andragulap**.
+
+Review-urile au fost realizate prin verificarea modificărilor din tab-ul `Files changed` și trimiterea review-ului din opțiunea `Review changes`.
 
 ---
 
 ## 15. Ce mai este de făcut
 
-- Crearea Pull Request-ului către `main_bocai_alexandra`;
 - Obținerea unui review de la un coleg;
-- Realizarea unui review pentru Pull Request-ul unui coleg.
+- Efectuarea unui review pentru Pull Request-ul unui coleg;
+- Integrarea modificărilor după aprobare.
