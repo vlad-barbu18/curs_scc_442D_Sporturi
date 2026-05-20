@@ -1,4 +1,4 @@
-# curs_scc_442D_Sporturi
+# Curs SCC 442D Sporturi
 
 ## Dezvoltator
 
