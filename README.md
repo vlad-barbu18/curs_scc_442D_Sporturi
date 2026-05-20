@@ -1,146 +1,163 @@
-# Proiect SCC - Sporturi
+# Înot — proiect SCC (tema Sporturi)
 
-## Dezvoltator
+Aplicație web Flask care prezintă elementul **Înot** din tema **Sporturi**. Proiectul acoperă tot drumul: cod Python, teste, container Docker și pipeline Jenkins pentru build automat.
 
-- **Nume:** Ovezea Corina
-- **Grupa:** 442D
-- **Element alocat:** Inot
+> **Autor:** Ovezea Corina • **Grupa:** 442D
+> **Branch dezvoltare:** `dev_ovezea_corina`
+> **Branch personal main:** `main_ovezea_corina`
 
-## Cuprins
+---
 
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
+## Ce face aplicația
 
-## Descriere generală
+Site-ul are 4 pagini, pornind de la tema generală și ajungând la informații concrete despre înot:
 
-Obiectivul proiectului a fost realizarea unei aplicații web folosind framework-ul Flask, parcurgerea unui proces complet de dezvoltare software în care folosim Git pentru versionare, pytest pentru testare automată, pylint pentru analiză statică, Docker pentru containerizare și Jenkins pentru pipeline CI/CD. Tema grupei este **Sporturi**, iar elementul ales pentru această secțiune este **Înotul**.
+| URL | Ce afișează |
+|---|---|
+| `/sporturi` | Pagina temei — punct de intrare |
+| `/sporturi/inot` | Despre proiect: ce este înotul și de ce l-am ales |
+| `/sporturi/inot/concursuri` | Cele mai importante competiții internaționale (Jocurile Olimpice, Mondiale, Europene, World Cup, Universiada) |
+| `/sporturi/inot/inotatori` | Înotători profesioniști de top (Phelps, Ledecky, Peaty, Sjöström, Dressel, Popovici) |
 
-## Funcționalitate implementată
+Fiecare pagină are imagini din `static/images/` și navigare între ele.
 
-În acest branch (`dev_ovezea_corina`) am adăugat și personalizat:
+---
 
-- Fișierul `app/lib/biblioteca_inot.py` cu cele două funcții cerute:
-  - `functie_1_concursuri_inot()` – generează HTML cu lista celor mai importante competiții internaționale de înot (Jocurile Olimpice, Campionatele Mondiale, Campionatele Europene, FINA World Cup, Universiada).
-  - `functie_2_inotatori_inot()` – generează HTML cu lista celor mai cunoscuți înotători profesioniști (Michael Phelps, Katie Ledecky, Adam Peaty, Sarah Sjöström, Caeleb Dressel, David Popovici).
-- Fișierul principal `sporturi.py` care expune cele patru rute conform cerinței:
-  - `/sporturi` – pagina temei.
-  - `/sporturi/inot` – pagina elementului ales (descriere generală a înotului).
-  - `/sporturi/inot/concursuri` – informația 1 (concursuri internaționale).
-  - `/sporturi/inot/inotatori` – informația 2 (înotători profesioniști).
-- Fișierul `app/tests/test_biblioteca_inot.py` cu 10 teste automate care verifică tipul rezultatelor, prezența tagurilor HTML, conținutul specific (nume de concursuri / înotători) și consistența între datele interne și HTML-ul generat.
+## Cum am organizat codul
 
-## Stadiu dezvoltare
+Am ținut codul împărțit pe roluri clare, ca să nu se amestece logica:
 
-- Funcționalitate complet implementată.
-- Cod adăugat în branch-ul `dev_ovezea_corina`.
-- Dockerfile și Jenkinsfile sunt funcționale.
-- Testare locală, automată și containerizată realizată cu succes.
+- `sporturi.py` — entry point Flask (foarte scurt, doar înregistrează blueprint-ul)
+- `app/lib/biblioteca_inot.py` — date + cele 2 funcții care produc HTML
+- `app/routes/inot.py` — Blueprint cu cele 4 rute
+- `app/tests/test_biblioteca_inot.py` — 10 teste pytest
+- `static/images/` — 12 imagini folosite în pagini
+- `doc/` — capturile de ecran din README
+- `Dockerfile` + `dockerstart.sh` — containerizare
+- `Jenkinsfile` — pipeline CI/CD
+- `pytest.ini` + `quickrequirements.txt` — configurări
+- `activeaza_venv` + `ruleaza_aplicatia` — scripturi utilitare
 
-## Testare manuală în browser (rulare locală)
+`sporturi.py` doar înregistrează blueprint-ul — toată logica e în `app/routes/inot.py`, ceea ce face mult mai ușor de extins ulterior.
 
-```bash
-git clone https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
-cd curs_scc_442D_Sporturi
-git checkout dev_ovezea_corina
-. ./activeaza_venv
-./ruleaza_aplicatia
-```
+În `app/lib/biblioteca_inot.py` am scris **două funcții publice** care întorc HTML, conform cerinței:
 
-Aplicația se accesează la: `http://127.0.0.1:5012/sporturi`
+- `concursuri_inot()` — generează cardurile cu competiții
+- `inotatori_inot()` — generează cardurile cu înotători
 
-Cele 4 rute disponibile:
+Datele sunt liste de dicționare la începutul fișierului, ca să fie ușor de adăugat ceva nou fără să umbli prin HTML.
 
-- `http://127.0.0.1:5012/sporturi`
-- `http://127.0.0.1:5012/sporturi/inot`
-- `http://127.0.0.1:5012/sporturi/inot/concursuri`
-- `http://127.0.0.1:5012/sporturi/inot/inotatori`
+---
 
-## Testare automată cu `pytest`
+## Cum o rulez
 
-```bash
-pytest
-```
+Mai întâi clonez repo-ul și trec pe branch-ul de lucru:
+
+    git clone https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
+    cd curs_scc_442D_Sporturi
+    git checkout dev_ovezea_corina
+
+Apoi activez mediul virtual (scriptul îl creează singur prima dată) și pornesc aplicația:
+
+    . ./activeaza_venv
+    . ./ruleaza_aplicatia
+
+Aplicația ascultă pe `http://127.0.0.1:5012/sporturi`.
+
+---
+
+## Testare
+
+### Teste automate (pytest)
+
+Am scris **10 teste** care verifică funcțiile din bibliotecă: că întorc string-uri nevide, că HTML-ul conține tagurile așteptate, că apar numele înotătorilor importanți și concursurile principale, și că numărul de carduri HTML reflectă datele din listele Python (consistență).
+
+    pytest
 
 ![Rezultate pytest](doc/pytest.png)
 
-Cele 10 teste verifică:
+### Verificare statică (pylint)
 
-- că ambele funcții returnează șiruri non-goale;
-- că HTML-ul generat conține tagurile așteptate (`<h2>`, `<div>`, `<img>`);
-- că rezultatele conțin numele concursurilor și înotătorilor cheie;
-- că imaginile sunt referite corect din `/static/images/`;
-- că numărul de carduri HTML reflectă datele din listele interne.
+Am verificat fiecare fișier cu pylint. Codul a obținut **10.00/10** pe toate patru:
 
-## Validare cod cu `pylint`
-
-```bash
-pylint --exit-zero app/lib/biblioteca_inot.py
-pylint --exit-zero app/tests/test_biblioteca_inot.py
-pylint --exit-zero sporturi.py
-```
+    pylint --exit-zero app/lib/biblioteca_inot.py
+    pylint --exit-zero app/routes/inot.py
+    pylint --exit-zero app/tests/test_biblioteca_inot.py
+    pylint --exit-zero sporturi.py
 
 ![Rezultate pylint](doc/pylint.png)
 
-Toate cele trei fișiere obțin rating-ul **10.00/10**.
+---
 
-## Testare cu Docker
+## Docker
 
-```bash
-docker build -t sporturi:v01 .
-docker run --name sporturi1 -p 8021:5012 sporturi:v01
-```
+Aplicația rulează în container pe baza imaginii `python:3.10-alpine`. Am ales Alpine pentru imagine mică (~170 MB final).
 
-Imaginea Docker creată:
+    docker build -t sporturi:v01 .
+    docker run --name sporturi1 -p 8021:5012 sporturi:v01
 
-![Imagine Docker](doc/dockerimages.png)
+Imaginea construită:
 
-Container rulând (output `docker ps`):
+![docker images](doc/dockerimages.png)
 
-![Container Docker](doc/dockerps.png)
+Containerul pornit (ascultă pe 8021 mapat la 5012 din container):
 
-Consolă container (output Flask la pornire):
+![docker ps](doc/dockerps.png)
 
-![Consolă container](doc/dockerconsola.png)
+Output-ul din consolă la pornirea Flask în container:
 
-Aplicația din container, accesată la `http://localhost:8021/sporturi`:
+![consola container](doc/dockerconsola.png)
 
-![Pagina temei - container](doc/paginaTemaContainer.png)
+### Aplicația rulând din container
 
-![Pagina element (Înot) - container](doc/paginaElementContainer.png)
+Cu containerul pornit, deschid `http://127.0.0.1:8021/sporturi` în browser și parcurg cele 4 rute:
 
-![Pagina funcția 1 (Concursuri) - container](doc/paginaFunctie1Container.png)
+![pagina temei](doc/paginaTemaContainer.png)
 
-![Pagina funcția 2 (Înotători) - container](doc/paginaFunctie2Container.png)
+![pagina înot](doc/paginaElementContainer.png)
 
-## DevOps CI
+![pagina concursuri](doc/paginaFunctie1Container.png)
 
-Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
+![pagina înotători](doc/paginaFunctie2Container.png)
 
-1. **Build** – creare venv + instalare dependențe (`activeaza_venv_jenkins`).
-2. **pylint** – analiză statică a codului (warning-only, cu `--exit-zero`).
-3. **Unit Tests** – rulare `pytest` pe testele automate.
-4. **Deploy** – build Docker (`sporturi:v${BUILD_NUMBER}`) și creare container (`sporturi${BUILD_NUMBER}`).
+---
 
-Pipeline-ul rulat cu succes în Jenkins (vizualizare Blue Ocean):
+## Pipeline Jenkins
 
-![Pipeline Jenkins reușit](doc/jenkins_pipeline.png)
+Pipeline declarativ în `Jenkinsfile`, cu 4 stages:
 
-## Concluzii
+1. **Build** — creează venv-ul și instalează dependențele (`activeaza_venv_jenkins`)
+2. **pylint** — rulează verificarea statică pe `app/lib/`, `app/routes/`, `app/tests/` și `sporturi.py`
+3. **Unit Testing cu pytest** — rulează cele 10 teste
+4. **Deploy** — `docker build` urmat de `docker create` cu tag-ul de build (`sporturi:v${BUILD_NUMBER}`)
 
-- **Dezvoltare modulară:** aplicație Flask cu separarea datelor și logicii într-o bibliotecă dedicată (`app/lib/biblioteca_inot.py`).
-- **Portabilitate:** Docker asigură rulare consistentă pe orice mediu.
-- **Automatizare:** Jenkins automatizează testarea și deploy-ul prin pipeline declarativ.
-- **Asigurarea calității:** pytest și pylint integrate în pipeline garantează calitatea codului la fiecare build.
+Pipeline-ul rulat cu succes (vizualizare Blue Ocean):
 
-## Bibliografie
+![Pipeline Jenkins](doc/jenkins_pipeline.png)
 
-- Ghid proiect SCC – Flask + Docker + Jenkins (material curs).
-- Exemplu de referință: https://github.com/crchende/sysinfo.git
+---
+
+## Workflow Git
+
+Am ținut commit-uri mici și organizate pe etape, în loc de un singur commit gigantic. Asta face istoricul ușor de citit. Mesajele principale ale commit-urilor:
+
+- chore: scripturi venv + quickrequirements + .gitignore
+- feat: biblioteca_inot cu cele 2 functii publice
+- feat: aplicatie Flask cu 4 rute + imagini statice
+- test: 10 teste pytest pentru cele 2 functii
+- feat: Dockerfile + dockerstart.sh + capturi de ecran
+- ci+docs: Jenkinsfile + README complet
+- docs: captura cu pipeline Jenkins
+- refactor: muta cele 4 rute in app/routes/inot.py (Blueprint)
+- refactor: rename functions to descriptive names
+
+Integrarea în branch-ul personal de main se face printr-un **Pull Request** `dev_ovezea_corina → main_ovezea_corina`. Review-ul pe acest PR a fost făcut de **Voica Alina** (colegă de grupă).
+
+---
+
+## Bibliografie și surse
+
+- Ghid intern al cursului SCC (Flask + Docker + Jenkins)
+- Documentație oficială Flask: https://flask.palletsprojects.com/
+- Documentație oficială pytest: https://docs.pytest.org/
+- Imaginile folosite în pagini provin din surse publice (Wikipedia / site-uri oficiale ale competițiilor)
