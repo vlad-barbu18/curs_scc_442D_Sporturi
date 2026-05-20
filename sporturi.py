@@ -5,7 +5,10 @@ Element ales: ski
 """
 
 from flask import Flask, redirect
-
+from app.lib.biblioteca_sporturi import (
+    functie_1_ski,
+    functie_2_ski,
+)
 app = Flask(__name__)
 
 
@@ -112,10 +115,29 @@ def ski():
         miscarii, fiind practicat atat recreativ, cat si la nivel competitiv.
     </p>
 
+    <a href="/sporturi/ski/functie_1_ski">Informatia 1</a>
+    <a href="/sporturi/ski/functie_2_ski">Informatia 2</a>
     <a href="/sporturi">Inapoi la Sporturi</a>
     """
 
     return pagina("Ski", continut)
+
+@app.route("/sporturi/ski/functie_1_ski")
+def ruta_functie_1_ski():
+    """Ruta 3: afiseaza informatii generale despre ski."""
+    continut = "<h1>Informatii generale despre ski</h1>"
+    continut += functie_1_ski()
+    continut += '<a href="/sporturi/ski">Inapoi la Ski</a>'
+    return pagina("Informatii generale despre ski", continut)
+
+
+@app.route("/sporturi/ski/functie_2_ski")
+def ruta_functie_2_ski():
+    """Ruta 4: afiseaza tipuri de ski."""
+    continut = "<h1>Tipuri de ski</h1>"
+    continut += functie_2_ski()
+    continut += '<a href="/sporturi/ski">Inapoi la Ski</a>'
+    return pagina("Tipuri de ski", continut)
 
 
 if __name__ == "__main__":
