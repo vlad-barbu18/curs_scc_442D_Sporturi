@@ -7,6 +7,7 @@ USER sporturi
 WORKDIR /home/sporturi/
 
 COPY app app
+COPY static static
 COPY dockerstart.sh dockerstart.sh
 COPY pytest.ini pytest.ini
 COPY quickrequirements.txt quickrequirements.txt
