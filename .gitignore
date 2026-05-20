@@ -16,6 +16,8 @@ eggs/
 .eggs/
 lib/
 lib64/
+!app/lib/
+!app/lib/*.py
 parts/
 sdist/
 var/
@@ -216,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
