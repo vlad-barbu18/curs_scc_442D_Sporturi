@@ -134,13 +134,13 @@ http://127.0.0.1:5012/sporturi
 
 ## Pagina principală
 
-![Pagina tema](doc/paginaTema.png)
+![Pagina Sporturi](doc/paginaSporturi.png)
 
 ---
 
 ## Pagina tenis de câmp
 
-![Pagina tenis](doc/paginaTenis.png)
+![Pagina tenis](doc/paginaTenisDeCamp.png)
 
 ---
 
