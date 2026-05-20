@@ -1,42 +1,56 @@
-"""Teste pentru cele 2 functii din app.lib.biblioteca_sporturi."""
-import logging
+"""Teste pentru functiile din app.lib.biblioteca_sporturi."""
 
 from app.lib import biblioteca_sporturi as bs
 
-logger = logging.getLogger(__name__)
 
-
-def test_functie_1_returneaza_html():
-    """Verifica daca functia 1 returneaza HTML non-gol."""
-    rezultat = bs.functie_1_ski()
+def test_program_partie_returneaza_html():
+    """Verifica daca functia de program returneaza HTML non-gol."""
+    rezultat = bs.program_partie_ski()
 
     assert len(rezultat) > 0
-    assert "<h2>" in rezultat
-    assert "<p>" in rezultat
+    assert "<table>" in rezultat
+    assert "Program de functionare" in rezultat
 
 
-def test_functie_1_contine_marker():
-    """Verifica prezenta unui marker specific despre ski."""
-    rezultat = bs.functie_1_ski()
+def test_program_partie_contine_marker():
+    """Verifica prezenta unor informatii despre program."""
+    rezultat = bs.program_partie_ski()
 
-    assert "Sport de iarna" in rezultat
-    assert "Echipament" in rezultat
-    assert "Abilitati importante" in rezultat
+    assert "Luni - Joi" in rezultat
+    assert "Nocturna" in rezultat
+    assert "Stare partie" in rezultat
 
 
-def test_functie_2_returneaza_html():
-    """Verifica daca functia 2 returneaza HTML non-gol."""
-    rezultat = bs.functie_2_ski()
+def test_tarife_skipass_returneaza_html():
+    """Verifica daca functia de skipass returneaza HTML non-gol."""
+    rezultat = bs.tarife_skipass_ski()
 
     assert len(rezultat) > 0
+    assert "<table>" in rezultat
+    assert "Tarife skipass" in rezultat
+
+
+def test_tarife_skipass_contine_marker():
+    """Verifica prezenta unor tarife de skipass."""
+    rezultat = bs.tarife_skipass_ski()
+
+    assert "Urcare individuala adult" in rezultat
+    assert "Skipass 4 ore adult" in rezultat
+    assert "Skipass zi completa copil" in rezultat
+
+
+def test_tabel_inchirieri_contine_echipamente():
+    """Verifica tabelul de inchirieri."""
+    rezultat = bs.tabel_inchirieri_ski()
+
+    assert "Set complet adult" in rezultat
+    assert "Clapari" in rezultat
+    assert "Casca" in rezultat
+
+
+def test_reguli_partie_contine_lista():
+    """Verifica lista de reguli."""
+    rezultat = bs.reguli_partie_ski()
+
     assert "<ul>" in rezultat
-    assert "<li>" in rezultat
-
-
-def test_functie_2_contine_marker():
-    """Verifica prezenta unui marker specific despre tipurile de ski."""
-    rezultat = bs.functie_2_ski()
-
-    assert "Ski alpin" in rezultat
-    assert "Ski fond" in rezultat
-    assert "Ski freestyle" in rezultat
+    assert "echipament adecvat" in rezultat
