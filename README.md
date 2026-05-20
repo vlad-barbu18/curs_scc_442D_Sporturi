@@ -106,7 +106,6 @@ docker build -t sporturi:v01 .
 docker run --name sporturi1 -p 8021:5012 sporturi:v01
 ```
 
-![Imagine Docker](doc/dockerimages.png)
 ![Consolă container](doc/dockerconsola.png)
 ![Container Docker](doc/dockerps.png)
 
