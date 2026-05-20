@@ -39,7 +39,7 @@ pipeline {
                 echo 'Unit testing with Pytest...'
                 sh '''
                     . ./activeaza_venv;
-                    PYTHONPATH=. pytest app/test;
+                    PYTHONPATH=. pytest app/tests;
                 '''
             }
         }
