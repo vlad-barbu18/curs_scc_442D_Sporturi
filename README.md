@@ -89,7 +89,6 @@ docker run --name sporturi1 -p 8021:5012 sporturi:v01
 
 ![Imagine Docker](doc/dockerimages.png)
 ![Consola container](doc/dockerconsola.png)
-![Container Docker](doc/dockerps.png)
 
 Aplicatia din container, accesata la `http://localhost:8021/sporturi`:
 
