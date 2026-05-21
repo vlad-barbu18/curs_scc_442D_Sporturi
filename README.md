@@ -29,35 +29,35 @@ Acesta asigură parcurgerea automată a etapelor de Build (creare venv), Linter 
 ## Sporturi integrate în README.md
 
 1. [Biliard — Andriu Cosmin](#biliard-andriu-cosmin)
-2. [Fotbal — Barbu Vlad-Cătălin](#fotbal-barbu-vlad-catalin)
-3. [Tir cu arcul — Bădițeanu Mădălina](#tir-cu-arcul-baditeanu-madalina)
-4. [Rugby — Blîndu Andrei](#rugby-blindu-andrei)
+2. [Fotbal — Barbu Vlad-Cătălin](#fotbal-barbu-vlad-cătălin)
+3. [Tir cu arcul — Bădițeanu Mădălina](#tir-cu-arcul-bădițeanu-mădălina)
+4. [Rugby — Blîndu Andrei](#rugby-blîndu-andrei)
 5. [Volei — Bocai Alexandra](#volei-bocai-alexandra)
 6. [Balet — Borza Iustin](#balet-borza-iustin)
-7. [Box — Boțoc David Ștefan](#box-botoc-david-stefan)
-8. [Șah — Bulău Andrei Cristian](#sah-bulau-andrei-cristian)
+7. [Box — Boțoc David Ștefan](#box-boțoc-david-ștefan)
+8. [Șah — Bulău Andrei Cristian](#șah-bulău-andrei-cristian)
 9. [Baschet — Dima Tiberiu](#baschet-dima-tiberiu)
-10. [Tenis de masă — Dinu Christian](#tenis-de-masa-dinu-christian)
-11. [Polo pe apă — Dumitrașcu Alexandru](#polo-pe-apa-dumitrascu-alexandru)
-12. [Echitație — Gulap Andra](#echitatie-gulap-andra)
-13. [Padel — Iordănescu Răzvan](#padel-iordanescu-razvan)
-14. [Minifotbal — Lazăr Iulian](#minifotbal-lazar-iulian)
+10. [Tenis de masă — Dinu Christian](#tenis-de-masă-dinu-christian)
+11. [Polo pe apă — Dumitrașcu Alexandru](#polo-pe-apă-dumitrașcu-alexandru)
+12. [Echitație — Gulap Andra](#echitație-gulap-andra)
+13. [Padel — Iordănescu Răzvan](#padel-iordănescu-răzvan)
+14. [Minifotbal — Lazăr Iulian](#minifotbal-lazăr-iulian)
 15. [Biatlon — Manea Teodora](#biatlon-manea-teodora)
 16. [MMA — Mitu Marian](#mma-mitu-marian)
 17. [Ski — Nedelcu Alexandru](#ski-nedelcu-alexandru)
 18. [Patinaj artistic — Oprea Andreea](#patinaj-artistic-oprea-andreea)
-19. [Înot — Ovezea Corina](#inot-ovezea-corina)
-20. [Tenis de câmp — Petre Ana Maria](#tenis-de-camp-petre-ana-maria)
+19. [Înot — Ovezea Corina](#înot-ovezea-corina)
+20. [Tenis de câmp — Petre Ana Maria](#tenis-de-câmp-petre-ana-maria)
 21. [Badminton — Preda Gabriela-Fabiana](#badminton-preda-gabriela-fabiana)
 22. [Formula 1 — Stancu Andreea](#formula-1-stancu-andreea)
-23. [Golf — Șelțer Andrei](#golf-selter-andrei)
-24. [Ciclism — Țaga Andrei](#ciclism-taga-andrei)
+23. [Golf — Șelțer Andrei](#golf-șelțer-andrei)
+24. [Ciclism — Țaga Andrei](#ciclism-țaga-andrei)
 25. [Sailing — Verde Mihai Gabriel](#sailing-verde-mihai-gabriel)
-26. [Scrimă — Voica Alina-Maria](#scrima-voica-alina-maria)
+26. [Scrimă — Voica Alina-Maria](#scrimă-voica-alina-maria)
 
 ---
 
-# Biliard — Andriu Cosmin
+# Biliard - Andriu Cosmin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -556,7 +556,7 @@ Proiectul evidențiază importanța următoarelor concepte:
 
 ---
 
-# Fotbal — Barbu Vlad-Cătălin
+# Fotbal - Barbu Vlad-Cătălin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -783,7 +783,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# Tir cu arcul — Bădițeanu Mădălina
+# Tir cu arcul - Bădițeanu Mădălina
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -910,7 +910,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# Rugby — Blîndu Andrei
+# Rugby - Blîndu Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -964,7 +964,7 @@ source ./activeaza_venv
 
 ---
 
-# Volei — Bocai Alexandra
+# Volei - Bocai Alexandra
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # curs_scc_442D_Sporturi
@@ -1330,7 +1330,7 @@ Review-urile au fost realizate prin verificarea modificărilor din tab-ul `Files
 
 ---
 
-# Balet — Borza Iustin
+# Balet - Borza Iustin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -1960,7 +1960,7 @@ Principalele rezultate obținute sunt:
 
 ---
 
-# Box — Boțoc David Ștefan
+# Box - Boțoc David Ștefan
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -2210,7 +2210,7 @@ pregatirea aplicatiei pentru rulare containerizata.
 
 ---
 
-# Șah — Bulău Andrei Cristian
+# Șah - Bulău Andrei Cristian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -2414,7 +2414,7 @@ Capturi Jenkins:
 
 ---
 
-# Baschet — Dima Tiberiu
+# Baschet - Dima Tiberiu
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -2831,7 +2831,7 @@ Aplicația poate fi extinsă ulterior prin adăugarea mai multor sporturi, mai m
 
 ---
 
-# Tenis de masă — Dinu Christian
+# Tenis de masă - Dinu Christian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -2966,7 +2966,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# Polo pe apă — Dumitrașcu Alexandru
+# Polo pe apă - Dumitrașcu Alexandru
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -3174,7 +3174,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# Echitație — Gulap Andra
+# Echitație - Gulap Andra
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi - Echitatie
@@ -3615,7 +3615,7 @@ docker rm sporturi1
 
 ---
 
-# Padel — Iordănescu Răzvan
+# Padel - Iordănescu Răzvan
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -3854,7 +3854,7 @@ Aplicația poate fi rulată atât local, cât și într-un container Docker.
 
 ---
 
-# Minifotbal — Lazăr Iulian
+# Minifotbal - Lazăr Iulian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -4114,7 +4114,7 @@ https://www.jenkins.io/doc/
 
 ---
 
-# Biatlon — Manea Teodora
+# Biatlon - Manea Teodora
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -4277,7 +4277,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# MMA — Mitu Marian
+# MMA - Mitu Marian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -4786,7 +4786,7 @@ Aplicația este organizată modular și poate fi rulată atât local, cât și �
 
 ---
 
-# Ski — Nedelcu Alexandru
+# Ski - Nedelcu Alexandru
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -5190,7 +5190,7 @@ Aplicația poate fi extinsă ulterior prin adăugarea altor sporturi în pagina 
 
 ---
 
-# Patinaj artistic — Oprea Andreea
+# Patinaj artistic - Oprea Andreea
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # curs_scc_442D_Sporturi — Patinaj artistic
@@ -5626,7 +5626,7 @@ Testele automate cu `pytest` confirmă funcționarea celor două funcții princi
 
 ---
 
-# Înot — Ovezea Corina
+# Înot - Ovezea Corina
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Înot — proiect SCC (tema Sporturi)
@@ -5796,7 +5796,7 @@ Integrarea în branch-ul personal de main se face printr-un **Pull Request** `de
 
 ---
 
-# Tenis de câmp — Petre Ana Maria
+# Tenis de câmp - Petre Ana Maria
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -6093,7 +6093,7 @@ Principalele avantaje ale aplicației sunt:
 
 ---
 
-# Badminton — Preda Gabriela-Fabiana
+# Badminton - Preda Gabriela-Fabiana
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Badminton
@@ -6213,7 +6213,7 @@ https://github.com/crchende/sysinfo.git
 
 ---
 
-# Formula 1 — Stancu Andreea
+# Formula 1 - Stancu Andreea
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # curs_scc_442D_Sporturi
@@ -6395,7 +6395,7 @@ Resursele utilizate pentru documentarea și implementarea acestui proiect:
 
 ---
 
-# Golf — Șelțer Andrei
+# Golf - Șelțer Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -6733,7 +6733,7 @@ Proiectul a fost actualizat final pentru etapa de review.
 
 ---
 
-# Ciclism — Țaga Andrei
+# Ciclism - Țaga Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi: Ciclism
@@ -7328,7 +7328,7 @@ PASS
 
 ---
 
-# Sailing — Verde Mihai Gabriel
+# Sailing - Verde Mihai Gabriel
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
@@ -7608,7 +7608,7 @@ https://github.com/vlad-barbu18/curs_scc_442D_Sporturi
 
 ---
 
-# Scrimă — Voica Alina-Maria
+# Scrimă - Voica Alina-Maria
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
 # Proiect SCC - Sporturi
