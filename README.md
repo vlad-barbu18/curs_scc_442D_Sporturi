@@ -62,8 +62,6 @@ Acesta asigură parcurgerea automată a etapelor de Build (creare venv), Linter 
 # Biliard - Andriu Cosmin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** Andriu Cosmin
@@ -71,27 +69,6 @@ Acesta asigură parcurgerea automată a etapelor de Build (creare venv), Linter 
 - **Element alocat:** Biliard
 - **Branch de dezvoltare:** `dev_andriu_cosmin`
 - **Branch personal main:** `main_andriu_cosmin`
-
----
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Obiectivul proiectului](#obiectivul-proiectului)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Structura proiectului](#structura-proiectului)
-- [Rute implementate](#rute-implementate)
-- [Biblioteca implementată](#biblioteca-implementată)
-- [Rulare locală](#rulare-locală)
-- [Testare manuală în browser](#testare-manuală-în-browser)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI - Jenkins](#devops-ci---jenkins)
-- [Flux Git și Pull Request](#flux-git-și-pull-request)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -555,7 +532,6 @@ Proiectul evidențiază importanța următoarelor concepte:
 - Documentația oficială Jenkins: https://www.jenkins.io/doc/
 - Repository de referință: https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="barbu-vlad"></a>
@@ -563,25 +539,10 @@ Proiectul evidențiază importanța următoarelor concepte:
 # Fotbal - Barbu Vlad-Cătălin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Barbu Vlad-Cătălin
 - **Grupa:** 442D
 - **Element alocat:** Fotbal
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-  - [Exemplu execuție pipeline Jenkins](#exemplu-execuție-pipeline-jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -784,7 +745,6 @@ Acest proiect atinge cu succes atât obiectivele funcționale, cât și pe cele 
 
 https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="baditeanu-madalina"></a>
@@ -792,25 +752,10 @@ https://github.com/crchende/sysinfo.git
 # Tir cu arcul - Bădițeanu Mădălina
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Baditeanu Madalina
 - **Grupa:** 442D
 - **Element alocat:** Tir cu arcul
-
-## Cuprins
-- [Descriere generala](#descriere-generala)
-- [Functionalitate implementata](#functionalitate-implementata)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuala in browser (rulare locala)](#testare-manuala-in-browser-rulare-locala)
-- [Testare automata cu pytest](#testare-automata-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Pull Requests review](#pull-requests-review)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generala
 
@@ -901,7 +846,6 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 ![Jenkins pipeline](doc/baditeanu_madalina/jenkins.png)
 ![Jenkins pipeline1](doc/baditeanu_madalina/jenkins1.png)
 
-
 ## Concluzii
 
 - **Dezvoltare modulara:** aplicatie Flask cu separarea datelor si logicii in fisiere dedicate.
@@ -913,15 +857,12 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 
 https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="andrei-blindu"></a>
 
 # Rugby - Blîndu Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Proiect SCC - Sporturi
 
 ## Dezvoltator
 
@@ -969,7 +910,6 @@ Pentru rularea aplicației local, se activează mediul virtual:
 
 source ./activeaza_venv
 
-
 ---
 
 <a id="bocai-alexandra"></a>
@@ -977,11 +917,7 @@ source ./activeaza_venv
 # Volei - Bocai Alexandra
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# curs_scc_442D_Sporturi
-
 # Funcționalitate Volei - Bocai Alexandra
-
-## Cuprins
 
 1. [Prezentarea proiectului](#1-prezentarea-proiectului)
 2. [Funcționalități realizate](#2-funcționalități-realizate)
@@ -1337,15 +1273,12 @@ Review-urile au fost realizate prin verificarea modificărilor din tab-ul `Files
 - Efectuarea unui review pentru Pull Request-ul unui coleg;
 - Integrarea modificărilor după aprobare.
 
-
 ---
 
 <a id="borza-iustin"></a>
 
 # Balet - Borza Iustin
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Proiect SCC - Sporturi
 
 ## Dezvoltator
 
@@ -1354,25 +1287,6 @@ Review-urile au fost realizate prin verificarea modificărilor din tab-ul `Files
 - **Element alocat:** Balet
 - **Branch dezvoltare:** `dev_borza_iustin`
 - **Branch personal main:** `main_borza_iustin`
-
----
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Structura proiectului](#structura-proiectului)
-- [Rulare locală](#rulare-locală)
-- [Testare manuală în browser - rulare locală](#testare-manuală-în-browser---rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI cu Jenkins](#devops-ci-cu-jenkins)
-- [Exemplu execuție pipeline Jenkins](#exemplu-execuție-pipeline-jenkins)
-- [Probleme întâlnite și rezolvări](#probleme-întâlnite-și-rezolvări)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -1969,7 +1883,6 @@ Principalele rezultate obținute sunt:
 - Jenkins Documentation: https://www.jenkins.io/doc/
 - Exemplu proiect de referință: https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="botoc-david"></a>
@@ -1977,27 +1890,11 @@ Principalele rezultate obținute sunt:
 # Box - Boțoc David Ștefan
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** David Stefan Botoc
 - **Grupa:** 442D
 - **Element alocat:** Sport - Box
-
-## Cuprins
-
-- [Descriere generala](#descriere-generala)
-- [Functionalitate implementata](#functionalitate-implementata)
-- [Structura aplicatiei](#structura-aplicatiei)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuala in browser](#testare-manuala-in-browser)
-- [Testare automata cu pytest](#testare-automata-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [Testare si integrare continua cu Jenkins](#testare-si-integrare-continua-cu-jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generala
 
@@ -2221,7 +2118,6 @@ pregatirea aplicatiei pentru rulare containerizata.
 - Jenkins: https://www.jenkins.io/doc/
 - GitHub repository model: https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="bulau-andrei"></a>
@@ -2229,29 +2125,12 @@ pregatirea aplicatiei pentru rulare containerizata.
 # Șah - Bulău Andrei Cristian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** Bulau Andrei Cristian
 - **Grupa:** 442D
 - **Element alocat:** Sport - Sah
 - **Branch:** `dev_bulau_andrei`
-
-## Cuprins
-
-- [Descriere generala](#descriere-generala)
-- [Functionalitate implementata](#functionalitate-implementata)
-- [Structura proiectului](#structura-proiectului)
-- [Tabel rute](#tabel-rute)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuala in browser](#testare-manuala-in-browser)
-- [Testare automata cu pytest](#testare-automata-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generala
 
@@ -2427,15 +2306,12 @@ Capturi Jenkins:
 - https://github.com/crchende/sysinfo.git
 - https://github.com/vlad-barbu18/curs_scc_442D_Sporturi.git
 
-
 ---
 
 <a id="dima-tiberiu"></a>
 
 # Baschet - Dima Tiberiu
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Proiect SCC - Sporturi
 
 ## Dezvoltator
 
@@ -2444,24 +2320,6 @@ Capturi Jenkins:
 - **Tema proiectului:** Sporturi
 - **Element ales:** Baschet
 - **Branch de dezvoltare:** `dev_dima_tiberiu`
-
----
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Structura proiectului](#structura-proiectului)
-- [Tehnologii utilizate](#tehnologii-utilizate)
-- [Rutele aplicației](#rutele-aplicației)
-- [Rulare locală](#rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Rulare cu Docker](#rulare-cu-docker)
-- [Integrare continuă cu Jenkins](#integrare-continuă-cu-jenkins)
-- [Capturi de ecran](#capturi-de-ecran)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -2846,7 +2704,6 @@ Aplicația poate fi extinsă ulterior prin adăugarea mai multor sporturi, mai m
 - Jenkins Documentation: https://www.jenkins.io/doc/
 - GitHub Docs: https://docs.github.com/
 
-
 ---
 
 <a id="dinu-christian"></a>
@@ -2854,25 +2711,10 @@ Aplicația poate fi extinsă ulterior prin adăugarea mai multor sporturi, mai m
 # Tenis de masă - Dinu Christian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Dinu Christian
 - **Grupa:** 442D
 - **Element alocat:** Tenis de masa (ping-pong)
-
-## Cuprins
-- [Descriere generala](#descriere-generala)
-- [Functionalitate implementata](#functionalitate-implementata)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuala in browser (rulare locala)](#testare-manuala-in-browser-rulare-locala)
-- [Testare automata cu pytest](#testare-automata-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Pull Requests review](#pull-requests-review)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generala
 
@@ -2983,7 +2825,6 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 
 https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="dumitrascu-alexandru"></a>
@@ -2991,27 +2832,12 @@ https://github.com/crchende/sysinfo.git
 # Polo pe apă - Dumitrașcu Alexandru
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Student
 - **Nume:** Dumitrascu Alexandru
 - **Grupa:** 442D
 - **Element alocat:** Polo pe apa
 - **Branch dezvoltare:** `dev_dumitrascu_alexandru`
 - **Branch personal main:** `main_dumitrascu_alexandru`
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Structura proiectului](#structura-proiectului)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -3043,7 +2869,6 @@ Dincolo de componenta de programare web, proiectul are rolul de a pune în pract
   - `Jenkinsfile` pentru automatizarea etapelor de build, testare și deploy.
 
 ## Stadiu dezvoltare
-
 
 Funcționalitatea aplicației a fost implementată complet.
 - Codul sursă a fost dezvoltat și organizat în branch-ul `dev_dumitrascu_alexandru`.
@@ -3192,8 +3017,6 @@ Principalele rezultate obținute sunt:
 
 https://github.com/crchende/sysinfo.git
 
-
-
 ---
 
 <a id="gulap-andra"></a>
@@ -3201,13 +3024,9 @@ https://github.com/crchende/sysinfo.git
 # Echitație - Gulap Andra
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi - Echitatie
-
 ## Andra Gulap - grupa 442D
 
 ---
-
-# Cuprins
 
 1. [Scopul proiectului](#scopul-proiectului)
 2. [Date generale](#date-generale)
@@ -3376,7 +3195,6 @@ Afiseaza informatii despre echipamentele folosite in echitatie:
 - etrierele
 - casca
 
-
 ---
 
 # Descrierea rutelor implementate
@@ -3453,7 +3271,6 @@ python3 sporturi.py
 
 # Rutele verificate in browser
 
-
 http://127.0.0.1:5000/sporturi
 
 ![Pagina Sporturi](doc/gulap_andra/pagSporturi_Local.png)
@@ -3475,8 +3292,6 @@ http://127.0.0.1:5000/sporturi/echitatie/discipline
 http://127.0.0.1:5000/sporturi/echitatie/echipamente
 
 ![Pagina Echipamente](doc/gulap_andra/pagEchipamente_Local.png)
-
-
 
 ---
 
@@ -3623,9 +3438,7 @@ docker rm sporturi1
 
 ![Jenkins success](doc/gulap_andra/Jenkins_success.png)
 
-
 ---
-
 
 # Ce urmeaza a fi implementat:
 
@@ -3644,26 +3457,11 @@ docker rm sporturi1
 # Padel - Iordănescu Răzvan
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** Iordanescu Razvan
 - **Grupa:** 442D
 - **Element alocat:** Padel
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser](#testare-manuală-în-browser)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -3877,7 +3675,6 @@ Aplicația poate fi rulată atât local, cât și într-un container Docker.
 - https://docs.docker.com/
 - https://www.jenkins.io/doc/
 
-
 ---
 
 <a id="lazar-iulian"></a>
@@ -3885,26 +3682,10 @@ Aplicația poate fi rulată atât local, cât și într-un container Docker.
 # Minifotbal - Lazăr Iulian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Lazar Iulian
 - **Grupa:** 442D
 - **Element alocat:** Minifotbal
-
----
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -4139,7 +3920,6 @@ https://docs.docker.com/
 Documentație Jenkins:
 https://www.jenkins.io/doc/
 
-
 ---
 
 <a id="manea-teodora"></a>
@@ -4147,24 +3927,10 @@ https://www.jenkins.io/doc/
 # Biatlon - Manea Teodora
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Student
 - **Nume:** Manea Teodora
 - **Grupa:** 442D
 - **Element alocat:** Biatlon
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generala
 
@@ -4199,7 +3965,6 @@ Proiectul urmărește implementarea unor concepte de bază din dezvoltarea aplic
   - `dockerstart.sh` pentru pornirea automată a aplicației în container,
   - `Jenkinsfile` pentru automatizarea etapelor de build, testare și deploy.
 
-
 ## Stadiu dezvoltare
 
 - Funcționalitatea aplicației a fost implementată complet.
@@ -4222,7 +3987,6 @@ git checkout dev_Manea_Teodora
 ./ruleaza_aplicatia'
 
 ```
-
 
 Aplicația se accesează la: `http://127.0.0.1:5012/sporturi`
 
@@ -4287,7 +4051,6 @@ Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
 
 ![Pipeline Jenkins clasic](doc/Manea_Teodora/JenkinsClassic.png)
 
-
 ## Concluzii
 
 Proiectul realizat demonstrează dezvoltarea unei aplicații web folosind framework-ul Flask împreună cu tehnologii moderne utilizate în zona DevOps.
@@ -4304,15 +4067,12 @@ Automatizare DevOps: Jenkins a fost utilizat pentru automatizarea etapelor de bu
 
 https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="mitu-marian"></a>
 
 # MMA - Mitu Marian
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Proiect SCC - Sporturi
 
 ## Dezvoltator
 
@@ -4321,22 +4081,6 @@ https://github.com/crchende/sysinfo.git
 - **Tema proiectului:** Sporturi
 - **Element ales:** MMA
 - **Branch de dezvoltare:** `dev_mitu_marian`
-
----
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Structura proiectului](#structura-proiectului)
-- [Rutele aplicației](#rutele-aplicației)
-- [Testare manuală în browser](#testare-manuală-în-browser)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI - Jenkins](#devops-ci---jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -4823,8 +4567,6 @@ Aplicația este organizată modular și poate fi rulată atât local, cât și �
 # Ski - Nedelcu Alexandru
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** Nedelcu Alexandru
@@ -4833,26 +4575,6 @@ Aplicația este organizată modular și poate fi rulată atât local, cât și �
 - **Element ales:** Ski
 - **Branch de dezvoltare:** `dev_Nedelcu_Alexandru`
 - **Mediu de lucru:** WSL - Ubuntu pe Windows
-
----
-
-## Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Structura proiectului](#structura-proiectului)
-- [Rute disponibile](#rute-disponibile)
-- [Tehnologii utilizate](#tehnologii-utilizate)
-- [Rulare locală în WSL](#rulare-locală-în-wsl)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Rulare cu Docker](#rulare-cu-docker)
-- [DevOps CI - Jenkins](#devops-ci---jenkins)
-- [Capturi aplicație web](#capturi-aplicație-web)
-- [Capturi Docker](#capturi-docker)
-- [Capturi Jenkins](#capturi-jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -5229,10 +4951,6 @@ Aplicația poate fi extinsă ulterior prin adăugarea altor sporturi în pagina 
 # Patinaj artistic - Oprea Andreea
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# curs_scc_442D_Sporturi — Patinaj artistic
-
-## Cuprins
-
 1. [Student](#student)
 2. [Descriere aplicație](#descriere-aplicație)
 3. [Funcționalitate implementată](#funcționalitate-implementată)
@@ -5294,7 +5012,6 @@ Funcția `sarituri_patinaj_artistic()` returnează conținut HTML despre săritu
 Funcția `echipamente_patinaj_artistic()` returnează conținut HTML despre echipamentele utilizate: patine, costum de concurs, mănuși, protecții și huse pentru lame.
 
 Fișierul `sporturi.py` folosește aceste funcții pentru a construi paginile WEB asociate rutelor aplicației.
-
 
 ---
 
@@ -5659,15 +5376,12 @@ Testele automate cu `pytest` confirmă funcționarea celor două funcții princi
 - pytest Documentation: https://docs.pytest.org/
 - pylint Documentation: https://pylint.readthedocs.io/
 
-
 ---
 
 <a id="ovezea-corina"></a>
 
 # Înot - Ovezea Corina
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Înot — proiect SCC (tema Sporturi)
 
 Aplicație web Flask care prezintă elementul **Înot** din tema **Sporturi**. Proiectul acoperă tot drumul: cod Python, teste, container Docker și pipeline Jenkins pentru build automat.
 
@@ -5831,7 +5545,6 @@ Integrarea în branch-ul personal de main se face printr-un **Pull Request** `de
 - Documentație oficială pytest: https://docs.pytest.org/
 - Imaginile folosite în pagini provin din surse publice (Wikipedia / site-uri oficiale ale competițiilor)
 
-
 ---
 
 <a id="petre-anamaria"></a>
@@ -5839,28 +5552,11 @@ Integrarea în branch-ul personal de main se face printr-un **Pull Request** `de
 # Tenis de câmp - Petre Ana Maria
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 
 - **Nume:** Ana Maria Petre
 - **Grupa:** 442D
 - **Element alocat:** Tenis de câmp
-
----
-
-# Cuprins
-
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare-locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -6138,25 +5834,10 @@ Principalele avantaje ale aplicației sunt:
 # Badminton - Preda Gabriela-Fabiana
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Badminton
-
 ## Dezvoltator
 - **Nume:** Preda Gabriela-Fabiana
 - **Grupa:** 442D
 - **Element alocat:** Sport - Badminton
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Probleme întâlnite și rezolvare](#probleme-întâlnite-și-rezolvare)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -6213,7 +5894,6 @@ Aplicația se accesează la: `http://127.0.0.1:5012/sporturi`
 ![Pagina functia 1 - local](doc/fabiana_preda/paginaFunctie1Local.png)
 ![Pagina functia 2 - local](doc/fabiana_preda/paginaFunctie2Local.png)
 
-
 ## Validare cod cu `pylint`
 
 ```bash
@@ -6252,7 +5932,6 @@ Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
 
 https://github.com/crchende/sysinfo.git
 
-
 ---
 
 <a id="stancu-andreea"></a>
@@ -6260,29 +5939,9 @@ https://github.com/crchende/sysinfo.git
 # Formula 1 - Stancu Andreea
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# curs_scc_442D_Sporturi
 # Formula 1
 
 Acest proiect reprezintă contribuția individuală pentru tema **Sporturi**, axată pe monitorizarea și afișarea datelor din competiția **Formula 1**.
-
----
-
-## Cuprins
-- [Student](#student)
-- [Descriere aplicație](#descriere-aplicatie)
-- [Funcționalități adăugate](#functionalitati-adaugate)
-- [Structura proiectului](#structura-proiectului)
-- [Configurare și rulare locală](#configurare-si-rulare-locala)
-- [Pagini WEB](#pagini-web)
-- [Testare cu pytest](#testare-cu-pytest)
-- [Verificare statică cu pylint](#verificare-statica-cu-pylint)
-- [Containerizare Docker](#containerizare-docker)
-- [DevOps CI - Jenkins](#devops-ci-jenkins)
-- [Integrare GitHub](#integrare-github)
-- [Reviewed PRs](#reviewed-pr)
-- [Stadiul implementării](#stadiul-implementarii)
-- [Ce mai este de făcut](#ce-mai-este-de-facut)
-- [Bibliografie](#bibliografie)
 
 ---
 
@@ -6372,7 +6031,6 @@ Pentru asigurarea calității codului, am folosit analiza statică (code review 
 * Obiectivul este menținerea unui scor ridicat de mentenabilitate și eliminarea erorilor potențiale înainte de integrare.
 <img width="1600" height="119" alt="pylint" src="https://github.com/user-attachments/assets/5a3817a4-8f8a-4053-9c85-e8e325dfedf5" />
 
-
 ## <a name="containerizare-docker"></a> 9. Containerizare Docker
 Aplicația a fost containerizată folosind un `Dockerfile` prezent pe branch-ul de dezvoltare.
 
@@ -6385,7 +6043,6 @@ Aplicația a fost containerizată folosind un `Dockerfile` prezent pe branch-ul 
 * **Validare**: Log-urile din consolă demonstrează că apelurile din browser sunt procesate de container, atestând legătura funcțională.
   <img width="1600" height="371" alt="mesaje_consola" src="https://github.com/user-attachments/assets/3dfa00b1-d7d8-4caa-9ada-38e3c83535bc" />
 
-
 ## <a name="devops-ci-jenkins"></a> 10. DevOps CI - Jenkins
 Procesul de integrare continuă este gestionat printr-un pipeline declarativ definit în fișierul `Jenkinsfile`.
 
@@ -6393,7 +6050,6 @@ Procesul de integrare continuă este gestionat printr-un pipeline declarativ def
 * **Trigger**: Pipeline-ul rulează automat la fiecare `push` pe branch-ul `dev_stancu_andreea`.
 
 <img width="1600" height="643" alt="BlueOcean_pass" src="https://github.com/user-attachments/assets/fe98cc47-eadc-4aba-853e-225ec3b8bd21" />
-
 
 ## <a name="integrare-github"></a> 11. Integrare GitHub
 Sistemul de versionare Git este utilizat pentru managementul codului și colaborare.
@@ -6419,7 +6075,6 @@ Următorul tabel centralizează progresul final al tuturor componentelor atribui
 | **Documentare** | Gata (100%) | README completat conform stilului *sysinfo*. |
 <img width="272" height="488" alt="teste_passed" src="https://github.com/user-attachments/assets/364e3f99-3f29-49e7-a627-c0d64901800d" />
 
-
 ## <a name="ce-mai-este-de-facut"></a> 14. Ce mai este de făcut
 Planificarea sarcinilor curente și viitoare:
 - [x] Integrare logică F1 în aplicația Flask.
@@ -6436,7 +6091,6 @@ Resursele utilizate pentru documentarea și implementarea acestui proiect:
 ---
 *Proiect realizat de: Stancu Andreea-Beatrice, grupa 442D*
 
-
 ---
 
 <a id="selter-andrei"></a>
@@ -6444,27 +6098,10 @@ Resursele utilizate pentru documentarea și implementarea acestui proiect:
 # Golf - Șelțer Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Selter Andrei
 - **Grupa:** 442D
 - **Element alocat:** Golf
-
-## Cuprins
-- [Descriere generala](#descriere-generala)
-- [Functionalitate implementata](#functionalitate-implementata)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuala in browser - rulare locala](#testare-manuala-in-browser---rulare-locala)
-- [Testare automata cu pytest](#testare-automata-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-  - [Exemplu executie pipeline Jenkins](#exemplu-executie-pipeline-jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
-
----
 
 ## Descriere generala
 
@@ -6775,18 +6412,12 @@ Proiectul a fost actualizat final pentru etapa de review.
 - Jenkins Documentation
 - GitHub Documentation
 
-
-
 ---
 
 <a id="taga-andrei"></a>
 
 # Ciclism - Țaga Andrei
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
-
-# Proiect SCC - Sporturi: Ciclism
-
-## Cuprins
 
 1. [Descriere aplicație](#descriere-aplicație)
 2. [Student](#student)
@@ -7339,7 +6970,6 @@ Rezultatul final al pipeline-ului este:
 PASS
 ```
 
-
 ## Stadiul implementării
 
 | Componentă | Status |
@@ -7381,25 +7011,10 @@ PASS
 # Sailing - Verde Mihai Gabriel
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Dezvoltator
 - **Nume:** Verde Mihai Gabriel
 - **Grupa:** 442D
 - **Element alocat:** Sailing
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-  - [Exemplu execuție pipeline Jenkins](#exemplu-execuție-pipeline-jenkins)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -7655,7 +7270,6 @@ https://github.com/crchende/sysinfo.git
 
 https://github.com/vlad-barbu18/curs_scc_442D_Sporturi
 
-
 ---
 
 <a id="voica-alina"></a>
@@ -7663,24 +7277,10 @@ https://github.com/vlad-barbu18/curs_scc_442D_Sporturi
 # Scrimă - Voica Alina-Maria
 [↑ Cuprins](#sporturi-integrate-în-readmemd)
 
-# Proiect SCC - Sporturi
-
 ## Student
 - **Nume:** Voica Alina-Maria
 - **Grupa:** 442D
 - **Element alocat:** Scrima
-
-## Cuprins
-- [Descriere generală](#descriere-generală)
-- [Funcționalitate implementată](#funcționalitate-implementată)
-- [Stadiu dezvoltare](#stadiu-dezvoltare)
-- [Testare manuală în browser (rulare locală)](#testare-manuală-în-browser-rulare-locală)
-- [Testare automată cu pytest](#testare-automată-cu-pytest)
-- [Validare cod cu pylint](#validare-cod-cu-pylint)
-- [Testare cu Docker](#testare-cu-docker)
-- [DevOps CI](#devops-ci)
-- [Concluzii](#concluzii)
-- [Bibliografie](#bibliografie)
 
 ## Descriere generală
 
@@ -7716,7 +7316,6 @@ Proiectul urmărește implementarea unor concepte de bază din dezvoltarea aplic
   - `Jenkinsfile` pentru automatizarea etapelor de build, testare și deploy.
 
 ## Stadiu dezvoltare
-
 
 - Funcționalitatea aplicației a fost implementată complet.
 - Codul sursă a fost dezvoltat și organizat în branch-ul `dev_Voica_Alina`.
@@ -7801,7 +7400,6 @@ Pipeline declarativ definit în `Jenkinsfile`, cu 4 stages:
 
 ![Pipeline Jenkins clasic](doc/Voica_Alina/jenkinsSimplu.png)
 
-
 ## Concluzii
 
 Proiectul realizat demonstrează dezvoltarea unei aplicații web folosind
@@ -7824,6 +7422,5 @@ framework-ul Flask împreună cu tehnologii moderne utilizate în zona DevOps.
 ## Bibliografie
 
 https://github.com/crchende/sysinfo.git
-
 
 ---
