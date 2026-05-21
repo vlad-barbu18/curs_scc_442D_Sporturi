@@ -107,6 +107,7 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 4. **Deploy** - build imagine Docker si creare container
 
 ![Jenkins pipeline](doc/jenkins.png)
+![Jenkins pipeline1](doc/jenkins1.png)
 
 ## Pull Requests review
 
