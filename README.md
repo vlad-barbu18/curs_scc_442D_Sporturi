@@ -89,7 +89,6 @@ docker run --name sporturi1 -p 8021:5012 sporturi:v01
 
 ![Imagine Docker](doc/dockerimages.png)
 ![Consola container](doc/dockerconsola.png)
-![Container Docker](doc/dockerps.png)
 
 Aplicatia din container, accesata la `http://localhost:8021/sporturi`:
 
@@ -107,6 +106,7 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 4. **Deploy** - build imagine Docker si creare container
 
 ![Jenkins pipeline](doc/jenkins.png)
+![Jenkins pipeline1](doc/jenkins1.png)
 
 ## Pull Requests review
 
