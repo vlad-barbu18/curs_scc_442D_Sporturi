@@ -57,7 +57,7 @@ git checkout dev_baditeanu_madalina
 Aplicatia se acceseaza la: `http://127.0.0.1:5012/sporturi`
 
 ![Pagina sporturi - local](doc/paginaSporturiLocal.png)
-![Pagina tir cu arcul - local](doc/paginaTirCuArcul.png)
+![Pagina tir cu arcul - local](doc/paginaTirCuArculLocal.png)
 ![Pagina reguli - local](doc/paginaReguliLocal.png)
 ![Pagina campioni - local](doc/paginaCampioniLocal.png)
 
@@ -92,7 +92,7 @@ docker run --name sporturi1 -p 8021:5012 sporturi:v01
 Aplicatia din container, accesata la `http://localhost:8021/sporturi`:
 
 ![Pagina sporturi - container](doc/paginaSporturiContainer.png)
-![Pagina tir cu arcul - container](doc/paginaTirCuArcul.png)
+![Pagina tir cu arcul - container](doc/paginaTirCuArculContainer.png)
 ![Pagina reguli - container](doc/paginaReguliContainer.png)
 ![Pagina campioni - container](doc/paginaCampioniContainer.png)
 
@@ -107,13 +107,6 @@ Pipeline declarativ definit in `Jenkinsfile`, cu 4 stages:
 ![Jenkins pipeline](doc/jenkins.png)
 ![Jenkins pipeline1](doc/jenkins1.png)
 
-## Pull Requests review
-
-| ID PR | Branch | Descriere | Actiune |
-|-------|--------|-----------|---------|
-| -     | -      | -         | -       |
-
-*(Se completeaza dupa realizarea review-urilor)*
 
 ## Concluzii
 
