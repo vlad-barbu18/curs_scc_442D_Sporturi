@@ -7,9 +7,11 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh '''
-                    pwd;
-                    ls -l;
-                    . ./activeaza_venv_jenkins
+                    pwd
+                    ls -l
+                    python3 -m venv .venv
+                    . .venv/bin/activate
+                    pip install -r quickrequirements.txt
                 '''
             }
         }
@@ -17,10 +19,10 @@ pipeline {
         stage('pylint - calitate cod') {
             steps {
                 sh '''
-                    . ./activeaza_venv;
-                    pylint --exit-zero app/lib/*.py;
-                    pylint --exit-zero app/tests/*.py;
-                    pylint --exit-zero sporturi.py;
+                    . .venv/bin/activate
+                    pylint --exit-zero app/lib/*.py
+                    pylint --exit-zero app/tests/*.py
+                    pylint --exit-zero sporturi.py
                 '''
             }
         }
@@ -29,8 +31,8 @@ pipeline {
             steps {
                 echo 'Unit testing...'
                 sh '''
-                    . ./activeaza_venv;
-                    pytest;
+                    . .venv/bin/activate
+                    pytest
                 '''
             }
         }
