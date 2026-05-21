@@ -5,7 +5,7 @@ Element ales: badminton.
 
 from flask import Flask, redirect
 
-from app.lib.biblioteca_sporturi import (
+from app.lib.biblioteca_badminton import (
     reguli_badminton,
     echipament_badminton,
 )
