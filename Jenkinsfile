@@ -57,7 +57,7 @@ pipeline {
                     docker rm -f sporturi_container || true;
 
                     echo "Pornire container Docker...";
-                    docker run -d --name sporturi_container -p 8021:5012 sporturi:v${BUILD_NUMBER};
+                    docker run -d --name sporturi_container -p 8021:5010 sporturi:v${BUILD_NUMBER};
 
                     echo "Astept sa porneasca aplicatia...";
                     sleep 5;
