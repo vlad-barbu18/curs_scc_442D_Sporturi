@@ -63,7 +63,7 @@ pipeline {
                     sleep 5;
 
                     echo "Verific daca aplicatia raspunde...";
-                    curl -f http://127.0.0.1:8021/;
+                    curl -f http://127.0.0.1:8021/sporturi;
 
                     echo "Containerul ruleaza corect.";
                 '''
