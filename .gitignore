@@ -219,6 +219,6 @@ __marimo__/
 
 .venv/
 __pycache__/
-*.pyc
+*.pyc/
 .pytest_cache/
 
