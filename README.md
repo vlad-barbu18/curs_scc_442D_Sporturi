@@ -393,7 +393,7 @@ sudo docker rm -f sporturi-ciclism-container
 Apoi se poate rula din nou:
 
 ```bash
-sudo docker run --name sporturi-ciclism-container -p 5011:5011 sporturi-ciclism:latest
+sudo docker run --name sporturi-ciclism-container -p 8020:5011 sporturi-ciclism:latest
 ```
 
 Verificarea containerului pornit:
