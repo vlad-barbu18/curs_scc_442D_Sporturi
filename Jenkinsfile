@@ -49,6 +49,24 @@ pipeline {
             agent any
             steps {
                 echo 'Deploy in lucru...'
+                sh '''
+                    echo "Construire imagine Docker...";
+                    docker build -t sporturi:v${BUILD_NUMBER} .;
+
+                    echo "Stergere container vechi, daca exista...";
+                    docker rm -f sporturi_container || true;
+
+                    echo "Pornire container Docker...";
+                    docker run -d --name sporturi_container -p 8021:5012 sporturi:v${BUILD_NUMBER};
+
+                    echo "Astept sa porneasca aplicatia...";
+                    sleep 5;
+
+                    echo "Verific daca aplicatia raspunde...";
+                    curl -f http://127.0.0.1:8021/;
+
+                    echo "Containerul ruleaza corect.";
+                '''
             }
         }
     }
